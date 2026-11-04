@@ -1,13 +1,7 @@
 // PokeLike - datos reales de PokeAPI: sprites, evolucion por nivel y movimientos por nivel.
 // Generado: 34 lineas evolutivas, 86 formas.
 
-const VENTAJA = {
- fuego:    { planta: 2, agua: 0.5, fuego: 1, normal: 1, electrico: 1 },
- agua:     { fuego: 2, planta: 0.5, agua: 1, normal: 1, electrico: 0.5 },
- planta:   { agua: 2, fuego: 0.5, planta: 1, normal: 1, electrico: 1 },
- electrico:{ agua: 2, planta: 0.5, electrico: 0.5, fuego: 1, normal: 1 },
- normal:   { fuego: 1, agua: 1, planta: 1, normal: 1, electrico: 1 },
-};
+const VENTAJA = {"normal":{"normal":1,"fuego":1,"agua":1,"planta":1,"electrico":1,"hielo":1,"lucha":1,"veneno":1,"tierra":1,"volador":1,"psiquico":1,"bicho":1,"roca":0.5,"fantasma":0,"dragon":1,"siniestro":1,"acero":0.5,"hada":1},"fuego":{"normal":1,"fuego":0.5,"agua":0.5,"planta":2,"electrico":1,"hielo":2,"lucha":1,"veneno":1,"tierra":1,"volador":1,"psiquico":1,"bicho":2,"roca":0.5,"fantasma":1,"dragon":0.5,"siniestro":1,"acero":2,"hada":1},"agua":{"normal":1,"fuego":2,"agua":0.5,"planta":0.5,"electrico":1,"hielo":1,"lucha":1,"veneno":1,"tierra":2,"volador":1,"psiquico":1,"bicho":1,"roca":2,"fantasma":1,"dragon":0.5,"siniestro":1,"acero":1,"hada":1},"planta":{"normal":1,"fuego":0.5,"agua":2,"planta":0.5,"electrico":1,"hielo":1,"lucha":1,"veneno":0.5,"tierra":2,"volador":0.5,"psiquico":1,"bicho":0.5,"roca":2,"fantasma":1,"dragon":0.5,"siniestro":1,"acero":0.5,"hada":1},"electrico":{"normal":1,"fuego":1,"agua":2,"planta":0.5,"electrico":0.5,"hielo":1,"lucha":1,"veneno":1,"tierra":0,"volador":2,"psiquico":1,"bicho":1,"roca":1,"fantasma":1,"dragon":0.5,"siniestro":1,"acero":1,"hada":1},"hielo":{"normal":1,"fuego":0.5,"agua":0.5,"planta":2,"electrico":1,"hielo":0.5,"lucha":1,"veneno":1,"tierra":2,"volador":2,"psiquico":1,"bicho":1,"roca":1,"fantasma":1,"dragon":2,"siniestro":1,"acero":0.5,"hada":1},"lucha":{"normal":2,"fuego":1,"agua":1,"planta":1,"electrico":1,"hielo":2,"lucha":1,"veneno":0.5,"tierra":1,"volador":0.5,"psiquico":0.5,"bicho":0.5,"roca":2,"fantasma":0,"dragon":1,"siniestro":2,"acero":2,"hada":0.5},"veneno":{"normal":1,"fuego":1,"agua":1,"planta":2,"electrico":1,"hielo":1,"lucha":1,"veneno":0.5,"tierra":0.5,"volador":1,"psiquico":1,"bicho":1,"roca":0.5,"fantasma":0.5,"dragon":1,"siniestro":1,"acero":0,"hada":2},"tierra":{"normal":1,"fuego":2,"agua":1,"planta":0.5,"electrico":2,"hielo":1,"lucha":1,"veneno":2,"tierra":1,"volador":0,"psiquico":1,"bicho":0.5,"roca":2,"fantasma":1,"dragon":1,"siniestro":1,"acero":2,"hada":1},"volador":{"normal":1,"fuego":1,"agua":1,"planta":2,"electrico":0.5,"hielo":1,"lucha":2,"veneno":1,"tierra":1,"volador":1,"psiquico":1,"bicho":2,"roca":0.5,"fantasma":1,"dragon":1,"siniestro":1,"acero":0.5,"hada":1},"psiquico":{"normal":1,"fuego":1,"agua":1,"planta":1,"electrico":1,"hielo":1,"lucha":2,"veneno":2,"tierra":1,"volador":1,"psiquico":0.5,"bicho":1,"roca":1,"fantasma":1,"dragon":1,"siniestro":0,"acero":0.5,"hada":1},"bicho":{"normal":1,"fuego":0.5,"agua":1,"planta":2,"electrico":1,"hielo":1,"lucha":0.5,"veneno":0.5,"tierra":1,"volador":0.5,"psiquico":2,"bicho":1,"roca":1,"fantasma":0.5,"dragon":1,"siniestro":2,"acero":0.5,"hada":0.5},"roca":{"normal":1,"fuego":2,"agua":1,"planta":1,"electrico":1,"hielo":2,"lucha":0.5,"veneno":1,"tierra":0.5,"volador":2,"psiquico":1,"bicho":2,"roca":1,"fantasma":1,"dragon":1,"siniestro":1,"acero":0.5,"hada":1},"fantasma":{"normal":0,"fuego":1,"agua":1,"planta":1,"electrico":1,"hielo":1,"lucha":1,"veneno":1,"tierra":1,"volador":1,"psiquico":2,"bicho":1,"roca":1,"fantasma":2,"dragon":1,"siniestro":0.5,"acero":1,"hada":1},"dragon":{"normal":1,"fuego":1,"agua":1,"planta":1,"electrico":1,"hielo":1,"lucha":1,"veneno":1,"tierra":1,"volador":1,"psiquico":1,"bicho":1,"roca":1,"fantasma":1,"dragon":2,"siniestro":1,"acero":0.5,"hada":0},"siniestro":{"normal":1,"fuego":1,"agua":1,"planta":1,"electrico":1,"hielo":1,"lucha":0.5,"veneno":1,"tierra":1,"volador":1,"psiquico":2,"bicho":1,"roca":1,"fantasma":2,"dragon":1,"siniestro":0.5,"acero":1,"hada":0.5},"acero":{"normal":1,"fuego":0.5,"agua":0.5,"planta":1,"electrico":0.5,"hielo":2,"lucha":1,"veneno":1,"tierra":1,"volador":1,"psiquico":1,"bicho":1,"roca":2,"fantasma":1,"dragon":1,"siniestro":1,"acero":0.5,"hada":2},"hada":{"normal":1,"fuego":0.5,"agua":1,"planta":1,"electrico":1,"hielo":1,"lucha":2,"veneno":0.5,"tierra":1,"volador":1,"psiquico":1,"bicho":1,"roca":1,"fantasma":1,"dragon":2,"siniestro":2,"acero":0.5,"hada":1}};
 
 // Cada forma: sprite real, tipo, hp y learnset (movimientos por nivel, reales de PokeAPI).
 const FORMAS = {
@@ -33,13 +27,13 @@ const FORMAS = {
    },
    {
     "n": "Dragoaliento",
-    "t": "fuego",
+    "t": "dragon",
     "d": 17,
     "lvl": 12
    },
    {
     "n": "Garra Metal",
-    "t": "normal",
+    "t": "acero",
     "d": 14,
     "lvl": 13
    }
@@ -67,13 +61,13 @@ const FORMAS = {
    },
    {
     "n": "Dragoaliento",
-    "t": "fuego",
+    "t": "dragon",
     "d": 17,
     "lvl": 12
    },
    {
     "n": "Garra Metal",
-    "t": "normal",
+    "t": "acero",
     "d": 14,
     "lvl": 13
    }
@@ -95,7 +89,7 @@ const FORMAS = {
    },
    {
     "n": "Ataque Ala",
-    "t": "normal",
+    "t": "volador",
     "d": 17,
     "lvl": 1
    },
@@ -107,7 +101,7 @@ const FORMAS = {
    },
    {
     "n": "Garra Metal",
-    "t": "normal",
+    "t": "acero",
     "d": 14,
     "lvl": 1
    }
@@ -141,13 +135,13 @@ const FORMAS = {
    },
    {
     "n": "Giro Rapido",
-    "t": "normal",
+    "t": "agua",
     "d": 14,
     "lvl": 9
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 12
    },
@@ -187,13 +181,13 @@ const FORMAS = {
    },
    {
     "n": "Giro Rapido",
-    "t": "normal",
+    "t": "agua",
     "d": 14,
     "lvl": 9
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 12
    },
@@ -239,7 +233,7 @@ const FORMAS = {
    },
    {
     "n": "Foco Resplandor",
-    "t": "normal",
+    "t": "acero",
     "d": 23,
     "lvl": 1
    },
@@ -335,7 +329,7 @@ const FORMAS = {
    },
    {
     "n": "Latigo Ígneo",
-    "t": "planta",
+    "t": "fuego",
     "d": 34,
     "lvl": 1
    }
@@ -407,7 +401,7 @@ const FORMAS = {
   "name": "Caterpie",
   "id": 10,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png",
-  "type": "planta",
+  "type": "bicho",
   "typeReal": "bicho",
   "hp": 35,
   "learnset": [
@@ -419,7 +413,7 @@ const FORMAS = {
    },
    {
     "n": "Picadura",
-    "t": "planta",
+    "t": "bicho",
     "d": 17,
     "lvl": 9
    }
@@ -429,13 +423,13 @@ const FORMAS = {
   "name": "Metapod",
   "id": 11,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/11.png",
-  "type": "planta",
+  "type": "bicho",
   "typeReal": "bicho",
   "hp": 38,
   "learnset": [
    {
     "n": "Placaje",
-    "t": "planta",
+    "t": "normal",
     "d": 10,
     "lvl": 1
    }
@@ -445,13 +439,13 @@ const FORMAS = {
   "name": "Butterfree",
   "id": 12,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png",
-  "type": "planta",
+  "type": "bicho",
   "typeReal": "bicho · volador",
   "hp": 44,
   "learnset": [
    {
     "n": "Tornado",
-    "t": "normal",
+    "t": "volador",
     "d": 11,
     "lvl": 1
    },
@@ -463,13 +457,13 @@ const FORMAS = {
    },
    {
     "n": "Confusion",
-    "t": "electrico",
+    "t": "psiquico",
     "d": 14,
     "lvl": 1
    },
    {
     "n": "Picadura",
-    "t": "planta",
+    "t": "bicho",
     "d": 17,
     "lvl": 1
    }
@@ -479,19 +473,19 @@ const FORMAS = {
   "name": "Weedle",
   "id": 13,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/13.png",
-  "type": "planta",
+  "type": "bicho",
   "typeReal": "bicho · veneno",
   "hp": 32,
   "learnset": [
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 1
    },
    {
     "n": "Picadura",
-    "t": "planta",
+    "t": "bicho",
     "d": 17,
     "lvl": 9
    }
@@ -501,13 +495,13 @@ const FORMAS = {
   "name": "Kakuna",
   "id": 14,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/14.png",
-  "type": "planta",
+  "type": "bicho",
   "typeReal": "bicho · veneno",
   "hp": 35,
   "learnset": [
    {
     "n": "Placaje",
-    "t": "planta",
+    "t": "normal",
     "d": 10,
     "lvl": 1
    }
@@ -517,7 +511,7 @@ const FORMAS = {
   "name": "Beedrill",
   "id": 15,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png",
-  "type": "planta",
+  "type": "bicho",
   "typeReal": "bicho · veneno",
   "hp": 47,
   "learnset": [
@@ -529,31 +523,31 @@ const FORMAS = {
    },
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 1
    },
    {
     "n": "Doble Ataque",
-    "t": "planta",
+    "t": "normal",
     "d": 8,
     "lvl": 1
    },
    {
     "n": "Picotazo",
-    "t": "normal",
+    "t": "volador",
     "d": 10,
     "lvl": 1
    },
    {
     "n": "Picadura",
-    "t": "planta",
+    "t": "bicho",
     "d": 17,
     "lvl": 1
    },
    {
     "n": "Fury Cutter",
-    "t": "planta",
+    "t": "bicho",
     "d": 11,
     "lvl": 11
    }
@@ -569,7 +563,7 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Tornado",
-    "t": "normal",
+    "t": "volador",
     "d": 11,
     "lvl": 1
    },
@@ -587,7 +581,7 @@ const FORMAS = {
    },
    {
     "n": "Ataque Ala",
-    "t": "normal",
+    "t": "volador",
     "d": 17,
     "lvl": 15
    }
@@ -603,7 +597,7 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Tornado",
-    "t": "normal",
+    "t": "volador",
     "d": 11,
     "lvl": 1
    },
@@ -621,7 +615,7 @@ const FORMAS = {
    },
    {
     "n": "Ataque Ala",
-    "t": "normal",
+    "t": "volador",
     "d": 17,
     "lvl": 15
    }
@@ -637,7 +631,7 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Tornado",
-    "t": "normal",
+    "t": "volador",
     "d": 11,
     "lvl": 1
    },
@@ -655,7 +649,7 @@ const FORMAS = {
    },
    {
     "n": "Ataque Aereo",
-    "t": "normal",
+    "t": "volador",
     "d": 40,
     "lvl": 1
    },
@@ -667,7 +661,7 @@ const FORMAS = {
    },
    {
     "n": "Vendaval",
-    "t": "normal",
+    "t": "volador",
     "d": 31,
     "lvl": 1
    }
@@ -695,7 +689,7 @@ const FORMAS = {
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 10
    },
@@ -707,7 +701,7 @@ const FORMAS = {
    },
    {
     "n": "Pursuit",
-    "t": "normal",
+    "t": "siniestro",
     "d": 11,
     "lvl": 13
    }
@@ -751,19 +745,19 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Picotazo",
-    "t": "normal",
+    "t": "volador",
     "d": 10,
     "lvl": 1
    },
    {
     "n": "Pursuit",
-    "t": "normal",
+    "t": "siniestro",
     "d": 11,
     "lvl": 8
    },
    {
     "n": "Assurance",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 8
    },
@@ -775,7 +769,7 @@ const FORMAS = {
    },
    {
     "n": "Golpe Aereo",
-    "t": "normal",
+    "t": "volador",
     "d": 17,
     "lvl": 15
    }
@@ -797,7 +791,7 @@ const FORMAS = {
    },
    {
     "n": "Picotazo",
-    "t": "normal",
+    "t": "volador",
     "d": 10,
     "lvl": 1
    },
@@ -809,13 +803,13 @@ const FORMAS = {
    },
    {
     "n": "Ataque Aereo",
-    "t": "normal",
+    "t": "volador",
     "d": 40,
     "lvl": 1
    },
    {
     "n": "Pursuit",
-    "t": "normal",
+    "t": "siniestro",
     "d": 11,
     "lvl": 1
    }
@@ -825,7 +819,7 @@ const FORMAS = {
   "name": "Ekans",
   "id": 23,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png",
-  "type": "planta",
+  "type": "veneno",
   "typeReal": "veneno",
   "hp": 29,
   "learnset": [
@@ -837,19 +831,19 @@ const FORMAS = {
    },
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 1
    },
    {
     "n": "Acido",
-    "t": "planta",
+    "t": "veneno",
     "d": 11,
     "lvl": 8
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 9
    }
@@ -859,7 +853,7 @@ const FORMAS = {
   "name": "Arbok",
   "id": 24,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/24.png",
-  "type": "planta",
+  "type": "veneno",
   "typeReal": "veneno",
   "hp": 44,
   "learnset": [
@@ -871,31 +865,31 @@ const FORMAS = {
    },
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 1
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 1
    },
    {
     "n": "Acido",
-    "t": "planta",
+    "t": "veneno",
     "d": 11,
     "lvl": 1
    },
    {
     "n": "Triturar",
-    "t": "normal",
+    "t": "siniestro",
     "d": 23,
     "lvl": 1
    },
    {
     "n": "Sucker Punch",
-    "t": "normal",
+    "t": "siniestro",
     "d": 20,
     "lvl": 1
    }
@@ -905,7 +899,7 @@ const FORMAS = {
   "name": "Sandshrew",
   "id": 27,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/27.png",
-  "type": "normal",
+  "type": "tierra",
   "typeReal": "tierra",
   "hp": 38,
   "learnset": [
@@ -917,19 +911,19 @@ const FORMAS = {
    },
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 3
    },
    {
     "n": "Rodar",
-    "t": "normal",
+    "t": "roca",
     "d": 9,
     "lvl": 7
    },
    {
     "n": "Giro Rapido",
-    "t": "normal",
+    "t": "tierra",
     "d": 14,
     "lvl": 9
    },
@@ -941,7 +935,7 @@ const FORMAS = {
    },
    {
     "n": "Fury Cutter",
-    "t": "planta",
+    "t": "bicho",
     "d": 11,
     "lvl": 11
    }
@@ -951,7 +945,7 @@ const FORMAS = {
   "name": "Sandslash",
   "id": 28,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/28.png",
-  "type": "normal",
+  "type": "tierra",
   "typeReal": "tierra",
   "hp": 53,
   "learnset": [
@@ -963,7 +957,7 @@ const FORMAS = {
    },
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 1
    },
@@ -975,7 +969,7 @@ const FORMAS = {
    },
    {
     "n": "Rodar",
-    "t": "normal",
+    "t": "roca",
     "d": 9,
     "lvl": 7
    }
@@ -1047,13 +1041,13 @@ const FORMAS = {
   "name": "Zubat",
   "id": 41,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/41.png",
-  "type": "planta",
+  "type": "veneno",
   "typeReal": "veneno · volador",
   "hp": 32,
   "learnset": [
    {
     "n": "Tornado",
-    "t": "normal",
+    "t": "volador",
     "d": 11,
     "lvl": 1
    },
@@ -1065,25 +1059,25 @@ const FORMAS = {
    },
    {
     "n": "Chupavidas",
-    "t": "planta",
+    "t": "bicho",
     "d": 23,
     "lvl": 1
    },
    {
     "n": "Ataque Ala",
-    "t": "normal",
+    "t": "volador",
     "d": 17,
     "lvl": 4
    },
    {
     "n": "Astonish",
-    "t": "electrico",
+    "t": "fantasma",
     "d": 9,
     "lvl": 5
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 9
    }
@@ -1093,25 +1087,25 @@ const FORMAS = {
   "name": "Golbat",
   "id": 42,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/42.png",
-  "type": "planta",
+  "type": "veneno",
   "typeReal": "veneno · volador",
   "hp": 53,
   "learnset": [
    {
     "n": "Tornado",
-    "t": "normal",
+    "t": "volador",
     "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Ala",
-    "t": "normal",
+    "t": "volador",
     "d": 17,
     "lvl": 1
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 1
    },
@@ -1133,19 +1127,19 @@ const FORMAS = {
   "name": "Crobat",
   "id": 169,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/169.png",
-  "type": "planta",
+  "type": "veneno",
   "typeReal": "veneno · volador",
   "hp": 59,
   "learnset": [
    {
     "n": "Tornado",
-    "t": "normal",
+    "t": "volador",
     "d": 11,
     "lvl": 1
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 1
    },
@@ -1157,7 +1151,7 @@ const FORMAS = {
    },
    {
     "n": "Chupavidas",
-    "t": "planta",
+    "t": "bicho",
     "d": 23,
     "lvl": 1
    }
@@ -1179,7 +1173,7 @@ const FORMAS = {
    },
    {
     "n": "Acido",
-    "t": "planta",
+    "t": "veneno",
     "d": 11,
     "lvl": 4
    },
@@ -1201,7 +1195,7 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Acido",
-    "t": "planta",
+    "t": "veneno",
     "d": 11,
     "lvl": 1
    },
@@ -1229,7 +1223,7 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Acido",
-    "t": "planta",
+    "t": "veneno",
     "d": 11,
     "lvl": 1
    },
@@ -1257,7 +1251,7 @@ const FORMAS = {
   "name": "Paras",
   "id": 46,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/46.png",
-  "type": "planta",
+  "type": "bicho",
   "typeReal": "bicho · planta",
   "hp": 29,
   "learnset": [
@@ -1275,7 +1269,7 @@ const FORMAS = {
    },
    {
     "n": "Chupavidas",
-    "t": "planta",
+    "t": "bicho",
     "d": 23,
     "lvl": 11
    },
@@ -1291,7 +1285,7 @@ const FORMAS = {
   "name": "Parasect",
   "id": 47,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png",
-  "type": "planta",
+  "type": "bicho",
   "typeReal": "bicho · planta",
   "hp": 44,
   "learnset": [
@@ -1309,7 +1303,7 @@ const FORMAS = {
    },
    {
     "n": "Chupavidas",
-    "t": "planta",
+    "t": "bicho",
     "d": 23,
     "lvl": 1
    }
@@ -1319,7 +1313,7 @@ const FORMAS = {
   "name": "Diglett",
   "id": 50,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/50.png",
-  "type": "normal",
+  "type": "tierra",
   "typeReal": "tierra",
   "hp": 14,
   "learnset": [
@@ -1331,13 +1325,13 @@ const FORMAS = {
    },
    {
     "n": "Astonish",
-    "t": "electrico",
+    "t": "fantasma",
     "d": 9,
     "lvl": 7
    },
    {
     "n": "Mud Slap",
-    "t": "normal",
+    "t": "tierra",
     "d": 8,
     "lvl": 10
    },
@@ -1353,7 +1347,7 @@ const FORMAS = {
   "name": "Dugtrio",
   "id": 51,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51.png",
-  "type": "normal",
+  "type": "tierra",
   "typeReal": "tierra",
   "hp": 29,
   "learnset": [
@@ -1365,7 +1359,7 @@ const FORMAS = {
    },
    {
     "n": "Excavar",
-    "t": "normal",
+    "t": "tierra",
     "d": 23,
     "lvl": 1
    },
@@ -1393,7 +1387,7 @@ const FORMAS = {
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 1
    },
@@ -1439,7 +1433,7 @@ const FORMAS = {
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 1
    },
@@ -1485,7 +1479,7 @@ const FORMAS = {
    },
    {
     "n": "Confusion",
-    "t": "electrico",
+    "t": "psiquico",
     "d": 14,
     "lvl": 6
    },
@@ -1519,7 +1513,7 @@ const FORMAS = {
    },
    {
     "n": "Confusion",
-    "t": "electrico",
+    "t": "psiquico",
     "d": 14,
     "lvl": 1
    },
@@ -1535,7 +1529,7 @@ const FORMAS = {
   "name": "Mankey",
   "id": 56,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/56.png",
-  "type": "normal",
+  "type": "lucha",
   "typeReal": "lucha",
   "hp": 32,
   "learnset": [
@@ -1559,13 +1553,13 @@ const FORMAS = {
    },
    {
     "n": "Golpe Karate",
-    "t": "normal",
+    "t": "lucha",
     "d": 14,
     "lvl": 8
    },
    {
     "n": "Mud Slap",
-    "t": "normal",
+    "t": "tierra",
     "d": 8,
     "lvl": 8
    }
@@ -1575,13 +1569,13 @@ const FORMAS = {
   "name": "Primeape",
   "id": 57,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/57.png",
-  "type": "normal",
+  "type": "lucha",
   "typeReal": "lucha",
   "hp": 47,
   "learnset": [
    {
     "n": "Golpe Karate",
-    "t": "normal",
+    "t": "lucha",
     "d": 14,
     "lvl": 1
    },
@@ -1609,7 +1603,7 @@ const FORMAS = {
   "name": "Annihilape",
   "id": 979,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/979.png",
-  "type": "normal",
+  "type": "lucha",
   "typeReal": "lucha · fantasma",
   "hp": 74,
   "learnset": [
@@ -1637,7 +1631,7 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 1
    },
@@ -1677,7 +1671,7 @@ const FORMAS = {
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 1
    },
@@ -1723,7 +1717,7 @@ const FORMAS = {
    },
    {
     "n": "Disparo Lodo",
-    "t": "normal",
+    "t": "tierra",
     "d": 16,
     "lvl": 12
    },
@@ -1769,7 +1763,7 @@ const FORMAS = {
    },
    {
     "n": "Disparo Lodo",
-    "t": "normal",
+    "t": "tierra",
     "d": 16,
     "lvl": 1
    },
@@ -1837,13 +1831,13 @@ const FORMAS = {
   "name": "Abra",
   "id": 63,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/63.png",
-  "type": "electrico",
+  "type": "psiquico",
   "typeReal": "psiquico",
   "hp": 23,
   "learnset": [
    {
     "n": "Placaje",
-    "t": "electrico",
+    "t": "normal",
     "d": 10,
     "lvl": 1
    }
@@ -1853,19 +1847,19 @@ const FORMAS = {
   "name": "Kadabra",
   "id": 64,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/64.png",
-  "type": "electrico",
+  "type": "psiquico",
   "typeReal": "psiquico",
   "hp": 32,
   "learnset": [
    {
     "n": "Psicorrayo",
-    "t": "electrico",
+    "t": "psiquico",
     "d": 19,
     "lvl": 1
    },
    {
     "n": "Confusion",
-    "t": "electrico",
+    "t": "psiquico",
     "d": 14,
     "lvl": 1
    }
@@ -1875,19 +1869,19 @@ const FORMAS = {
   "name": "Alakazam",
   "id": 65,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/65.png",
-  "type": "electrico",
+  "type": "psiquico",
   "typeReal": "psiquico",
   "hp": 41,
   "learnset": [
    {
     "n": "Psicorrayo",
-    "t": "electrico",
+    "t": "psiquico",
     "d": 19,
     "lvl": 1
    },
    {
     "n": "Confusion",
-    "t": "electrico",
+    "t": "psiquico",
     "d": 14,
     "lvl": 1
    }
@@ -1897,13 +1891,13 @@ const FORMAS = {
   "name": "Machop",
   "id": 66,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/66.png",
-  "type": "normal",
+  "type": "lucha",
   "typeReal": "lucha",
   "hp": 50,
   "learnset": [
    {
     "n": "Golpe Karate",
-    "t": "normal",
+    "t": "lucha",
     "d": 14,
     "lvl": 1
    },
@@ -1915,13 +1909,13 @@ const FORMAS = {
    },
    {
     "n": "Golpe Roca",
-    "t": "normal",
+    "t": "lucha",
     "d": 11,
     "lvl": 6
    },
    {
     "n": "Revenge",
-    "t": "normal",
+    "t": "lucha",
     "d": 17,
     "lvl": 8
    }
@@ -1931,13 +1925,13 @@ const FORMAS = {
   "name": "Machoke",
   "id": 67,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/67.png",
-  "type": "normal",
+  "type": "lucha",
   "typeReal": "lucha",
   "hp": 56,
   "learnset": [
    {
     "n": "Golpe Karate",
-    "t": "normal",
+    "t": "lucha",
     "d": 14,
     "lvl": 1
    },
@@ -1949,13 +1943,13 @@ const FORMAS = {
    },
    {
     "n": "Revenge",
-    "t": "normal",
+    "t": "lucha",
     "d": 17,
     "lvl": 1
    },
    {
     "n": "Golpe Roca",
-    "t": "normal",
+    "t": "lucha",
     "d": 11,
     "lvl": 6
    }
@@ -1965,13 +1959,13 @@ const FORMAS = {
   "name": "Machamp",
   "id": 68,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png",
-  "type": "normal",
+  "type": "lucha",
   "typeReal": "lucha",
   "hp": 62,
   "learnset": [
    {
     "n": "Golpe Karate",
-    "t": "normal",
+    "t": "lucha",
     "d": 14,
     "lvl": 1
    },
@@ -2011,7 +2005,7 @@ const FORMAS = {
    },
    {
     "n": "Acido",
-    "t": "planta",
+    "t": "veneno",
     "d": 11,
     "lvl": 12
    },
@@ -2045,7 +2039,7 @@ const FORMAS = {
    },
    {
     "n": "Acido",
-    "t": "planta",
+    "t": "veneno",
     "d": 11,
     "lvl": 1
    },
@@ -2085,7 +2079,7 @@ const FORMAS = {
    },
    {
     "n": "Acido",
-    "t": "planta",
+    "t": "veneno",
     "d": 11,
     "lvl": 1
    },
@@ -2107,13 +2101,13 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 1
    },
    {
     "n": "Acido",
-    "t": "planta",
+    "t": "veneno",
     "d": 11,
     "lvl": 1
    },
@@ -2159,13 +2153,13 @@ const FORMAS = {
    },
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 1
    },
    {
     "n": "Acido",
-    "t": "planta",
+    "t": "veneno",
     "d": 11,
     "lvl": 1
    },
@@ -2187,7 +2181,7 @@ const FORMAS = {
   "name": "Geodude",
   "id": 74,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74.png",
-  "type": "normal",
+  "type": "roca",
   "typeReal": "roca · tierra",
   "hp": 32,
   "learnset": [
@@ -2199,7 +2193,7 @@ const FORMAS = {
    },
    {
     "n": "Rodar",
-    "t": "normal",
+    "t": "roca",
     "d": 9,
     "lvl": 1
    }
@@ -2209,7 +2203,7 @@ const FORMAS = {
   "name": "Graveler",
   "id": 75,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/75.png",
-  "type": "normal",
+  "type": "roca",
   "typeReal": "roca · tierra",
   "hp": 41,
   "learnset": [
@@ -2221,13 +2215,13 @@ const FORMAS = {
    },
    {
     "n": "Lanzarrocas",
-    "t": "normal",
+    "t": "roca",
     "d": 14,
     "lvl": 1
    },
    {
     "n": "Rodar",
-    "t": "normal",
+    "t": "roca",
     "d": 9,
     "lvl": 1
    }
@@ -2237,7 +2231,7 @@ const FORMAS = {
   "name": "Golem",
   "id": 76,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76.png",
-  "type": "normal",
+  "type": "roca",
   "typeReal": "roca · tierra",
   "hp": 56,
   "learnset": [
@@ -2255,13 +2249,13 @@ const FORMAS = {
    },
    {
     "n": "Lanzarrocas",
-    "t": "normal",
+    "t": "roca",
     "d": 14,
     "lvl": 1
    },
    {
     "n": "Rodar",
-    "t": "normal",
+    "t": "roca",
     "d": 9,
     "lvl": 1
    }
@@ -2307,7 +2301,7 @@ const FORMAS = {
    },
    {
     "n": "Doble Patada",
-    "t": "normal",
+    "t": "lucha",
     "d": 9,
     "lvl": 15
    }
@@ -2363,7 +2357,7 @@ const FORMAS = {
    },
    {
     "n": "Confusion",
-    "t": "electrico",
+    "t": "psiquico",
     "d": 14,
     "lvl": 1
    },
@@ -2415,7 +2409,7 @@ const FORMAS = {
    },
    {
     "n": "Confusion",
-    "t": "electrico",
+    "t": "psiquico",
     "d": 14,
     "lvl": 1
    }
@@ -2443,7 +2437,7 @@ const FORMAS = {
    },
    {
     "n": "Bomba Iman",
-    "t": "normal",
+    "t": "acero",
     "d": 17,
     "lvl": 7
    }
@@ -2521,25 +2515,25 @@ const FORMAS = {
   "name": "Gastly",
   "id": 92,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png",
-  "type": "electrico",
+  "type": "fantasma",
   "typeReal": "fantasma · veneno",
   "hp": 26,
   "learnset": [
    {
     "n": "Lengüetazo",
-    "t": "electrico",
+    "t": "fantasma",
     "d": 9,
     "lvl": 1
    },
    {
     "n": "Polucion",
-    "t": "planta",
+    "t": "veneno",
     "d": 9,
     "lvl": 1
    },
    {
     "n": "Astonish",
-    "t": "electrico",
+    "t": "fantasma",
     "d": 9,
     "lvl": 1
    }
@@ -2549,25 +2543,25 @@ const FORMAS = {
   "name": "Haunter",
   "id": 93,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/93.png",
-  "type": "electrico",
+  "type": "fantasma",
   "typeReal": "fantasma · veneno",
   "hp": 35,
   "learnset": [
    {
     "n": "Lengüetazo",
-    "t": "electrico",
+    "t": "fantasma",
     "d": 9,
     "lvl": 1
    },
    {
     "n": "Polucion",
-    "t": "planta",
+    "t": "veneno",
     "d": 9,
     "lvl": 1
    },
    {
     "n": "Astonish",
-    "t": "electrico",
+    "t": "fantasma",
     "d": 9,
     "lvl": 1
    }
@@ -2577,19 +2571,19 @@ const FORMAS = {
   "name": "Gengar",
   "id": 94,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png",
-  "type": "electrico",
+  "type": "fantasma",
   "typeReal": "fantasma · veneno",
   "hp": 44,
   "learnset": [
    {
     "n": "Lengüetazo",
-    "t": "electrico",
+    "t": "fantasma",
     "d": 9,
     "lvl": 1
    },
    {
     "n": "Polucion",
-    "t": "planta",
+    "t": "veneno",
     "d": 9,
     "lvl": 1
    }
@@ -2599,7 +2593,7 @@ const FORMAS = {
   "name": "Onix",
   "id": 95,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png",
-  "type": "normal",
+  "type": "roca",
   "typeReal": "roca · tierra",
   "hp": 29,
   "learnset": [
@@ -2617,13 +2611,13 @@ const FORMAS = {
    },
    {
     "n": "Lanzarrocas",
-    "t": "normal",
+    "t": "roca",
     "d": 14,
     "lvl": 1
    },
    {
     "n": "Rodar",
-    "t": "normal",
+    "t": "roca",
     "d": 9,
     "lvl": 1
    }
@@ -2633,7 +2627,7 @@ const FORMAS = {
   "name": "Steelix",
   "id": 208,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/208.png",
-  "type": "normal",
+  "type": "acero",
   "typeReal": "acero · tierra",
   "hp": 53,
   "learnset": [
@@ -2651,19 +2645,19 @@ const FORMAS = {
    },
    {
     "n": "Lanzarrocas",
-    "t": "normal",
+    "t": "roca",
     "d": 14,
     "lvl": 1
    },
    {
     "n": "Rodar",
-    "t": "normal",
+    "t": "roca",
     "d": 9,
     "lvl": 1
    },
    {
     "n": "Triturar",
-    "t": "normal",
+    "t": "siniestro",
     "d": 23,
     "lvl": 1
    }
@@ -2673,19 +2667,19 @@ const FORMAS = {
   "name": "Cubone",
   "id": 104,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/104.png",
-  "type": "normal",
+  "type": "tierra",
   "typeReal": "tierra",
   "hp": 38,
   "learnset": [
    {
     "n": "Bone Club",
-    "t": "normal",
+    "t": "tierra",
     "d": 19,
     "lvl": 1
    },
    {
     "n": "Mud Slap",
-    "t": "normal",
+    "t": "tierra",
     "d": 8,
     "lvl": 1
    },
@@ -2713,7 +2707,7 @@ const FORMAS = {
   "name": "Marowak",
   "id": 105,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/105.png",
-  "type": "normal",
+  "type": "tierra",
   "typeReal": "tierra",
   "hp": 44,
   "learnset": [
@@ -2725,7 +2719,7 @@ const FORMAS = {
    },
    {
     "n": "Bone Club",
-    "t": "normal",
+    "t": "tierra",
     "d": 19,
     "lvl": 1
    }
@@ -2735,7 +2729,7 @@ const FORMAS = {
   "name": "Nidoran-f",
   "id": 29,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/29.png",
-  "type": "planta",
+  "type": "veneno",
   "typeReal": "veneno",
   "hp": 41,
   "learnset": [
@@ -2753,19 +2747,19 @@ const FORMAS = {
    },
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 1
    },
    {
     "n": "Doble Patada",
-    "t": "normal",
+    "t": "lucha",
     "d": 9,
     "lvl": 9
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 12
    },
@@ -2781,7 +2775,7 @@ const FORMAS = {
   "name": "Nidorina",
   "id": 30,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
-  "type": "planta",
+  "type": "veneno",
   "typeReal": "veneno",
   "hp": 50,
   "learnset": [
@@ -2799,19 +2793,19 @@ const FORMAS = {
    },
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 1
    },
    {
     "n": "Doble Patada",
-    "t": "normal",
+    "t": "lucha",
     "d": 9,
     "lvl": 9
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 12
    },
@@ -2827,7 +2821,7 @@ const FORMAS = {
   "name": "Nidoqueen",
   "id": 31,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/31.png",
-  "type": "planta",
+  "type": "veneno",
   "typeReal": "veneno · tierra",
   "hp": 62,
   "learnset": [
@@ -2839,7 +2833,7 @@ const FORMAS = {
    },
    {
     "n": "Doble Patada",
-    "t": "normal",
+    "t": "lucha",
     "d": 9,
     "lvl": 1
    },
@@ -2857,13 +2851,13 @@ const FORMAS = {
    },
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 1
    },
    {
     "n": "Mordisco",
-    "t": "normal",
+    "t": "siniestro",
     "d": 17,
     "lvl": 1
    }
@@ -2873,7 +2867,7 @@ const FORMAS = {
   "name": "Nidoran-m",
   "id": 32,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/32.png",
-  "type": "planta",
+  "type": "veneno",
   "typeReal": "veneno",
   "hp": 36,
   "learnset": [
@@ -2885,13 +2879,13 @@ const FORMAS = {
    },
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 1
    },
    {
     "n": "Picotazo",
-    "t": "normal",
+    "t": "volador",
     "d": 10,
     "lvl": 1
    },
@@ -2903,7 +2897,7 @@ const FORMAS = {
    },
    {
     "n": "Doble Patada",
-    "t": "normal",
+    "t": "lucha",
     "d": 9,
     "lvl": 9
    },
@@ -2919,7 +2913,7 @@ const FORMAS = {
   "name": "Nidorino",
   "id": 33,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/33.png",
-  "type": "planta",
+  "type": "veneno",
   "typeReal": "veneno",
   "hp": 45,
   "learnset": [
@@ -2937,19 +2931,19 @@ const FORMAS = {
    },
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 1
    },
    {
     "n": "Picotazo",
-    "t": "normal",
+    "t": "volador",
     "d": 10,
     "lvl": 1
    },
    {
     "n": "Doble Patada",
-    "t": "normal",
+    "t": "lucha",
     "d": 9,
     "lvl": 9
    },
@@ -2965,13 +2959,13 @@ const FORMAS = {
   "name": "Nidoking",
   "id": 34,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/34.png",
-  "type": "planta",
+  "type": "veneno",
   "typeReal": "veneno · tierra",
   "hp": 57,
   "learnset": [
    {
     "n": "Doble Patada",
-    "t": "normal",
+    "t": "lucha",
     "d": 9,
     "lvl": 1
    },
@@ -3001,7 +2995,7 @@ const FORMAS = {
    },
    {
     "n": "Picotazo Veneno",
-    "t": "planta",
+    "t": "veneno",
     "d": 8,
     "lvl": 1
    }
@@ -3224,7 +3218,7 @@ const KEY = "pokerogue_best";
 const PS_POR_NIVEL = 8;
 const CURA_POR_NIVEL = 4;
 
-const COLOR_TIPO = { fuego:"#ff8a5c", agua:"#7cc3ff", planta:"#7fe39a", electrico:"#ffe066", normal:"#cfd3da" };
+const COLOR_TIPO = {"normal":"#cfd3da","fuego":"#ff8a5c","agua":"#7cc3ff","planta":"#7fe39a","electrico":"#ffe066","hielo":"#8fe0e0","lucha":"#e8705a","veneno":"#b366d9","tierra":"#e2c879","volador":"#a7c6ff","psiquico":"#ff7fa8","bicho":"#b3c647","roca":"#c9b680","fantasma":"#9a86d4","dragon":"#8a7cff","siniestro":"#9a8f82","acero":"#b8c3cf","hada":"#ff9ed6"};
 
 function flash(lado, tipo) {
   const el = document.querySelector(".fighter." + lado);
@@ -3309,11 +3303,11 @@ function nuevaRonda() {
 function pintar() {
   $("meEmoji").innerHTML = `<img class="sprite" src="${me.sprite}" alt="${me.name}" />`;
   $("meName").textContent = me.name;
-  $("meType").textContent = me.typeReal || me.type; $("meType").className = "type t-" + ((me.typeReal||me.type).split(" � ")[0]);
+  $("meType").textContent = me.typeReal || me.type; $("meType").className = "type t-" + ((me.typeReal||me.type).split(" � ")[0]);
   $("meLvl").textContent = "Nivel " + me.level;
   $("foeEmoji").innerHTML = `<img class="sprite" src="${foe.sprite}" alt="${foe.name}" />`;
   $("foeName").textContent = foe.name;
-  $("foeType").textContent = foe.typeReal || foe.type; $("foeType").className = "type t-" + ((foe.typeReal||foe.type).split(" � ")[0]);
+  $("foeType").textContent = foe.typeReal || foe.type; $("foeType").className = "type t-" + ((foe.typeReal||foe.type).split(" � ")[0]);
   barra("me", me); barra("foe", foe);
 }
 

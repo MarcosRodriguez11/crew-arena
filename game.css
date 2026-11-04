@@ -193,3 +193,18 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
 .t-siniestro { color: #9a8f82; }
 .t-acero { color: #b8c3cf; }
 .t-hada { color: #ff9ed6; }
+
+/* botones de movimiento para los tipos reales restantes */
+.m-hielo     { border-color: #8fe0e0 !important; background: #16302f !important; color: #d6f7f7 !important; }
+.m-lucha     { border-color: #e8705a !important; background: #371c18 !important; color: #ffd9d1 !important; }
+.m-veneno    { border-color: #b366d9 !important; background: #2b1838 !important; color: #efd6ff !important; }
+.m-tierra    { border-color: #e2c879 !important; background: #332c14 !important; color: #fff3d1 !important; }
+.m-volador   { border-color: #a7c6ff !important; background: #1e2740 !important; color: #e0eaff !important; }
+.m-psiquico  { border-color: #ff7fa8 !important; background: #3a1a26 !important; color: #ffd6e3 !important; }
+.m-bicho     { border-color: #b3c647 !important; background: #2a3014 !important; color: #f0ffd1 !important; }
+.m-roca      { border-color: #c9b680 !important; background: #2e2a18 !important; color: #fff2d1 !important; }
+.m-fantasma  { border-color: #9a86d4 !important; background: #241c38 !important; color: #e4dcff !important; }
+.m-dragon    { border-color: #8a7cff !important; background: #1f1c3a !important; color: #ddd9ff !important; }
+.m-siniestro { border-color: #9a8f82 !important; background: #26231e !important; color: #efe9df !important; }
+.m-acero     { border-color: #b8c3cf !important; background: #22272c !important; color: #e8eef4 !important; }
+.m-hada      { border-color: #ff9ed6 !important; background: #3a1c30 !important; color: #ffdcf1 !important; }
