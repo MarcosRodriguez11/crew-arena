@@ -3280,6 +3280,8 @@ function nuevoLuchador(key, nivel) {
 
 function empezar(key) {
   me = nuevoLuchador(key, 5);
+  equipo = [me];
+  activoIdx = 0;
   aprendidos = 0;
   round = 1; streak = 0; turnos = 1;
   mapaIdx = 0;
@@ -3299,6 +3301,14 @@ function keyValida(key) {
   if (FORMAS[key]) return key;
   return INICIALES[Math.floor(Math.random() * INICIALES.length)];
 }
+
+// --- Estado de equipos (6 maximo: el activo + hasta 5 al lado) ---
+const MAX_EQUIPO = 6;
+let equipo = [];     // equipo del jugador; me = equipo[activoIdx]
+let equipoFoe = [];  // equipo del rival; foe = el activo del rival
+let activoIdx = 0;   // indice del Pokemon activo del jugador
+let foeIdx = 0;      // indice del activo del rival
+let esSalvaje = false; // el combate actual es contra un pokemon salvaje (se puede capturar)
 
 // Nivel base de un combate segun el mapa y el paso (sube suave con el avance).
 function nivelDeCombate() {
@@ -3402,22 +3412,29 @@ function etiquetaSpot(spot) {
   return "Combate";
 }
 
-// Construye un rival pokemon desde un spot y arranca el combate.
+// Combate contra un pokemon SALVAJE (1 solo, se puede capturar).
 function empezarSpot(spot) {
   const key = keyValida(spot.especie || (spot.equipo && spot.equipo[0]) || "pidgey");
   enLider = false;
-  foe = rivalDesde(key, nivelDeCombate());
+  esSalvaje = true;
+  equipoFoe = [rivalDesde(key, nivelDeCombate())];
+  foeIdx = 0;
+  foe = equipoFoe[0];
   prepararCombate(`\u00a1Un ${foe.name} salvaje aparece!`);
 }
 
-// Construye el rival lider (usa el 1er pokemon de su equipo) y arranca el combate.
+// Combate contra el LIDER (equipo completo, no se captura).
 function empezarLider() {
   const mapa = MAPAS[mapaIdx];
-  const key = keyValida((mapa.lider.equipo && mapa.lider.equipo[0]) || "charizard");
+  const nivel = nivelDeCombate() + 2;
+  const keys = (mapa.lider.equipo && mapa.lider.equipo.length) ? mapa.lider.equipo : ["charizard"];
   enLider = true;
-  foe = rivalDesde(key, nivelDeCombate() + 2);
-  foe.name = mapa.lider.nombre + " (" + foe.name + ")";
-  prepararCombate(`\u00a1${mapa.lider.nombre} te reta!`);
+  esSalvaje = false;
+  equipoFoe = keys.map((k) => rivalDesde(keyValida(k), nivel));
+  foeIdx = 0;
+  foe = equipoFoe[0];
+  foe.entrenador = mapa.lider.nombre;
+  prepararCombate(`\u00a1${mapa.lider.nombre} te reta con ${equipoFoe.length} Pokemon!`);
 }
 
 // Rival concreto a partir de una key de FORMAS y un nivel.
@@ -3433,11 +3450,10 @@ function rivalDesde(key, nivel) {
   };
 }
 
-// Cambia a la arena y pinta el combate.
+// Cambia a la arena y pinta el combate. (No cura: el equipo conserva su vida.)
 function prepararCombate(mensaje) {
   mapaPanel.classList.add("hidden");
   arena.classList.remove("hidden");
-  me.hp = me.maxHp;
   turnos = 1;
   $("turno").textContent = turnos;
   log(mensaje);
@@ -3476,6 +3492,28 @@ function pintar() {
   $("foeType").innerHTML = tipoHTML(foe.typeReal || foe.type); $("foeType").className = "type";
   $("foeLvl").textContent = "Nivel " + foe.level;
   barra("me", me); barra("foe", foe);
+  pintarEquipos();
+}
+
+// Fichas pequenas del equipo: el jugador a la izquierda, el rival a la derecha.
+// Se muestran los NO activos (hasta 5); el activo es el que esta en combate.
+function pintarEquipos() {
+  pintarFichas($("meTeam"), equipo, activoIdx);
+  pintarFichas($("foeTeam"), equipoFoe, foeIdx);
+}
+
+function pintarFichas(cont, lista, idxActivo) {
+  if (!cont) return;
+  cont.innerHTML = "";
+  lista.forEach((p, i) => {
+    if (i === idxActivo) return; // el activo esta en el cuadro, no en la fila
+    const f = document.createElement("div");
+    const vivo = p.hp > 0;
+    f.className = "ficha" + (vivo ? "" : " ko");
+    f.title = `${p.name} (Nv ${p.level})` + (vivo ? "" : " - debilitado");
+    f.innerHTML = `<img src="${p.sprite}" alt="${p.name}" />`;
+    cont.appendChild(f);
+  });
 }
 
 function barra(lado, p) {
@@ -3497,6 +3535,43 @@ function pintarMoves(activo) {
     b.addEventListener("click", () => turno(m));
     box.appendChild(b);
   });
+  pintarAcciones(activo);
+}
+
+// Fila de acciones del combate: Capturar (solo salvajes) y Cambiar Pokemon.
+function pintarAcciones(activo) {
+  const box = $("acciones");
+  if (!box) return;
+  box.innerHTML = "";
+
+  if (esSalvaje) {
+    const cap = document.createElement("button");
+    cap.className = "accion accion-cap";
+    const prob = probCaptura();
+    cap.innerHTML = `\u{1F534} Capturar <small>(${prob}%)</small>`;
+    cap.disabled = !activo;
+    cap.addEventListener("click", () => intentarCaptura());
+    box.appendChild(cap);
+  }
+
+  // Cambiar a otro del equipo (si hay mas de uno vivo)
+  const vivos = equipo.filter((p, i) => p.hp > 0 && i !== activoIdx).length;
+  if (vivos > 0) {
+    const cam = document.createElement("button");
+    cam.className = "accion accion-cambiar";
+    cam.textContent = "\u{1F504} Cambiar";
+    cam.disabled = !activo;
+    cam.addEventListener("click", () => abrirCambio(false));
+    box.appendChild(cam);
+  }
+}
+
+// Probabilidad de captura: mas alta cuanto menos PS le queda al salvaje.
+function probCaptura() {
+  const frac = Math.max(0, foe.hp) / foe.maxHp;        // 1 lleno, 0 KO
+  let p = Math.round((1 - frac) * 70) + 20;            // 20%..90%
+  if (equipo.length >= MAX_EQUIPO) p = 0;              // equipo lleno
+  return Math.max(0, Math.min(95, p));
 }
 
 function dano(mov, defensor) {
@@ -3596,9 +3671,14 @@ function turno(mov) {
     const subida = subirNivel();
     log(`\u00a1${foe.name} cae! ${subida}`);
     pintar();
-    // aprende los movimientos nuevos (puede abrir modal), luego avanza en la aventura
     const nuevos = movsNuevos();
-    aprenderMovs(nuevos, () => setTimeout(trasVictoria, 900));
+    // El rival (lider) puede tener mas Pokemon: saca el siguiente vivo.
+    const quedan = equipoFoe.findIndex((p, i) => i > foeIdx && p.hp > 0);
+    if (quedan !== -1) {
+      aprenderMovs(nuevos, () => setTimeout(() => relevoRival(quedan), 900));
+    } else {
+      aprenderMovs(nuevos, () => setTimeout(trasVictoria, 900));
+    }
     return;
   }
 
@@ -3610,8 +3690,27 @@ function turno(mov) {
   log(txt);
   pintar();
 
-  if (me.hp <= 0) return fin();
+  if (me.hp <= 0) {
+    log(`\u00a1${me.name} se ha debilitado!`);
+    pintar();
+    const vivos = equipo.some((p, i) => p.hp > 0 && i !== activoIdx);
+    if (vivos) {
+      setTimeout(() => abrirCambio(true), 700); // obligado: tu activo cayo
+    } else {
+      setTimeout(fin, 700); // no queda nadie
+    }
+    return;
+  }
   pintarMoves(true);
+}
+
+// El rival saca su siguiente Pokemon.
+function relevoRival(idx) {
+  foeIdx = idx;
+  foe = equipoFoe[idx];
+  if (foe.entrenador === undefined && equipoFoe[0].entrenador) foe.entrenador = equipoFoe[0].entrenador;
+  log(`El rival saca a ${foe.name}.`);
+  pintar(); pintarMoves(true);
 }
 
 function efecto(mult) {
@@ -3631,7 +3730,7 @@ function trasVictoria() {
   pasoIdx++;
   arena.classList.add("hidden");
   mapaPanel.classList.remove("hidden");
-  me.hp = me.maxHp; // te recuperas entre pasos
+  equipo.forEach((p) => { p.hp = p.maxHp; }); // todo el equipo se recupera entre pasos
   mostrarPaso();
 }
 
@@ -3648,6 +3747,93 @@ function mapaSuperado() {
   } else {
     juegoCompletado();
   }
+}
+
+// --- Captura de un Pokemon salvaje ---
+function intentarCaptura() {
+  if (!esSalvaje) return;
+  turnos++; $("turno").textContent = turnos;
+  pintarMoves(false);
+  const prob = probCaptura();
+  if (equipo.length >= MAX_EQUIPO) {
+    log("Tu equipo esta lleno (6). No puedes capturar mas.");
+    pintarMoves(true);
+    return;
+  }
+  const exito = Math.random() * 100 < prob;
+  if (exito) {
+    const capturado = {
+      key: foe.key, name: foe.name, sprite: foe.sprite, type: foe.type, typeReal: foe.typeReal,
+      level: foe.level, maxHp: foe.maxHp, hp: foe.maxHp,
+      moves: foe.moves.map((m) => ({ ...m })),
+      learn: (FORMAS[foe.key] && FORMAS[foe.key].learnset.map((m) => ({ ...m }))) || [],
+    };
+    equipo.push(capturado);
+    log(`\u00a1Has capturado a ${foe.name}! Se une a tu equipo (${equipo.length}/6).`);
+    pintar();
+    setTimeout(trasVictoria, 1000); // capturar cuenta como superar el spot
+  } else {
+    log(`\u00a1${foe.name} se solto! El rival ataca.`);
+    const fm = foe.moves[Math.floor(Math.random() * foe.moves.length)];
+    const b = dano(fm, me);
+    me.hp -= b.valor;
+    flash("me", fm.t);
+    pintar();
+    if (me.hp <= 0) {
+      const vivos = equipo.some((p, i) => p.hp > 0 && i !== activoIdx);
+      if (vivos) setTimeout(() => abrirCambio(true), 700);
+      else setTimeout(fin, 700);
+      return;
+    }
+    pintarMoves(true);
+  }
+}
+
+// --- Cambio de Pokemon del equipo ---
+// obligado=true cuando tu activo cayo (no puedes cerrar sin elegir uno vivo).
+function abrirCambio(obligado) {
+  const modal = $("modal");
+  const lista = $("modalMoves");
+  $("modalNew").textContent = obligado
+    ? "Tu Pokemon se debilito. Elige quien sale a combatir:"
+    : "Elige a que Pokemon cambiar:";
+  lista.innerHTML = "";
+  equipo.forEach((p, i) => {
+    if (i === activoIdx) return;
+    const b = document.createElement("button");
+    const vivo = p.hp > 0;
+    b.className = vivo ? "m-normal" : "m-normal";
+    b.disabled = !vivo;
+    b.innerHTML = `<img class="mini" src="${p.sprite}" alt=""> ${p.name} <small>(Nv ${p.level}, ${Math.max(0, Math.round(p.hp))}/${p.maxHp} PS)</small>`;
+    b.addEventListener("click", () => {
+      activoIdx = i;
+      me = equipo[i];
+      cerrarModal();
+      log(`\u00a1Adelante, ${me.name}!`);
+      pintar();
+      if (obligado) {
+        pintarMoves(true); // entras sin que el rival ataque extra
+      } else {
+        // cambiar gasta el turno: el rival ataca
+        turnos++; $("turno").textContent = turnos;
+        const fm = foe.moves[Math.floor(Math.random() * foe.moves.length)];
+        const bd = dano(fm, me);
+        me.hp -= bd.valor;
+        flash("me", fm.t);
+        log(`El rival aprovecha y ataca a ${me.name}: ${bd.valor} de dano.`);
+        pintar();
+        if (me.hp <= 0) {
+          const vivos = equipo.some((q, j) => q.hp > 0 && j !== activoIdx);
+          if (vivos) setTimeout(() => abrirCambio(true), 700);
+          else setTimeout(fin, 700);
+          return;
+        }
+        pintarMoves(true);
+      }
+    });
+    lista.appendChild(b);
+  });
+  modal.classList.remove("hidden");
 }
 
 // Fin de los 8 mapas.

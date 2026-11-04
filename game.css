@@ -321,3 +321,50 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
   .nodo { width: 64px; padding: 8px 4px; }
   .nodo-icono { font-size: 24px; }
 }
+
+/* ---------- Equipos a los lados del combate ---------- */
+.team-col {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-self: center;
+  flex: 0 0 auto;
+  min-width: 34px;
+}
+#meTeam { align-items: flex-end; }   /* a la izquierda de tu Pokemon */
+#foeTeam { align-items: flex-start; } /* a la derecha del rival */
+.ficha {
+  width: 30px; height: 30px;
+  border: 2px solid #3a4450; border-radius: 6px;
+  background: rgba(20,26,40,.7);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.ficha img { width: 26px; height: 26px; image-rendering: pixelated; }
+.ficha.ko { filter: grayscale(1) brightness(.5); opacity: .6; }
+
+/* ---------- Fila de acciones (capturar / cambiar) ---------- */
+.acciones {
+  display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+  margin: 10px 0 4px;
+}
+.acciones .accion {
+  font-family: inherit; font-size: .55rem; cursor: pointer;
+  padding: 8px 14px; border-radius: 8px;
+  border: 2px solid #3a4450; background: #1b2130; color: #e8edf4;
+  transition: transform .08s, border-color .12s;
+}
+.acciones .accion:hover:not(:disabled) { transform: translateY(-2px); border-color: #ffe066; }
+.acciones .accion:disabled { opacity: .45; cursor: not-allowed; }
+.acciones .accion-cap { border-color: #e8705a; }
+.acciones .accion-cambiar { border-color: #7cc3ff; }
+
+/* mini sprite en el modal de cambio */
+.modal-moves .mini { width: 22px; height: 22px; image-rendering: pixelated; vertical-align: middle; margin-right: 4px; }
+
+/* en pantallas pequenas, fichas aun mas compactas */
+@media (max-width: 480px) {
+  .team-col { min-width: 26px; }
+  .ficha { width: 24px; height: 24px; }
+  .ficha img { width: 20px; height: 20px; }
+}

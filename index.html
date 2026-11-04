@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PokeLike - 1a Gen</title>
-  <link rel="stylesheet" href="game.css?v=22" />
+  <link rel="stylesheet" href="game.css?v=23" />
 </head>
 <body>
   <main class="game">
@@ -28,6 +28,7 @@
       <p class="round">Turno <span id="turno">1</span></p>
 
       <div class="fighters">
+        <div class="team-col" id="meTeam"></div>
         <div class="fighter me">
           <div class="emoji" id="meEmoji"></div>
           <div class="name" id="meName"></div>
@@ -45,9 +46,11 @@
           <div class="bar"><div class="fill" id="foeHp"></div></div>
           <div class="hp" id="foeHpText"></div>
         </div>
+        <div class="team-col" id="foeTeam"></div>
       </div>
 
       <div id="moves" class="moves"></div>
+      <div id="acciones" class="acciones"></div>
       <p id="log" class="log"></p>
     </section>
 
@@ -66,7 +69,7 @@
     </div>
   </div>
 
-  <script src="mapas.js?v=22"></script>
-  <script src="game.js?v=22"></script>
+  <script src="mapas.js?v=23"></script>
+  <script src="game.js?v=23"></script>
 </body>
 </html>
