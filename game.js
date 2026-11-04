@@ -20,33 +20,27 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Arañazo",
-    "t": "fuego",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ascuas",
     "t": "fuego",
-    "d": 12,
+    "d": 11,
     "lvl": 4
    },
    {
     "n": "Dragoaliento",
     "t": "fuego",
-    "d": 10,
+    "d": 17,
     "lvl": 12
    },
    {
     "n": "Garra Metal",
-    "t": "fuego",
-    "d": 10,
+    "t": "normal",
+    "d": 14,
     "lvl": 13
-   },
-   {
-    "n": "Furia Dragon",
-    "t": "fuego",
-    "d": 10,
-    "lvl": 16
    }
   ]
  },
@@ -59,33 +53,27 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Arañazo",
-    "t": "fuego",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ascuas",
     "t": "fuego",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Dragoaliento",
     "t": "fuego",
-    "d": 10,
+    "d": 17,
     "lvl": 12
    },
    {
     "n": "Garra Metal",
-    "t": "fuego",
-    "d": 10,
+    "t": "normal",
+    "d": 14,
     "lvl": 13
-   },
-   {
-    "n": "Furia Dragon",
-    "t": "fuego",
-    "d": 10,
-    "lvl": 17
    }
   ]
  },
@@ -98,32 +86,26 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Arañazo",
-    "t": "fuego",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Ala",
-    "t": "fuego",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 1
    },
    {
     "n": "Ascuas",
     "t": "fuego",
-    "d": 12,
-    "lvl": 1
-   },
-   {
-    "n": "Counter",
-    "t": "fuego",
-    "d": 10,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Garra Metal",
-    "t": "fuego",
-    "d": 10,
+    "t": "normal",
+    "d": 14,
     "lvl": 1
    }
   ]
@@ -137,38 +119,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Placaje",
-    "t": "agua",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Pistola Agua",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 3
    },
    {
     "n": "Burbuja",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 7
    },
    {
     "n": "Giro Rapido",
-    "t": "agua",
-    "d": 10,
+    "t": "normal",
+    "d": 14,
     "lvl": 9
    },
    {
     "n": "Mordisco",
-    "t": "agua",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 12
    },
    {
     "n": "Hidropulso",
     "t": "agua",
-    "d": 10,
+    "d": 17,
     "lvl": 15
    }
   ]
@@ -182,38 +164,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Placaje",
-    "t": "agua",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Pistola Agua",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Burbuja",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Giro Rapido",
-    "t": "agua",
-    "d": 10,
+    "t": "normal",
+    "d": 14,
     "lvl": 9
    },
    {
     "n": "Mordisco",
-    "t": "agua",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 12
    },
    {
     "n": "Hidropulso",
     "t": "agua",
-    "d": 10,
+    "d": 17,
     "lvl": 15
    }
   ]
@@ -227,38 +209,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Placaje",
-    "t": "agua",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Pistola Agua",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Burbuja",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Fake Out",
-    "t": "agua",
-    "d": 10,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Foco Resplandor",
-    "t": "agua",
-    "d": 20,
+    "t": "normal",
+    "d": 23,
     "lvl": 1
    },
    {
     "n": "Acua Jet",
     "t": "agua",
-    "d": 10,
+    "d": 11,
     "lvl": 1
    }
   ]
@@ -272,26 +254,20 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Placaje",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Latigo Cepa",
     "t": "planta",
-    "d": 12,
+    "d": 13,
     "lvl": 3
-   },
-   {
-    "n": "Drenadoras",
-    "t": "planta",
-    "d": 10,
-    "lvl": 7
    },
    {
     "n": "Hoja Afilada",
     "t": "planta",
-    "d": 10,
+    "d": 16,
     "lvl": 12
    }
   ]
@@ -306,25 +282,19 @@ const FORMAS = {
    {
     "n": "Latigo Cepa",
     "t": "planta",
-    "d": 12,
+    "d": 13,
     "lvl": 1
    },
    {
     "n": "Placaje",
-    "t": "planta",
-    "d": 12,
-    "lvl": 1
-   },
-   {
-    "n": "Drenadoras",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Hoja Afilada",
     "t": "planta",
-    "d": 10,
+    "d": 16,
     "lvl": 12
    }
   ]
@@ -339,31 +309,25 @@ const FORMAS = {
    {
     "n": "Latigo Cepa",
     "t": "planta",
-    "d": 12,
+    "d": 13,
     "lvl": 1
    },
    {
     "n": "Placaje",
-    "t": "planta",
-    "d": 12,
-    "lvl": 1
-   },
-   {
-    "n": "Drenadoras",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Danza Petalo",
     "t": "planta",
-    "d": 20,
+    "d": 34,
     "lvl": 1
    },
    {
     "n": "Latigo Ígneo",
     "t": "planta",
-    "d": 20,
+    "d": 34,
     "lvl": 1
    }
   ]
@@ -378,13 +342,13 @@ const FORMAS = {
    {
     "n": "Impactrueno",
     "t": "electrico",
-    "d": 20,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Rapido",
-    "t": "electrico",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    }
   ]
@@ -399,31 +363,31 @@ const FORMAS = {
    {
     "n": "Puño Trueno",
     "t": "electrico",
-    "d": 20,
+    "d": 21,
     "lvl": 1
    },
    {
     "n": "Atizar",
-    "t": "electrico",
-    "d": 10,
+    "t": "normal",
+    "d": 23,
     "lvl": 1
    },
    {
     "n": "Impactrueno",
     "t": "electrico",
-    "d": 20,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Rayo",
     "t": "electrico",
-    "d": 16,
+    "d": 26,
     "lvl": 1
    },
    {
     "n": "Trueno",
     "t": "electrico",
-    "d": 20,
+    "d": 31,
     "lvl": 1
    }
   ]
@@ -437,14 +401,14 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Placaje",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Picadura",
     "t": "planta",
-    "d": 16,
+    "d": 17,
     "lvl": 9
    }
   ]
@@ -473,26 +437,26 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Tornado",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Placaje",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Confusion",
-    "t": "planta",
-    "d": 10,
+    "t": "electrico",
+    "d": 14,
     "lvl": 1
    },
    {
     "n": "Picadura",
     "t": "planta",
-    "d": 16,
+    "d": 17,
     "lvl": 1
    }
   ]
@@ -507,13 +471,13 @@ const FORMAS = {
    {
     "n": "Picotazo Veneno",
     "t": "planta",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Picadura",
     "t": "planta",
-    "d": 16,
+    "d": 17,
     "lvl": 9
    }
   ]
@@ -542,38 +506,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Ataque Furia",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Picotazo Veneno",
     "t": "planta",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Doble Ataque",
     "t": "planta",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Picotazo",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 10,
     "lvl": 1
    },
    {
     "n": "Picadura",
     "t": "planta",
-    "d": 16,
+    "d": 17,
     "lvl": 1
    },
    {
     "n": "Fury Cutter",
     "t": "planta",
-    "d": 10,
+    "d": 11,
     "lvl": 11
    }
   ]
@@ -588,32 +552,26 @@ const FORMAS = {
    {
     "n": "Tornado",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Placaje",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Rapido",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 11
    },
    {
     "n": "Ataque Ala",
     "t": "normal",
-    "d": 16,
+    "d": 17,
     "lvl": 15
-   },
-   {
-    "n": "Respiro",
-    "t": "normal",
-    "d": 10,
-    "lvl": 17
    }
   ]
  },
@@ -627,32 +585,26 @@ const FORMAS = {
    {
     "n": "Tornado",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Placaje",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Rapido",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Ala",
     "t": "normal",
-    "d": 16,
+    "d": 17,
     "lvl": 15
-   },
-   {
-    "n": "Respiro",
-    "t": "normal",
-    "d": 10,
-    "lvl": 17
    }
   ]
  },
@@ -666,37 +618,37 @@ const FORMAS = {
    {
     "n": "Tornado",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Placaje",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Rapido",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Aereo",
     "t": "normal",
-    "d": 20,
+    "d": 40,
     "lvl": 1
    },
    {
     "n": "Onda Igníea",
     "t": "fuego",
-    "d": 10,
+    "d": 27,
     "lvl": 1
    },
    {
     "n": "Vendaval",
     "t": "normal",
-    "d": 20,
+    "d": 31,
     "lvl": 1
    }
   ]
@@ -711,31 +663,31 @@ const FORMAS = {
    {
     "n": "Placaje",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Rapido",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 4
    },
    {
     "n": "Mordisco",
     "t": "normal",
-    "d": 16,
+    "d": 17,
     "lvl": 10
    },
    {
     "n": "Hipercolmillo",
     "t": "normal",
-    "d": 20,
+    "d": 23,
     "lvl": 13
    },
    {
     "n": "Pursuit",
     "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 13
    }
   ]
@@ -750,25 +702,19 @@ const FORMAS = {
    {
     "n": "Placaje",
     "t": "normal",
-    "d": 12,
-    "lvl": 1
-   },
-   {
-    "n": "Counter",
-    "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Rapido",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Garra Furia",
     "t": "normal",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    }
   ]
@@ -783,31 +729,31 @@ const FORMAS = {
    {
     "n": "Picotazo",
     "t": "normal",
-    "d": 12,
+    "d": 10,
     "lvl": 1
    },
    {
     "n": "Pursuit",
     "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 8
    },
    {
     "n": "Assurance",
     "t": "normal",
-    "d": 10,
+    "d": 17,
     "lvl": 8
    },
    {
     "n": "Ataque Furia",
     "t": "normal",
-    "d": 10,
+    "d": 8,
     "lvl": 9
    },
    {
     "n": "Golpe Aereo",
     "t": "normal",
-    "d": 10,
+    "d": 17,
     "lvl": 15
    }
   ]
@@ -822,31 +768,31 @@ const FORMAS = {
    {
     "n": "Ataque Furia",
     "t": "normal",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Picotazo",
     "t": "normal",
-    "d": 12,
+    "d": 10,
     "lvl": 1
    },
    {
     "n": "Ataque Rapido",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Aereo",
     "t": "normal",
-    "d": 20,
+    "d": 40,
     "lvl": 1
    },
    {
     "n": "Pursuit",
     "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 1
    }
   ]
@@ -860,26 +806,26 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Constriccion",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Picotazo Veneno",
     "t": "planta",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Acido",
     "t": "planta",
-    "d": 12,
+    "d": 11,
     "lvl": 8
    },
    {
     "n": "Mordisco",
-    "t": "planta",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 9
    }
   ]
@@ -893,38 +839,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Constriccion",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Picotazo Veneno",
     "t": "planta",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Mordisco",
-    "t": "planta",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 1
    },
    {
     "n": "Acido",
     "t": "planta",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Triturar",
-    "t": "planta",
-    "d": 16,
+    "t": "normal",
+    "d": 23,
     "lvl": 1
    },
    {
     "n": "Sucker Punch",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 20,
     "lvl": 1
    }
   ]
@@ -939,37 +885,37 @@ const FORMAS = {
    {
     "n": "Arañazo",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Picotazo Veneno",
-    "t": "normal",
-    "d": 10,
+    "t": "planta",
+    "d": 8,
     "lvl": 3
    },
    {
     "n": "Rodar",
     "t": "normal",
-    "d": 10,
+    "d": 9,
     "lvl": 7
    },
    {
     "n": "Giro Rapido",
     "t": "normal",
-    "d": 10,
+    "d": 14,
     "lvl": 9
    },
    {
     "n": "Ataque Rapido",
     "t": "normal",
-    "d": 10,
+    "d": 17,
     "lvl": 11
    },
    {
     "n": "Fury Cutter",
-    "t": "normal",
-    "d": 10,
+    "t": "planta",
+    "d": 11,
     "lvl": 11
    }
   ]
@@ -984,31 +930,25 @@ const FORMAS = {
    {
     "n": "Arañazo",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Picotazo Veneno",
-    "t": "normal",
-    "d": 10,
-    "lvl": 1
-   },
-   {
-    "n": "Counter",
-    "t": "normal",
-    "d": 10,
+    "t": "planta",
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Garra Brutal",
     "t": "normal",
-    "d": 10,
+    "d": 21,
     "lvl": 1
    },
    {
     "n": "Rodar",
     "t": "normal",
-    "d": 10,
+    "d": 9,
     "lvl": 7
    }
   ]
@@ -1022,20 +962,20 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Placaje",
-    "t": "fuego",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ascuas",
     "t": "fuego",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Rapido",
-    "t": "fuego",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 5
    }
   ]
@@ -1049,20 +989,20 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Placaje",
-    "t": "fuego",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ascuas",
     "t": "fuego",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Lanzallamas",
     "t": "fuego",
-    "d": 20,
+    "d": 26,
     "lvl": 1
    },
    {
@@ -1082,38 +1022,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Tornado",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Absorber",
     "t": "planta",
-    "d": 12,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Chupavidas",
     "t": "planta",
-    "d": 10,
+    "d": 23,
     "lvl": 1
    },
    {
     "n": "Ataque Ala",
-    "t": "planta",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 4
    },
    {
     "n": "Astonish",
-    "t": "planta",
-    "d": 10,
+    "t": "electrico",
+    "d": 9,
     "lvl": 5
    },
    {
     "n": "Mordisco",
-    "t": "planta",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 9
    }
   ]
@@ -1127,32 +1067,32 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Tornado",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Ala",
-    "t": "planta",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 1
    },
    {
     "n": "Mordisco",
-    "t": "planta",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 1
    },
    {
     "n": "Absorber",
     "t": "planta",
-    "d": 12,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Ataque Rapido",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    }
   ]
@@ -1166,26 +1106,26 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Tornado",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Mordisco",
-    "t": "planta",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 1
    },
    {
     "n": "Absorber",
     "t": "planta",
-    "d": 12,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Chupavidas",
     "t": "planta",
-    "d": 10,
+    "d": 23,
     "lvl": 1
    }
   ]
@@ -1200,19 +1140,19 @@ const FORMAS = {
    {
     "n": "Absorber",
     "t": "planta",
-    "d": 12,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Acido",
     "t": "planta",
-    "d": 12,
+    "d": 11,
     "lvl": 4
    },
    {
     "n": "Megaagotar",
-    "t": "agua",
-    "d": 16,
+    "t": "planta",
+    "d": 11,
     "lvl": 12
    }
   ]
@@ -1227,19 +1167,19 @@ const FORMAS = {
    {
     "n": "Acido",
     "t": "planta",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Absorber",
     "t": "planta",
-    "d": 12,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Megaagotar",
-    "t": "agua",
-    "d": 16,
+    "t": "planta",
+    "d": 11,
     "lvl": 12
    }
   ]
@@ -1254,25 +1194,25 @@ const FORMAS = {
    {
     "n": "Acido",
     "t": "planta",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Absorber",
     "t": "planta",
-    "d": 12,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Megaagotar",
-    "t": "agua",
-    "d": 16,
+    "t": "planta",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Rayo Solar",
     "t": "planta",
-    "d": 20,
+    "d": 34,
     "lvl": 1
    }
   ]
@@ -1286,26 +1226,26 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Arañazo",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Absorber",
     "t": "planta",
-    "d": 12,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Chupavidas",
     "t": "planta",
-    "d": 10,
+    "d": 23,
     "lvl": 11
    },
    {
     "n": "Garra Furia",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 15
    }
   ]
@@ -1319,26 +1259,20 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Arañazo",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Absorber",
     "t": "planta",
-    "d": 12,
-    "lvl": 1
-   },
-   {
-    "n": "Drenadoras",
-    "t": "planta",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Chupavidas",
     "t": "planta",
-    "d": 10,
+    "d": 23,
     "lvl": 1
    }
   ]
@@ -1353,25 +1287,25 @@ const FORMAS = {
    {
     "n": "Arañazo",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Astonish",
-    "t": "normal",
-    "d": 10,
+    "t": "electrico",
+    "d": 9,
     "lvl": 7
    },
    {
-    "n": "Magnitude",
+    "n": "Mud Slap",
     "t": "normal",
-    "d": 10,
-    "lvl": 9
+    "d": 8,
+    "lvl": 10
    },
    {
     "n": "Garra Furia",
     "t": "normal",
-    "d": 10,
+    "d": 8,
     "lvl": 15
    }
   ]
@@ -1386,25 +1320,19 @@ const FORMAS = {
    {
     "n": "Arañazo",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Excavar",
     "t": "normal",
-    "d": 16,
+    "d": 23,
     "lvl": 1
    },
    {
     "n": "Tri Attack",
     "t": "normal",
-    "d": 10,
-    "lvl": 1
-   },
-   {
-    "n": "Magnitude",
-    "t": "normal",
-    "d": 10,
+    "d": 23,
     "lvl": 1
    }
   ]
@@ -1419,37 +1347,37 @@ const FORMAS = {
    {
     "n": "Arañazo",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Mordisco",
     "t": "normal",
-    "d": 16,
+    "d": 17,
     "lvl": 1
    },
    {
     "n": "Fake Out",
     "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Feint",
     "t": "normal",
-    "d": 10,
+    "d": 9,
     "lvl": 4
    },
    {
     "n": "Pay Day",
     "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 12
    },
    {
     "n": "Garra Furia",
     "t": "normal",
-    "d": 10,
+    "d": 8,
     "lvl": 14
    }
   ]
@@ -1464,25 +1392,25 @@ const FORMAS = {
    {
     "n": "Arañazo",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Mordisco",
     "t": "normal",
-    "d": 16,
+    "d": 17,
     "lvl": 1
    },
    {
     "n": "Ataque Rapido",
     "t": "normal",
-    "d": 10,
+    "d": 17,
     "lvl": 1
    },
    {
     "n": "Fake Out",
     "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 1
    }
   ]
@@ -1496,32 +1424,32 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Arañazo",
-    "t": "agua",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Burbuja",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Pistola Agua",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 3
    },
    {
     "n": "Confusion",
-    "t": "agua",
-    "d": 10,
+    "t": "electrico",
+    "d": 14,
     "lvl": 6
    },
    {
     "n": "Garra Furia",
-    "t": "agua",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 9
    }
   ]
@@ -1535,26 +1463,26 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Arañazo",
-    "t": "agua",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Pistola Agua",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Confusion",
-    "t": "agua",
-    "d": 10,
+    "t": "electrico",
+    "d": 14,
     "lvl": 1
    },
    {
     "n": "Burbuja",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    }
   ]
@@ -1569,31 +1497,31 @@ const FORMAS = {
    {
     "n": "Arañazo",
     "t": "normal",
-    "d": 12,
-    "lvl": 1
-   },
-   {
-    "n": "Patada Baja",
-    "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Covet",
     "t": "normal",
-    "d": 10,
+    "d": 17,
     "lvl": 1
    },
    {
     "n": "Garra Furia",
     "t": "normal",
-    "d": 10,
+    "d": 8,
     "lvl": 5
    },
    {
     "n": "Golpe Karate",
     "t": "normal",
-    "d": 10,
+    "d": 14,
+    "lvl": 8
+   },
+   {
+    "n": "Mud Slap",
+    "t": "normal",
+    "d": 8,
     "lvl": 8
    }
   ]
@@ -1608,31 +1536,25 @@ const FORMAS = {
    {
     "n": "Golpe Karate",
     "t": "normal",
-    "d": 10,
+    "d": 14,
     "lvl": 1
    },
    {
     "n": "Arañazo",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
-    "n": "Patada Baja",
+    "n": "Rage",
     "t": "normal",
-    "d": 10,
-    "lvl": 1
-   },
-   {
-    "n": "Counter",
-    "t": "normal",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Garra Furia",
     "t": "normal",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    }
   ]
@@ -1647,38 +1569,14 @@ const FORMAS = {
    {
     "n": "Arañazo",
     "t": "normal",
-    "d": 12,
-    "lvl": 1
-   },
-   {
-    "n": "Counter",
-    "t": "normal",
-    "d": 10,
-    "lvl": 1
-   },
-   {
-    "n": "Fling",
-    "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Garra Furia",
     "t": "normal",
-    "d": 10,
+    "d": 8,
     "lvl": 5
-   },
-   {
-    "n": "Patada Baja",
-    "t": "normal",
-    "d": 10,
-    "lvl": 8
-   },
-   {
-    "n": "Mov. Sismico",
-    "t": "normal",
-    "d": 16,
-    "lvl": 12
    }
   ]
  },
@@ -1691,20 +1589,20 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Mordisco",
-    "t": "fuego",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 1
    },
    {
     "n": "Ascuas",
     "t": "fuego",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Rueda Fuego",
     "t": "fuego",
-    "d": 10,
+    "d": 17,
     "lvl": 12
    }
   ]
@@ -1718,32 +1616,32 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Derribo",
-    "t": "fuego",
-    "d": 20,
+    "t": "normal",
+    "d": 26,
     "lvl": 1
    },
    {
     "n": "Doble Filo",
-    "t": "fuego",
-    "d": 20,
+    "t": "normal",
+    "d": 34,
     "lvl": 1
    },
    {
     "n": "Mordisco",
-    "t": "fuego",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 1
    },
    {
     "n": "Ascuas",
     "t": "fuego",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Lanzallamas",
     "t": "fuego",
-    "d": 20,
+    "d": 26,
     "lvl": 1
    }
   ]
@@ -1758,37 +1656,37 @@ const FORMAS = {
    {
     "n": "Pistola Agua",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Burbuja",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Destructor",
-    "t": "agua",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 4
    },
    {
     "n": "Disparo Lodo",
-    "t": "agua",
-    "d": 10,
+    "t": "normal",
+    "d": 16,
     "lvl": 12
    },
    {
     "n": "Double Slap",
-    "t": "agua",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 15
    },
    {
     "n": "Rayo Burbuja",
     "t": "agua",
-    "d": 16,
+    "d": 19,
     "lvl": 18
    }
   ]
@@ -1802,38 +1700,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Destructor",
-    "t": "agua",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Pistola Agua",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Burbuja",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Disparo Lodo",
-    "t": "agua",
-    "d": 10,
+    "t": "normal",
+    "d": 16,
     "lvl": 1
    },
    {
     "n": "Double Slap",
-    "t": "agua",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 15
    },
    {
     "n": "Rayo Burbuja",
     "t": "agua",
-    "d": 16,
+    "d": 19,
     "lvl": 18
    }
   ]
@@ -1847,38 +1745,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Destructor",
-    "t": "agua",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Double Slap",
-    "t": "agua",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Golpe Cuerpo",
-    "t": "agua",
-    "d": 16,
+    "t": "normal",
+    "d": 24,
     "lvl": 1
    },
    {
     "n": "Doble Filo",
-    "t": "agua",
-    "d": 20,
+    "t": "normal",
+    "d": 34,
     "lvl": 1
    },
    {
     "n": "Pistola Agua",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Hidrobomba",
     "t": "agua",
-    "d": 20,
+    "d": 31,
     "lvl": 1
    }
   ]
@@ -1908,13 +1806,13 @@ const FORMAS = {
    {
     "n": "Psicorrayo",
     "t": "electrico",
-    "d": 16,
+    "d": 19,
     "lvl": 1
    },
    {
     "n": "Confusion",
     "t": "electrico",
-    "d": 10,
+    "d": 14,
     "lvl": 1
    }
   ]
@@ -1929,13 +1827,13 @@ const FORMAS = {
    {
     "n": "Psicorrayo",
     "t": "electrico",
-    "d": 16,
+    "d": 19,
     "lvl": 1
    },
    {
     "n": "Confusion",
     "t": "electrico",
-    "d": 10,
+    "d": 14,
     "lvl": 1
    }
   ]
@@ -1950,31 +1848,25 @@ const FORMAS = {
    {
     "n": "Golpe Karate",
     "t": "normal",
-    "d": 10,
+    "d": 14,
     "lvl": 1
    },
    {
     "n": "Placaje",
     "t": "normal",
-    "d": 12,
-    "lvl": 1
-   },
-   {
-    "n": "Patada Baja",
-    "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Golpe Roca",
     "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 6
    },
    {
     "n": "Revenge",
     "t": "normal",
-    "d": 10,
+    "d": 17,
     "lvl": 8
    }
   ]
@@ -1989,31 +1881,25 @@ const FORMAS = {
    {
     "n": "Golpe Karate",
     "t": "normal",
-    "d": 10,
+    "d": 14,
     "lvl": 1
    },
    {
     "n": "Placaje",
     "t": "normal",
-    "d": 12,
-    "lvl": 1
-   },
-   {
-    "n": "Patada Baja",
-    "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Revenge",
     "t": "normal",
-    "d": 10,
+    "d": 17,
     "lvl": 1
    },
    {
     "n": "Golpe Roca",
     "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 6
    }
   ]
@@ -2028,31 +1914,19 @@ const FORMAS = {
    {
     "n": "Golpe Karate",
     "t": "normal",
-    "d": 10,
+    "d": 14,
     "lvl": 1
    },
    {
     "n": "Placaje",
     "t": "normal",
-    "d": 12,
-    "lvl": 1
-   },
-   {
-    "n": "Patada Baja",
-    "t": "normal",
-    "d": 10,
-    "lvl": 1
-   },
-   {
-    "n": "Counter",
-    "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Fuerza",
     "t": "normal",
-    "d": 16,
+    "d": 23,
     "lvl": 1
    }
   ]
@@ -2067,25 +1941,25 @@ const FORMAS = {
    {
     "n": "Latigo Cepa",
     "t": "planta",
-    "d": 12,
+    "d": 13,
     "lvl": 1
    },
    {
     "n": "Constriccion",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 8
    },
    {
     "n": "Acido",
     "t": "planta",
-    "d": 12,
+    "d": 11,
     "lvl": 12
    },
    {
     "n": "Hoja Afilada",
     "t": "planta",
-    "d": 10,
+    "d": 16,
     "lvl": 22
    }
   ]
@@ -2100,25 +1974,25 @@ const FORMAS = {
    {
     "n": "Latigo Cepa",
     "t": "planta",
-    "d": 12,
+    "d": 13,
     "lvl": 1
    },
    {
     "n": "Constriccion",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Acido",
     "t": "planta",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Hoja Afilada",
     "t": "planta",
-    "d": 10,
+    "d": 16,
     "lvl": 27
    }
   ]
@@ -2132,32 +2006,32 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Atizar",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 23,
     "lvl": 1
    },
    {
     "n": "Latigo Cepa",
     "t": "planta",
-    "d": 12,
+    "d": 13,
     "lvl": 1
    },
    {
     "n": "Constriccion",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Acido",
     "t": "planta",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Hoja Afilada",
     "t": "planta",
-    "d": 10,
+    "d": 16,
     "lvl": 1
    }
   ]
@@ -2171,38 +2045,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Picotazo Veneno",
-    "t": "agua",
-    "d": 10,
+    "t": "planta",
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Acido",
-    "t": "agua",
-    "d": 12,
+    "t": "planta",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Pistola Agua",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Constrict",
-    "t": "agua",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 4
    },
    {
     "n": "Burbuja",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 6
    },
    {
     "n": "Constriccion",
-    "t": "agua",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 8
    }
   ]
@@ -2216,38 +2090,32 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Constriccion",
-    "t": "agua",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Picotazo Veneno",
-    "t": "agua",
-    "d": 10,
+    "t": "planta",
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Acido",
-    "t": "agua",
-    "d": 12,
+    "t": "planta",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Pistola Agua",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Constrict",
-    "t": "agua",
-    "d": 10,
-    "lvl": 1
-   },
-   {
-    "n": "Mirror Coat",
-    "t": "agua",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 1
    }
   ]
@@ -2262,20 +2130,14 @@ const FORMAS = {
    {
     "n": "Placaje",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Rodar",
     "t": "normal",
-    "d": 10,
+    "d": 9,
     "lvl": 1
-   },
-   {
-    "n": "Sandstorm",
-    "t": "normal",
-    "d": 10,
-    "lvl": 4
    }
   ]
  },
@@ -2289,19 +2151,19 @@ const FORMAS = {
    {
     "n": "Placaje",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Lanzarrocas",
     "t": "normal",
-    "d": 10,
+    "d": 14,
     "lvl": 1
    },
    {
     "n": "Rodar",
     "t": "normal",
-    "d": 10,
+    "d": 9,
     "lvl": 1
    }
   ]
@@ -2316,31 +2178,25 @@ const FORMAS = {
    {
     "n": "Megapuño",
     "t": "normal",
-    "d": 16,
+    "d": 23,
     "lvl": 1
    },
    {
     "n": "Placaje",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Lanzarrocas",
     "t": "normal",
-    "d": 10,
+    "d": 14,
     "lvl": 1
    },
    {
     "n": "Rodar",
     "t": "normal",
-    "d": 10,
-    "lvl": 1
-   },
-   {
-    "n": "Magnitude",
-    "t": "normal",
-    "d": 10,
+    "d": 9,
     "lvl": 1
    }
   ]
@@ -2354,38 +2210,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Placaje",
-    "t": "fuego",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ascuas",
     "t": "fuego",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ataque Rapido",
-    "t": "fuego",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Double Hit",
-    "t": "fuego",
+    "t": "normal",
     "d": 10,
     "lvl": 9
    },
    {
     "n": "Rueda Fuego",
     "t": "fuego",
-    "d": 10,
+    "d": 17,
     "lvl": 13
    },
    {
     "n": "Doble Patada",
-    "t": "fuego",
-    "d": 10,
+    "t": "normal",
+    "d": 9,
     "lvl": 15
    }
   ]
@@ -2399,32 +2255,26 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Pisoton",
-    "t": "fuego",
-    "d": 16,
+    "t": "normal",
+    "d": 19,
     "lvl": 1
    },
    {
     "n": "Ataque Furia",
-    "t": "fuego",
-    "d": 10,
-    "lvl": 1
-   },
-   {
-    "n": "Horn Drill",
-    "t": "fuego",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Placaje",
-    "t": "fuego",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Ascuas",
     "t": "fuego",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    }
   ]
@@ -2438,32 +2288,26 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Placaje",
-    "t": "agua",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Confusion",
-    "t": "agua",
-    "d": 10,
-    "lvl": 1
-   },
-   {
-    "n": "Curse",
-    "t": "agua",
-    "d": 10,
+    "t": "electrico",
+    "d": 14,
     "lvl": 1
    },
    {
     "n": "Pistola Agua",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 6
    },
    {
     "n": "Hidropulso",
     "t": "agua",
-    "d": 10,
+    "d": 17,
     "lvl": 18
    }
   ]
@@ -2477,32 +2321,32 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Pisoton",
-    "t": "agua",
-    "d": 16,
+    "t": "normal",
+    "d": 19,
     "lvl": 1
    },
    {
     "n": "Golpe Cabeza",
-    "t": "agua",
-    "d": 16,
+    "t": "normal",
+    "d": 20,
     "lvl": 1
    },
    {
     "n": "Placaje",
-    "t": "agua",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Pistola Agua",
     "t": "agua",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Confusion",
-    "t": "agua",
-    "d": 10,
+    "t": "electrico",
+    "d": 14,
     "lvl": 1
    }
   ]
@@ -2516,33 +2360,21 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Placaje",
-    "t": "electrico",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Impactrueno",
     "t": "electrico",
-    "d": 20,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Bomba Iman",
-    "t": "electrico",
-    "d": 10,
+    "t": "normal",
+    "d": 17,
     "lvl": 7
-   },
-   {
-    "n": "Sonic Boom",
-    "t": "electrico",
-    "d": 10,
-    "lvl": 11
-   },
-   {
-    "n": "Electrobola",
-    "t": "electrico",
-    "d": 10,
-    "lvl": 12
    }
   ]
  },
@@ -2555,32 +2387,26 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Placaje",
-    "t": "electrico",
-    "d": 12,
-    "lvl": 1
-   },
-   {
-    "n": "Sonic Boom",
-    "t": "electrico",
-    "d": 10,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Impactrueno",
     "t": "electrico",
-    "d": 20,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Tri Attack",
-    "t": "electrico",
-    "d": 10,
+    "t": "normal",
+    "d": 23,
     "lvl": 1
    },
    {
     "n": "Electrocañon",
     "t": "electrico",
-    "d": 20,
+    "d": 34,
     "lvl": 1
    }
   ]
@@ -2594,32 +2420,26 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Placaje",
-    "t": "electrico",
-    "d": 12,
-    "lvl": 1
-   },
-   {
-    "n": "Sonic Boom",
-    "t": "electrico",
-    "d": 10,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Impactrueno",
     "t": "electrico",
-    "d": 20,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Tri Attack",
-    "t": "electrico",
-    "d": 10,
+    "t": "normal",
+    "d": 23,
     "lvl": 1
    },
    {
     "n": "Electrocañon",
     "t": "electrico",
-    "d": 20,
+    "d": 34,
     "lvl": 1
    }
   ]
@@ -2632,27 +2452,21 @@ const FORMAS = {
   "hp": 26,
   "learnset": [
    {
-    "n": "Tinieblas",
-    "t": "electrico",
-    "d": 10,
-    "lvl": 1
-   },
-   {
     "n": "Lengüetazo",
     "t": "electrico",
-    "d": 10,
+    "d": 9,
     "lvl": 1
    },
    {
     "n": "Polucion",
-    "t": "fuego",
-    "d": 10,
+    "t": "planta",
+    "d": 9,
     "lvl": 1
    },
    {
     "n": "Astonish",
     "t": "electrico",
-    "d": 10,
+    "d": 9,
     "lvl": 1
    }
   ]
@@ -2665,27 +2479,21 @@ const FORMAS = {
   "hp": 35,
   "learnset": [
    {
-    "n": "Tinieblas",
-    "t": "electrico",
-    "d": 10,
-    "lvl": 1
-   },
-   {
     "n": "Lengüetazo",
     "t": "electrico",
-    "d": 10,
+    "d": 9,
     "lvl": 1
    },
    {
     "n": "Polucion",
-    "t": "fuego",
-    "d": 10,
+    "t": "planta",
+    "d": 9,
     "lvl": 1
    },
    {
     "n": "Astonish",
     "t": "electrico",
-    "d": 10,
+    "d": 9,
     "lvl": 1
    }
   ]
@@ -2698,21 +2506,15 @@ const FORMAS = {
   "hp": 44,
   "learnset": [
    {
-    "n": "Tinieblas",
-    "t": "electrico",
-    "d": 10,
-    "lvl": 1
-   },
-   {
     "n": "Lengüetazo",
     "t": "electrico",
-    "d": 10,
+    "d": 9,
     "lvl": 1
    },
    {
     "n": "Polucion",
-    "t": "fuego",
-    "d": 10,
+    "t": "planta",
+    "d": 9,
     "lvl": 1
    }
   ]
@@ -2727,32 +2529,26 @@ const FORMAS = {
    {
     "n": "Atadura",
     "t": "normal",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Placaje",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Lanzarrocas",
     "t": "normal",
-    "d": 10,
+    "d": 14,
     "lvl": 1
    },
    {
     "n": "Rodar",
     "t": "normal",
-    "d": 10,
+    "d": 9,
     "lvl": 1
-   },
-   {
-    "n": "Curse",
-    "t": "normal",
-    "d": 10,
-    "lvl": 4
    }
   ]
  },
@@ -2766,31 +2562,31 @@ const FORMAS = {
    {
     "n": "Atadura",
     "t": "normal",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Placaje",
     "t": "normal",
-    "d": 12,
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Lanzarrocas",
     "t": "normal",
-    "d": 10,
+    "d": 14,
     "lvl": 1
    },
    {
     "n": "Rodar",
     "t": "normal",
-    "d": 10,
+    "d": 9,
     "lvl": 1
    },
    {
     "n": "Triturar",
     "t": "normal",
-    "d": 16,
+    "d": 23,
     "lvl": 1
    }
   ]
@@ -2805,25 +2601,31 @@ const FORMAS = {
    {
     "n": "Bone Club",
     "t": "normal",
-    "d": 10,
+    "d": 19,
+    "lvl": 1
+   },
+   {
+    "n": "Mud Slap",
+    "t": "normal",
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "False Swipe",
     "t": "normal",
-    "d": 10,
+    "d": 11,
     "lvl": 8
    },
    {
     "n": "Golpe Cabeza",
     "t": "normal",
-    "d": 16,
+    "d": 20,
     "lvl": 11
    },
    {
     "n": "Retaliate",
     "t": "normal",
-    "d": 10,
+    "d": 20,
     "lvl": 16
    }
   ]
@@ -2838,13 +2640,13 @@ const FORMAS = {
    {
     "n": "Golpe Cabeza",
     "t": "normal",
-    "d": 16,
+    "d": 20,
     "lvl": 1
    },
    {
     "n": "Bone Club",
     "t": "normal",
-    "d": 10,
+    "d": 19,
     "lvl": 1
    }
   ]
@@ -2858,38 +2660,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Arañazo",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Placaje",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Picotazo Veneno",
     "t": "planta",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Doble Patada",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 9,
     "lvl": 9
    },
    {
     "n": "Mordisco",
-    "t": "planta",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 12
    },
    {
     "n": "Garra Furia",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 15
    }
   ]
@@ -2903,38 +2705,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Arañazo",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Placaje",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Picotazo Veneno",
     "t": "planta",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Doble Patada",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 9,
     "lvl": 9
    },
    {
     "n": "Mordisco",
-    "t": "planta",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 12
    },
    {
     "n": "Garra Furia",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 15
    }
   ]
@@ -2948,38 +2750,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Arañazo",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Doble Patada",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 9,
     "lvl": 1
    },
    {
     "n": "Placaje",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Golpe Cuerpo",
-    "t": "planta",
-    "d": 16,
+    "t": "normal",
+    "d": 24,
     "lvl": 1
    },
    {
     "n": "Picotazo Veneno",
     "t": "planta",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Mordisco",
-    "t": "planta",
-    "d": 16,
+    "t": "normal",
+    "d": 17,
     "lvl": 1
    }
   ]
@@ -2993,38 +2795,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Placaje",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Picotazo Veneno",
     "t": "planta",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Picotazo",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 10,
     "lvl": 1
    },
    {
     "n": "Cornada",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 19,
     "lvl": 8
    },
    {
     "n": "Doble Patada",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 9,
     "lvl": 9
    },
    {
     "n": "Ataque Furia",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 15
    }
   ]
@@ -3038,38 +2840,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Cornada",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 19,
     "lvl": 1
    },
    {
     "n": "Placaje",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Picotazo Veneno",
     "t": "planta",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Picotazo",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 10,
     "lvl": 1
    },
    {
     "n": "Doble Patada",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 9,
     "lvl": 9
    },
    {
     "n": "Ataque Furia",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 15
    }
   ]
@@ -3083,38 +2885,38 @@ const FORMAS = {
   "learnset": [
    {
     "n": "Doble Patada",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 9,
     "lvl": 1
    },
    {
     "n": "Cornada",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 19,
     "lvl": 1
    },
    {
     "n": "Ataque Furia",
-    "t": "planta",
-    "d": 10,
+    "t": "normal",
+    "d": 8,
     "lvl": 1
    },
    {
     "n": "Placaje",
-    "t": "planta",
-    "d": 12,
+    "t": "normal",
+    "d": 11,
     "lvl": 1
    },
    {
     "n": "Thrash",
-    "t": "planta",
-    "d": 20,
+    "t": "normal",
+    "d": 34,
     "lvl": 1
    },
    {
     "n": "Picotazo Veneno",
     "t": "planta",
-    "d": 10,
+    "d": 8,
     "lvl": 1
    }
   ]
@@ -3377,9 +3179,14 @@ function tarjeta(key) {
 function nuevoLuchador(key, nivel) {
   const f = FORMAS[key];
   const maxHp = f.hp + (nivel - 1) * PS_POR_NIVEL;
-  // Ataque inicial flojo del propio tipo.
-  const ini = { n: "Golpe", t: f.type, d: 6 };
-  return { key, name: f.name, sprite: f.sprite, type: f.type, hp: maxHp, maxHp, level: nivel, moves: [ini], learn: f.learnset.map((m)=>({...m})) };
+  const learn = f.learnset.map((m) => ({ ...m }));
+  // Movimientos iniciales: los que ya se aprenderian a nivel <= nivel de inicio (hasta 4).
+  const moves = [];
+  learn.forEach((m) => {
+    if (m.lvl <= nivel && moves.length < 4) { moves.push({ n: m.n, t: m.t, d: m.d }); m._dado = true; }
+  });
+  if (!moves.length) moves.push({ n: "Golpe", t: f.type, d: 8 }); // red de seguridad
+  return { key, name: f.name, sprite: f.sprite, type: f.type, hp: maxHp, maxHp, level: nivel, moves, learn };
 }
 
 function empezar(key) {
@@ -3451,11 +3258,12 @@ function dano(mov, defensor) {
   return { valor: Math.round(mov.d * mult * varia), mult };
 }
 
-// Devuelve movimientos del learnset cuyo nivel se alcanza ahora y aun no se dieron.
+// Devuelve movimientos del learnset cuyo nivel es EXACTAMENTE el nivel actual.
+// Asi, al llegar a nivel 16 solo aprendes el de nivel 16, no los anteriores.
 function movsNuevos() {
   const out = [];
   me.learn.forEach((m) => {
-    if (m.lvl <= me.level && !m._dado) { m._dado = true; out.push(m); }
+    if (m.lvl === me.level && !m._dado) { m._dado = true; out.push(m); }
   });
   return out;
 }

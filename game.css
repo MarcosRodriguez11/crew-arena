@@ -126,12 +126,12 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
 .moves button:hover { filter: brightness(1.15); }
 .moves button:disabled { opacity: .45; cursor: default; }
 
-/* Colores por tipo de ataque (botones y texto) */
-.m-fuego     { background: #e8703a !important; }
-.m-agua      { background: #4f8cff !important; }
-.m-planta    { background: #4caf6a !important; }
-.m-electrico { background: #e0a800 !important; }
-.m-normal    { background: #6b7280 !important; }
+/* Color por tipo: borde del color del tipo, fondo del mismo color pero mas oscuro/claro. */
+.m-fuego     { border-color: #ff8a5c !important; background: #3a241c !important; color: #ffd9c9 !important; }
+.m-agua      { border-color: #7cc3ff !important; background: #1b2c40 !important; color: #d6ecff !important; }
+.m-planta    { border-color: #7fe39a !important; background: #1c3326 !important; color: #d6ffe4 !important; }
+.m-electrico { border-color: #ffe066 !important; background: #3a3415 !important; color: #fff6cc !important; }
+.m-normal    { border-color: #cfd3da !important; background: #2a2e36 !important; color: #eef1f6 !important; }
 
 .log { margin-top: 16px; min-height: 3.4em; font-size: .56rem; color: #d7dbe3; }
 .log .t-fuego { color: #ff8a5c; }
