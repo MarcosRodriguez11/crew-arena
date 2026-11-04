@@ -208,3 +208,5 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
 .m-siniestro { border-color: #9a8f82 !important; background: #26231e !important; color: #efe9df !important; }
 .m-acero     { border-color: #b8c3cf !important; background: #22272c !important; color: #e8eef4 !important; }
 .m-hada      { border-color: #ff9ed6 !important; background: #3a1c30 !important; color: #ffdcf1 !important; }
+
+.tsep { color: #8a93a3; }

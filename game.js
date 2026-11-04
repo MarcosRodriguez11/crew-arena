@@ -3220,6 +3220,7 @@ const CURA_POR_NIVEL = 4;
 
 const COLOR_TIPO = {"normal":"#cfd3da","fuego":"#ff8a5c","agua":"#7cc3ff","planta":"#7fe39a","electrico":"#ffe066","hielo":"#8fe0e0","lucha":"#e8705a","veneno":"#b366d9","tierra":"#e2c879","volador":"#a7c6ff","psiquico":"#ff7fa8","bicho":"#b3c647","roca":"#c9b680","fantasma":"#9a86d4","dragon":"#8a7cff","siniestro":"#9a8f82","acero":"#b8c3cf","hada":"#ff9ed6"};
 
+function tipoHTML(real){return String(real||"normal").split("\u00b7").map(function(t){t=t.trim();return '<span class="t-'+t+'">'+t+'</span>';}).join('<span class="tsep"> \u00b7 </span>');}
 function flash(lado, tipo) {
   const el = document.querySelector(".fighter." + lado);
   if (!el) return;
