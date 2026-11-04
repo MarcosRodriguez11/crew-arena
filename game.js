@@ -3296,6 +3296,7 @@ function rivalAleatorio() {
 function nuevaRonda() {
   foe = rivalAleatorio();
   me.hp = me.maxHp;
+  turnos = 1;
   $("turno").textContent = turnos;
   log(`\u00a1Un ${foe.name} salvaje aparece!`);
   pintar(); pintarMoves(true);
