@@ -207,34 +207,6 @@ const FORMAS = {
     "type": "normal",
     "hp": 53
   },
-  "nidorina": {
-    "name": "Nidorina",
-    "id": 30,
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
-    "type": "planta",
-    "hp": 50
-  },
-  "nidoqueen": {
-    "name": "Nidoqueen",
-    "id": 31,
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/31.png",
-    "type": "planta",
-    "hp": 62
-  },
-  "nidorino": {
-    "name": "Nidorino",
-    "id": 33,
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/33.png",
-    "type": "planta",
-    "hp": 45
-  },
-  "nidoking": {
-    "name": "Nidoking",
-    "id": 34,
-    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/34.png",
-    "type": "planta",
-    "hp": 57
-  },
   "vulpix": {
     "name": "Vulpix",
     "id": 37,
@@ -262,6 +234,13 @@ const FORMAS = {
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/42.png",
     "type": "planta",
     "hp": 53
+  },
+  "crobat": {
+    "name": "Crobat",
+    "id": 169,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/169.png",
+    "type": "planta",
+    "hp": 59
   },
   "oddish": {
     "name": "Oddish",
@@ -353,6 +332,13 @@ const FORMAS = {
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/57.png",
     "type": "normal",
     "hp": 47
+  },
+  "annihilape": {
+    "name": "Annihilape",
+    "id": 979,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/979.png",
+    "type": "normal",
+    "hp": 74
   },
   "growlithe": {
     "name": "Growlithe",
@@ -529,6 +515,13 @@ const FORMAS = {
     "type": "electrico",
     "hp": 38
   },
+  "magnezone": {
+    "name": "Magnezone",
+    "id": 462,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/462.png",
+    "type": "electrico",
+    "hp": 50
+  },
   "gastly": {
     "name": "Gastly",
     "id": 92,
@@ -557,6 +550,13 @@ const FORMAS = {
     "type": "normal",
     "hp": 29
   },
+  "steelix": {
+    "name": "Steelix",
+    "id": 208,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/208.png",
+    "type": "normal",
+    "hp": 53
+  },
   "cubone": {
     "name": "Cubone",
     "id": 104,
@@ -570,199 +570,265 @@ const FORMAS = {
     "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/105.png",
     "type": "normal",
     "hp": 44
+  },
+  "nidoran-f": {
+    "name": "Nidoran-f",
+    "id": 29,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/29.png",
+    "type": "planta",
+    "hp": 41
+  },
+  "nidorina": {
+    "name": "Nidorina",
+    "id": 30,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
+    "type": "planta",
+    "hp": 50
+  },
+  "nidoqueen": {
+    "name": "Nidoqueen",
+    "id": 31,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/31.png",
+    "type": "planta",
+    "hp": 62
+  },
+  "nidoran-m": {
+    "name": "Nidoran-m",
+    "id": 32,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/32.png",
+    "type": "planta",
+    "hp": 36
+  },
+  "nidorino": {
+    "name": "Nidorino",
+    "id": 33,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/33.png",
+    "type": "planta",
+    "hp": 45
+  },
+  "nidoking": {
+    "name": "Nidoking",
+    "id": 34,
+    "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/34.png",
+    "type": "planta",
+    "hp": 57
   }
 };
 
 // Evolucion por nivel: forma -> { aNivel, siguiente }.
 const EVO = {
   "charmander": {
-    "aNivel": 6,
+    "aNivel": 16,
     "siguiente": "charmeleon"
   },
   "charmeleon": {
-    "aNivel": 10,
+    "aNivel": 36,
     "siguiente": "charizard"
   },
   "squirtle": {
-    "aNivel": 6,
+    "aNivel": 16,
     "siguiente": "wartortle"
   },
   "wartortle": {
-    "aNivel": 10,
+    "aNivel": 36,
     "siguiente": "blastoise"
   },
   "bulbasaur": {
-    "aNivel": 6,
+    "aNivel": 16,
     "siguiente": "ivysaur"
   },
   "ivysaur": {
-    "aNivel": 10,
+    "aNivel": 32,
     "siguiente": "venusaur"
   },
   "pikachu": {
-    "aNivel": 8,
+    "aNivel": 30,
     "siguiente": "raichu"
   },
   "caterpie": {
-    "aNivel": 4,
+    "aNivel": 7,
     "siguiente": "metapod"
   },
   "metapod": {
-    "aNivel": 7,
+    "aNivel": 10,
     "siguiente": "butterfree"
   },
   "weedle": {
-    "aNivel": 4,
+    "aNivel": 7,
     "siguiente": "kakuna"
   },
   "kakuna": {
-    "aNivel": 7,
+    "aNivel": 10,
     "siguiente": "beedrill"
   },
   "pidgey": {
-    "aNivel": 7,
+    "aNivel": 18,
     "siguiente": "pidgeotto"
   },
   "pidgeotto": {
-    "aNivel": 13,
+    "aNivel": 36,
     "siguiente": "pidgeot"
   },
   "rattata": {
-    "aNivel": 9,
+    "aNivel": 20,
     "siguiente": "raticate"
   },
   "spearow": {
-    "aNivel": 9,
+    "aNivel": 20,
     "siguiente": "fearow"
   },
   "ekans": {
-    "aNivel": 11,
+    "aNivel": 22,
     "siguiente": "arbok"
   },
   "sandshrew": {
-    "aNivel": 12,
+    "aNivel": 22,
     "siguiente": "sandslash"
   },
-  "nidorina": {
-    "aNivel": 8,
-    "siguiente": "nidoqueen"
-  },
-  "nidorino": {
-    "aNivel": 8,
-    "siguiente": "nidoking"
-  },
   "vulpix": {
-    "aNivel": 12,
+    "aNivel": 30,
     "siguiente": "ninetales"
   },
   "zubat": {
-    "aNivel": 10,
+    "aNivel": 22,
     "siguiente": "golbat"
   },
+  "golbat": {
+    "aNivel": 30,
+    "siguiente": "crobat"
+  },
   "oddish": {
-    "aNivel": 8,
+    "aNivel": 21,
     "siguiente": "gloom"
   },
   "gloom": {
-    "aNivel": 14,
+    "aNivel": 30,
     "siguiente": "vileplume"
   },
   "paras": {
-    "aNivel": 11,
+    "aNivel": 24,
     "siguiente": "parasect"
   },
   "diglett": {
-    "aNivel": 10,
+    "aNivel": 26,
     "siguiente": "dugtrio"
   },
   "meowth": {
-    "aNivel": 11,
+    "aNivel": 28,
     "siguiente": "persian"
   },
   "psyduck": {
-    "aNivel": 13,
+    "aNivel": 33,
     "siguiente": "golduck"
   },
   "mankey": {
-    "aNivel": 12,
+    "aNivel": 28,
     "siguiente": "primeape"
   },
+  "primeape": {
+    "aNivel": 30,
+    "siguiente": "annihilape"
+  },
   "growlithe": {
-    "aNivel": 14,
+    "aNivel": 30,
     "siguiente": "arcanine"
   },
   "poliwag": {
-    "aNivel": 8,
+    "aNivel": 25,
     "siguiente": "poliwhirl"
   },
   "poliwhirl": {
-    "aNivel": 14,
+    "aNivel": 30,
     "siguiente": "poliwrath"
   },
   "abra": {
-    "aNivel": 8,
+    "aNivel": 16,
     "siguiente": "kadabra"
   },
   "kadabra": {
-    "aNivel": 14,
+    "aNivel": 30,
     "siguiente": "alakazam"
   },
   "machop": {
-    "aNivel": 8,
+    "aNivel": 28,
     "siguiente": "machoke"
   },
   "machoke": {
-    "aNivel": 14,
+    "aNivel": 30,
     "siguiente": "machamp"
   },
   "bellsprout": {
-    "aNivel": 8,
+    "aNivel": 21,
     "siguiente": "weepinbell"
   },
   "weepinbell": {
-    "aNivel": 14,
+    "aNivel": 30,
     "siguiente": "victreebel"
   },
   "tentacool": {
-    "aNivel": 12,
+    "aNivel": 30,
     "siguiente": "tentacruel"
   },
   "geodude": {
-    "aNivel": 8,
+    "aNivel": 25,
     "siguiente": "graveler"
   },
   "graveler": {
-    "aNivel": 14,
+    "aNivel": 30,
     "siguiente": "golem"
   },
   "ponyta": {
-    "aNivel": 13,
+    "aNivel": 40,
     "siguiente": "rapidash"
   },
   "slowpoke": {
-    "aNivel": 13,
+    "aNivel": 37,
     "siguiente": "slowbro"
   },
   "magnemite": {
-    "aNivel": 11,
+    "aNivel": 30,
     "siguiente": "magneton"
   },
+  "magneton": {
+    "aNivel": 30,
+    "siguiente": "magnezone"
+  },
   "gastly": {
-    "aNivel": 8,
+    "aNivel": 25,
     "siguiente": "haunter"
   },
   "haunter": {
-    "aNivel": 14,
+    "aNivel": 30,
     "siguiente": "gengar"
   },
+  "onix": {
+    "aNivel": 30,
+    "siguiente": "steelix"
+  },
   "cubone": {
-    "aNivel": 12,
+    "aNivel": 28,
     "siguiente": "marowak"
+  },
+  "nidoran-f": {
+    "aNivel": 16,
+    "siguiente": "nidorina"
+  },
+  "nidorina": {
+    "aNivel": 30,
+    "siguiente": "nidoqueen"
+  },
+  "nidoran-m": {
+    "aNivel": 16,
+    "siguiente": "nidorino"
+  },
+  "nidorino": {
+    "aNivel": 30,
+    "siguiente": "nidoking"
   }
 };
 
 // Formas base elegibles como inicial y como rival.
-const INICIALES = ["charmander","squirtle","bulbasaur","pikachu","caterpie","weedle","pidgey","rattata","spearow","ekans","sandshrew","nidorina","nidorino","vulpix","zubat","oddish","paras","diglett","meowth","psyduck","mankey","growlithe","poliwag","abra","machop","bellsprout","tentacool","geodude","ponyta","slowpoke","magnemite","gastly","onix","cubone"];
+const INICIALES = ["charmander","squirtle","bulbasaur","pikachu","caterpie","weedle","pidgey","rattata","spearow","ekans","sandshrew","vulpix","zubat","oddish","paras","diglett","meowth","psyduck","mankey","growlithe","poliwag","abra","machop","bellsprout","tentacool","geodude","ponyta","slowpoke","magnemite","gastly","onix","cubone","nidoran-f","nidoran-m"];
 
 // Ataques que aprende por tipo (pool). El golpe inicial es flojo.
 const MOVES_TIPO = {"fuego":[["Ascuas",12],["Giro Fuego",15],["Lanzallamas",20]],"agua":[["Pistola Agua",12],["Burbuja",15],["Hidrobomba",20]],"planta":[["Latigo Cepa",12],["Hoja Afilada",15],["Rayo Solar",20]],"electrico":[["Impactrueno",13],["Chispa",16],["Rayo",21]],"normal":[["Placaje",8],["Golpe Cuerpo",12],["Hiperrayo",18]]};
