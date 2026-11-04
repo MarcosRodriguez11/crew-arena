@@ -211,7 +211,7 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
 
 .tsep { color: #8a93a3; }
 
-/* ---------- Panel de aventura (mapa) ---------- */
+/* ---------- Panel de aventura: RUTA vertical estilo Pokemon ---------- */
 #mapa {
   text-align: center;
   background-size: cover;
@@ -219,66 +219,105 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
   background-repeat: no-repeat;
   image-rendering: pixelated;
   border-radius: 12px;
-  padding: 18px 14px;
+  padding: 16px 12px;
   position: relative;
   overflow: hidden;
 }
-/* capa oscura para que el texto se lea sobre cualquier fondo */
 #mapa::before {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(10,14,22,.45), rgba(10,14,22,.70));
+  background: linear-gradient(180deg, rgba(10,14,22,.30), rgba(10,14,22,.55));
   pointer-events: none;
 }
 #mapa > * { position: relative; z-index: 1; }
 #mapa h2 { text-shadow: 0 2px 0 #000, 0 0 8px #000; }
-.mapa-progreso {
-  display: flex; justify-content: center; gap: 8px;
-  margin: 14px 0; flex-wrap: wrap;
+.mapa-texto { color: #eef2f8; margin: 6px 0 12px; text-shadow: 0 1px 2px #000; font-size: 11px; }
+
+/* el tablero de ruta: columna de filas, de arriba (lider) a abajo (jugador) */
+.ruta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  max-width: 340px;
+  margin: 0 auto;
 }
-.mapa-progreso .ptick {
-  width: 30px; height: 30px; line-height: 30px;
-  border-radius: 6px; font-size: 11px;
-  background: rgba(20,26,40,.85); color: #c3ccda;
-  border: 2px solid #2a3242;
+.ruta-fila {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
 }
-.mapa-progreso .ptick.done { background: #1e3a24; color: #7fe39a; border-color: #2f6b3d; }
-.mapa-progreso .ptick.now  { background: #2a2140; color: #ffe066; border-color: #ffe066; }
-.mapa-progreso .ptick.lider { color: #ffb84d; }
-.mapa-progreso .ptick.lider.now { background: #3a2a14; border-color: #ffb84d; }
-.mapa-texto { color: #eef2f8; margin: 6px 0 14px; text-shadow: 0 1px 2px #000; }
-.mapa-opciones {
-  display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
+/* el "camino" que conecta una fila con la siguiente */
+.ruta-conector {
+  width: 6px;
+  height: 26px;
+  background: repeating-linear-gradient(180deg, #d9b382 0 6px, transparent 6px 12px);
+  opacity: .9;
 }
-.mapa-opciones .spot {
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  min-width: 100px; padding: 14px 12px; cursor: pointer;
-  background: rgba(20,30,20,.78); color: #eafbe8;
+.ruta-conector.hecho {
+  background: repeating-linear-gradient(180deg, #7fe39a 0 6px, transparent 6px 12px);
+}
+
+/* un nodo de la ruta */
+.nodo {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  width: 78px; padding: 10px 6px; cursor: pointer;
+  background: rgba(20,30,20,.82); color: #eafbe8;
   border: 3px solid #2f8f3a; border-radius: 12px;
-  font-family: inherit; font-size: 11px;
-  transition: transform .08s, border-color .12s, box-shadow .12s;
+  font-family: inherit; font-size: 10px;
+  transition: transform .08s, box-shadow .12s, filter .12s;
 }
-.mapa-opciones .spot:hover {
-  transform: translateY(-3px);
+.nodo-icono { font-size: 30px; line-height: 1; filter: drop-shadow(0 2px 2px rgba(0,0,0,.4)); }
+.nodo-label { font-size: 9px; text-shadow: 0 1px 2px #000; }
+
+/* estados del nodo */
+.nodo.activo {
   border-color: #ffe066;
-  box-shadow: 0 0 14px rgba(255,224,102,.5);
+  box-shadow: 0 0 12px rgba(255,224,102,.6);
+  animation: nodoPulso 1.2s ease-in-out infinite;
 }
-/* parche de hierba: esconde al Pokemon (como en el juego real) */
-.mapa-opciones .spot-hierba {
-  background: linear-gradient(180deg, #3fa14b, #2f7a37);
-  border-color: #246a2c;
+.nodo.activo:hover { transform: translateY(-3px) scale(1.05); }
+.nodo.hecho {
+  border-color: #2f6b3d; opacity: .55; cursor: default;
+  filter: grayscale(.4);
 }
-.mapa-opciones .spot-hierba .hierba-icono {
-  font-size: 40px; line-height: 1; filter: drop-shadow(0 2px 2px rgba(0,0,0,.4));
+.nodo.bloqueado {
+  border-color: #3a4450; opacity: .4; cursor: not-allowed;
+  filter: grayscale(.7) brightness(.8);
 }
-.mapa-opciones .spot-label { font-size: 11px; text-shadow: 0 1px 2px #000; }
-.mapa-opciones .spot-lider {
-  background: #3a2a14; border-color: #ffb84d; color: #ffe066;
-  padding: 14px 20px; font-size: 12px;
+@keyframes nodoPulso {
+  0%,100% { box-shadow: 0 0 10px rgba(255,224,102,.5); }
+  50%     { box-shadow: 0 0 18px rgba(255,224,102,.9); }
 }
-/* responsivo: en pantallas pequenas, parches mas compactos */
+@media (prefers-reduced-motion: reduce) {
+  .nodo.activo { animation: none; }
+}
+
+/* parche de hierba (combate pokemon) */
+.nodo-pokemon {
+  background: linear-gradient(180deg, rgba(63,161,75,.9), rgba(47,122,55,.9));
+}
+/* lider: fila destacada arriba */
+.fila-lider { margin-bottom: 2px; }
+.nodo-lider {
+  width: auto; min-width: 120px;
+  background: rgba(58,42,20,.9); border-color: #ffb84d; color: #ffe066;
+}
+.nodo-lider.activo { border-color: #ffd24d; }
+.nodo-lider .nodo-icono { color: #ffd24d; }
+
+/* marcador del jugador, abajo del todo */
+.ruta-jugador {
+  margin-top: 8px;
+  width: 54px; height: 54px;
+  background: rgba(20,30,20,.6); border: 2px solid #ffe066; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.jug-sprite { width: 44px; height: 44px; image-rendering: pixelated; }
+
 @media (max-width: 480px) {
-  .mapa-opciones { gap: 10px; }
-  .mapa-opciones .spot { min-width: 84px; padding: 10px 8px; }
-  .mapa-opciones .spot-hierba .hierba-icono { font-size: 32px; }
+  .ruta-fila { gap: 10px; }
+  .nodo { width: 64px; padding: 8px 4px; }
+  .nodo-icono { font-size: 24px; }
 }

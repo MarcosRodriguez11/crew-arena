@@ -3316,63 +3316,81 @@ function iniciarMapa() {
   mostrarPaso();
 }
 
-// Dibuja el paso actual: progreso + las 2-3 opciones de spot a elegir.
+// Dibuja el mapa como una RUTA vertical (estilo Pokemon): el jugador abajo,
+// el lider arriba, y cada paso es una fila de 2-3 nodos conectados por el camino.
 function mostrarPaso() {
   const mapa = MAPAS[mapaIdx];
   $("mapaNombre").textContent = `Mapa ${mapa.id}: ${mapa.nombre}`;
 
-  // Fondo pixel-art del mapa (campo "fondo" en mapas.js; estandar si no hay).
   const fondo = mapa.fondo || "mapa-fondo.svg";
   mapaPanel.style.backgroundImage = `url("${fondo}")`;
 
-  // barra de progreso: 6 pasos + lider
-  const prog = $("mapaProgreso");
-  prog.innerHTML = "";
-  for (let i = 0; i < 6; i++) {
-    const s = document.createElement("span");
-    s.className = "ptick" + (i < pasoIdx ? " done" : i === pasoIdx ? " now" : "");
-    s.textContent = i + 1;
-    prog.appendChild(s);
-  }
-  const lic = document.createElement("span");
-  lic.className = "ptick lider" + (pasoIdx >= 6 ? " now" : "");
-  lic.textContent = "\u2605";
-  prog.appendChild(lic);
-
-  const opc = $("mapaOpciones");
-  opc.innerHTML = "";
-
   if (pasoIdx >= 6) {
-    // Paso 7: el lider (no se elige)
-    $("mapaTexto").textContent = `Te enfrentas al ${mapa.lider.nombre}.`;
-    const b = document.createElement("button");
-    b.className = "big spot-lider";
-    b.textContent = `Luchar contra ${mapa.lider.nombre}`;
-    b.addEventListener("click", () => empezarLider());
-    opc.appendChild(b);
-    return;
+    $("mapaTexto").textContent = `\u00a1Has llegado al final! Te espera el ${mapa.lider.nombre}.`;
+  } else {
+    $("mapaTexto").textContent = `Paso ${pasoIdx + 1} de 6 \u00b7 elige por donde seguir`;
   }
 
-  $("mapaTexto").textContent = `Paso ${pasoIdx + 1} de 6. Elige un camino:`;
-  const spots = mapa.pasos[pasoIdx] || [];
-  spots.forEach((spot, i) => opc.appendChild(botonSpot(spot, i)));
+  const ruta = $("mapaOpciones");
+  ruta.className = "ruta";
+  ruta.innerHTML = "";
+
+  // Fila del LIDER (arriba del todo)
+  const filaLider = document.createElement("div");
+  filaLider.className = "ruta-fila fila-lider";
+  const nLider = document.createElement("button");
+  const liderAlcanzable = pasoIdx >= 6;
+  nLider.className = "nodo nodo-lider" + (liderAlcanzable ? " activo" : " bloqueado");
+  nLider.innerHTML = `<span class="nodo-icono">\u2605</span><span class="nodo-label">${mapa.lider.nombre}</span>`;
+  if (liderAlcanzable) nLider.addEventListener("click", () => empezarLider());
+  else nLider.disabled = true;
+  filaLider.appendChild(nLider);
+  ruta.appendChild(filaLider);
+
+  // Filas de los 6 pasos, de ARRIBA (paso 6) a ABAJO (paso 1),
+  // para que el jugador suba por la ruta como en el juego.
+  for (let p = 5; p >= 0; p--) {
+    // conector entre filas
+    const con = document.createElement("div");
+    con.className = "ruta-conector" + (p < pasoIdx ? " hecho" : "");
+    ruta.appendChild(con);
+
+    const fila = document.createElement("div");
+    fila.className = "ruta-fila";
+    const spots = mapa.pasos[p] || [];
+    spots.forEach((spot, i) => fila.appendChild(nodoRuta(spot, i, p)));
+    ruta.appendChild(fila);
+  }
+
+  // marcador del jugador abajo
+  const jug = document.createElement("div");
+  jug.className = "ruta-jugador";
+  jug.innerHTML = `<img class="jug-sprite" src="${me.sprite}" alt="${me.name}" />`;
+  ruta.appendChild(jug);
 }
 
-// Un boton para elegir un spot. Los combates pokemon se muestran como
-// PARCHES DE HIERBA: no se revela que Pokemon hay debajo (como en el juego real).
-function botonSpot(spot, indice) {
+// Un nodo de la ruta. Solo los del paso ACTUAL son clicables; los pasados
+// muestran una marca y los futuros salen bloqueados. Los combates son
+// PARCHES DE HIERBA (no se revela el Pokemon).
+function nodoRuta(spot, indice, pasoDeLaFila) {
   const b = document.createElement("button");
-  b.className = "spot spot-" + (spot.tipo || "pokemon");
-  if (spot.tipo === "pokemon" || !spot.tipo) {
-    b.classList.add("spot-hierba");
-    b.innerHTML =
-      `<span class="hierba-icono">\u{1F33F}</span>` +
-      `<span class="spot-label">Hierba ${indice + 1}</span>`;
+  const esActual = pasoDeLaFila === pasoIdx;
+  const esPasado = pasoDeLaFila < pasoIdx;
+  const tipo = spot.tipo || "pokemon";
+  b.className = "nodo nodo-" + tipo + (esActual ? " activo" : esPasado ? " hecho" : " bloqueado");
+
+  let icono = "\u{1F33F}"; // hierba por defecto
+  if (tipo === "entrenador") icono = "\u{1F9D1}";
+  else if (tipo === "objeto") icono = "\u{1F381}";
+  else if (tipo === "cura") icono = "\u2764\uFE0F";
+  const label = (tipo === "pokemon") ? `Hierba ${indice + 1}` : etiquetaSpot(spot);
+
+  b.innerHTML = `<span class="nodo-icono">${icono}</span><span class="nodo-label">${label}</span>`;
+
+  if (esActual) {
     b.addEventListener("click", () => empezarSpot(spot));
   } else {
-    // entrenador / objeto / cura: estructura preparada para el futuro.
-    b.textContent = etiquetaSpot(spot);
-    b.addEventListener("click", () => empezarSpot(spot));
+    b.disabled = true;
   }
   return b;
 }
