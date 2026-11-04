@@ -36,6 +36,27 @@ const KEY = "pokerogue_best";
 const PS_POR_NIVEL = 8;      // PS max que ganas por nivel
 const CURA_POR_NIVEL = 4;    // dano extra del rival por ronda
 
+// Color por tipo, para el destello al golpear.
+const COLOR_TIPO = {
+  fuego: "#ff8a5c", agua: "#7cc3ff", planta: "#7fe39a",
+  electrico: "#ffe066", normal: "#cfd3da",
+};
+
+// Destello del color del tipo sobre el que recibe el golpe.
+function flash(lado, tipo) {
+  const el = document.querySelector(".fighter." + lado);
+  if (!el) return;
+  el.style.setProperty("--flash", COLOR_TIPO[tipo] || "#fff");
+  el.classList.remove("hit");
+  void el.offsetWidth; // reinicia la animacion
+  el.classList.add("hit");
+}
+
+// Pinta el nombre del ataque con el color de su tipo, en el log.
+function mov_html(nombre, tipo) {
+  return `<span class="t-${tipo}">${nombre}</span>`;
+}
+
 let me = null;
 let foe = null;
 let round = 1;
@@ -131,7 +152,8 @@ function pintarMoves(activo) {
   box.innerHTML = "";
   me.moves.forEach((m) => {
     const b = document.createElement("button");
-    b.textContent = `${m.n} (${m.t})`;
+    b.textContent = `${m.n}`;
+    b.className = "m-" + m.t;
     b.disabled = !activo;
     b.addEventListener("click", () => turno(m));
     box.appendChild(b);
@@ -163,7 +185,8 @@ function turno(mov) {
 
   const a = dano(mov, foe);
   foe.hp -= a.valor;
-  let txt = `${me.name} usa ${mov.n}. ${efecto(a.mult)} ${a.valor} de dano.`;
+  flash("foe", mov.t);
+  let txt = `${me.name} usa ${mov_html(mov.n, mov.t)}. ${efecto(a.mult)} ${a.valor} de dano.`;
   pintar();
 
   if (foe.hp <= 0) {
@@ -180,7 +203,8 @@ function turno(mov) {
   const fm = foe.moves[Math.floor(Math.random() * foe.moves.length)];
   const b = dano(fm, me);
   me.hp -= b.valor;
-  txt += ` ${foe.name} responde con ${fm.n}: ${b.valor} de dano.`;
+  flash("me", fm.t);
+  txt += ` ${foe.name} responde con ${mov_html(fm.n, fm.t)}: ${b.valor} de dano.`;
   log(txt);
   pintar();
 
@@ -208,7 +232,7 @@ function fin() {
     `${me.name} llego al nivel ${me.level} con ${streak} victoria(s). Mejor racha: ${localStorage.getItem(KEY)}.`;
 }
 
-function log(t) { $("log").textContent = t; }
+function log(t) { $("log").innerHTML = t; }
 
 $("again").addEventListener("click", () => {
   overPanel.classList.add("hidden");
