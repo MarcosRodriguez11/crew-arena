@@ -3300,9 +3300,9 @@ function keyValida(key) {
   return INICIALES[Math.floor(Math.random() * INICIALES.length)];
 }
 
-// Nivel base de un combate segun el mapa y el paso (sube con el avance).
+// Nivel base de un combate segun el mapa y el paso (sube suave con el avance).
 function nivelDeCombate() {
-  return 5 + mapaIdx * 6 + pasoIdx * 2;
+  return 3 + mapaIdx * 3 + pasoIdx;
 }
 
 // Abre el mapa actual en el paso 1.
@@ -3320,6 +3320,10 @@ function iniciarMapa() {
 function mostrarPaso() {
   const mapa = MAPAS[mapaIdx];
   $("mapaNombre").textContent = `Mapa ${mapa.id}: ${mapa.nombre}`;
+
+  // Fondo pixel-art del mapa (campo "fondo" en mapas.js; estandar si no hay).
+  const fondo = mapa.fondo || "mapa-fondo.svg";
+  mapaPanel.style.backgroundImage = `url("${fondo}")`;
 
   // barra de progreso: 6 pasos + lider
   const prog = $("mapaProgreso");
@@ -3351,19 +3355,19 @@ function mostrarPaso() {
 
   $("mapaTexto").textContent = `Paso ${pasoIdx + 1} de 6. Elige un camino:`;
   const spots = mapa.pasos[pasoIdx] || [];
-  spots.forEach((spot) => opc.appendChild(botonSpot(spot)));
+  spots.forEach((spot, i) => opc.appendChild(botonSpot(spot, i)));
 }
 
-// Un boton para elegir un spot (ahora todos son combate pokemon).
-function botonSpot(spot) {
+// Un boton para elegir un spot. Los combates pokemon se muestran como
+// PARCHES DE HIERBA: no se revela que Pokemon hay debajo (como en el juego real).
+function botonSpot(spot, indice) {
   const b = document.createElement("button");
   b.className = "spot spot-" + (spot.tipo || "pokemon");
   if (spot.tipo === "pokemon" || !spot.tipo) {
-    const key = keyValida(spot.especie);
-    const f = FORMAS[key];
+    b.classList.add("spot-hierba");
     b.innerHTML =
-      `<img class="spot-sprite" src="${f.sprite}" alt="${f.name}" loading="lazy" />` +
-      `<span class="spot-label">${f.name}</span>`;
+      `<span class="hierba-icono">\u{1F33F}</span>` +
+      `<span class="spot-label">Hierba ${indice + 1}</span>`;
     b.addEventListener("click", () => empezarSpot(spot));
   } else {
     // entrenador / objeto / cura: estructura preparada para el futuro.
@@ -3393,7 +3397,7 @@ function empezarLider() {
   const mapa = MAPAS[mapaIdx];
   const key = keyValida((mapa.lider.equipo && mapa.lider.equipo[0]) || "charizard");
   enLider = true;
-  foe = rivalDesde(key, nivelDeCombate() + 3);
+  foe = rivalDesde(key, nivelDeCombate() + 2);
   foe.name = mapa.lider.nombre + " (" + foe.name + ")";
   prepararCombate(`\u00a1${mapa.lider.nombre} te reta!`);
 }

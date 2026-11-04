@@ -212,7 +212,26 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
 .tsep { color: #8a93a3; }
 
 /* ---------- Panel de aventura (mapa) ---------- */
-#mapa { text-align: center; }
+#mapa {
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  border-radius: 12px;
+  padding: 18px 14px;
+  position: relative;
+  overflow: hidden;
+}
+/* capa oscura para que el texto se lea sobre cualquier fondo */
+#mapa::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,14,22,.45), rgba(10,14,22,.70));
+  pointer-events: none;
+}
+#mapa > * { position: relative; z-index: 1; }
+#mapa h2 { text-shadow: 0 2px 0 #000, 0 0 8px #000; }
 .mapa-progreso {
   display: flex; justify-content: center; gap: 8px;
   margin: 14px 0; flex-wrap: wrap;
@@ -220,31 +239,46 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
 .mapa-progreso .ptick {
   width: 30px; height: 30px; line-height: 30px;
   border-radius: 6px; font-size: 11px;
-  background: #1b2130; color: #7b8699;
+  background: rgba(20,26,40,.85); color: #c3ccda;
   border: 2px solid #2a3242;
 }
 .mapa-progreso .ptick.done { background: #1e3a24; color: #7fe39a; border-color: #2f6b3d; }
 .mapa-progreso .ptick.now  { background: #2a2140; color: #ffe066; border-color: #ffe066; }
 .mapa-progreso .ptick.lider { color: #ffb84d; }
 .mapa-progreso .ptick.lider.now { background: #3a2a14; border-color: #ffb84d; }
-.mapa-texto { color: #aeb6c4; margin: 6px 0 14px; }
+.mapa-texto { color: #eef2f8; margin: 6px 0 14px; text-shadow: 0 1px 2px #000; }
 .mapa-opciones {
   display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
 }
 .mapa-opciones .spot {
   display: flex; flex-direction: column; align-items: center; gap: 6px;
-  min-width: 110px; padding: 12px 10px; cursor: pointer;
-  background: #171d29; color: #e8edf4;
-  border: 3px solid #2a3242; border-radius: 10px;
+  min-width: 100px; padding: 14px 12px; cursor: pointer;
+  background: rgba(20,30,20,.78); color: #eafbe8;
+  border: 3px solid #2f8f3a; border-radius: 12px;
   font-family: inherit; font-size: 11px;
-  transition: transform .08s, border-color .12s;
+  transition: transform .08s, border-color .12s, box-shadow .12s;
 }
-.mapa-opciones .spot:hover { transform: translateY(-3px); border-color: #ffe066; }
-.mapa-opciones .spot-sprite {
-  width: 72px; height: 72px; image-rendering: pixelated;
+.mapa-opciones .spot:hover {
+  transform: translateY(-3px);
+  border-color: #ffe066;
+  box-shadow: 0 0 14px rgba(255,224,102,.5);
 }
-.mapa-opciones .spot-label { font-size: 10px; }
+/* parche de hierba: esconde al Pokemon (como en el juego real) */
+.mapa-opciones .spot-hierba {
+  background: linear-gradient(180deg, #3fa14b, #2f7a37);
+  border-color: #246a2c;
+}
+.mapa-opciones .spot-hierba .hierba-icono {
+  font-size: 40px; line-height: 1; filter: drop-shadow(0 2px 2px rgba(0,0,0,.4));
+}
+.mapa-opciones .spot-label { font-size: 11px; text-shadow: 0 1px 2px #000; }
 .mapa-opciones .spot-lider {
   background: #3a2a14; border-color: #ffb84d; color: #ffe066;
   padding: 14px 20px; font-size: 12px;
+}
+/* responsivo: en pantallas pequenas, parches mas compactos */
+@media (max-width: 480px) {
+  .mapa-opciones { gap: 10px; }
+  .mapa-opciones .spot { min-width: 84px; padding: 10px 8px; }
+  .mapa-opciones .spot-hierba .hierba-icono { font-size: 32px; }
 }

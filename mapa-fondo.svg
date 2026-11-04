@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fondo pixel-art ESTANDAR de mapa. Editable: cambia los colores o
+     duplica este archivo (p.ej. mapa2.svg) y apunta a el desde mapas.js (campo "fondo"). -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 90" width="160" height="90"
+     shape-rendering="crispEdges" preserveAspectRatio="xMidYMid slice">
+  <!-- cielo -->
+  <rect x="0" y="0" width="160" height="90" fill="#7ec0ee"/>
+  <!-- nubes pixeladas -->
+  <g fill="#eaf6ff">
+    <rect x="18" y="12" width="20" height="5"/><rect x="22" y="8" width="12" height="5"/>
+    <rect x="104" y="18" width="24" height="5"/><rect x="110" y="14" width="14" height="5"/>
+  </g>
+  <!-- montanas de fondo -->
+  <g fill="#9bbf6b">
+    <polygon points="0,56 28,30 56,56"/>
+    <polygon points="44,56 80,24 116,56"/>
+    <polygon points="104,56 140,32 160,56"/>
+  </g>
+  <!-- pradera -->
+  <rect x="0" y="52" width="160" height="38" fill="#6fcf5f"/>
+  <rect x="0" y="52" width="160" height="6" fill="#58b84a"/>
+  <!-- camino de tierra serpenteante -->
+  <g fill="#d9b382">
+    <rect x="70" y="58" width="20" height="32"/>
+    <rect x="52" y="64" width="20" height="8"/>
+    <rect x="88" y="72" width="22" height="8"/>
+  </g>
+  <!-- arboles pixelados -->
+  <g>
+    <rect x="12" y="60" width="6" height="12" fill="#8a5a2b"/>
+    <rect x="6" y="46" width="18" height="18" fill="#3f9b4a"/>
+    <rect x="138" y="62" width="6" height="12" fill="#8a5a2b"/>
+    <rect x="132" y="48" width="18" height="18" fill="#3f9b4a"/>
+    <rect x="40" y="70" width="5" height="10" fill="#8a5a2b"/>
+    <rect x="35" y="58" width="15" height="15" fill="#4caf57"/>
+  </g>
+  <!-- matas de hierba alta (decorativas) -->
+  <g fill="#2f8f3a">
+    <rect x="24" y="80" width="10" height="8"/><rect x="100" y="82" width="10" height="7"/>
+    <rect x="124" y="79" width="10" height="9"/>
+  </g>
+</svg>

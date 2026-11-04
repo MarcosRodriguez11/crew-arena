@@ -31,6 +31,7 @@ const MAPAS = [
   {
     id: 1,
     nombre: "Bosque Verde",
+    fondo: "mapa-fondo.svg", // <- imagen estandar; editala o apunta a otra por mapa
     pasos: [
       [ { tipo: "pokemon", especie: "caterpie" }, { tipo: "pokemon", especie: "weedle" } ],
       [ { tipo: "pokemon", especie: "pidgey" }, { tipo: "pokemon", especie: "rattata" }, { tipo: "pokemon", especie: "spearow" } ],
@@ -44,6 +45,7 @@ const MAPAS = [
   {
     id: 2,
     nombre: "Cueva Roca",
+    fondo: "mapa-fondo.svg", // <- imagen estandar; editala o apunta a otra por mapa
     pasos: [
       [ { tipo: "pokemon", especie: "geodude" }, { tipo: "pokemon", especie: "zubat" } ],
       [ { tipo: "pokemon", especie: "sandshrew" }, { tipo: "pokemon", especie: "machop" }, { tipo: "pokemon", especie: "geodude" } ],
@@ -57,6 +59,7 @@ const MAPAS = [
   {
     id: 3,
     nombre: "Ruta del Agua",
+    fondo: "mapa-fondo.svg", // <- imagen estandar; editala o apunta a otra por mapa
     pasos: [
       [ { tipo: "pokemon", especie: "poliwag" }, { tipo: "pokemon", especie: "tentacool" } ],
       [ { tipo: "pokemon", especie: "psyduck" }, { tipo: "pokemon", especie: "squirtle" }, { tipo: "pokemon", especie: "poliwag" } ],
@@ -70,6 +73,7 @@ const MAPAS = [
   {
     id: 4,
     nombre: "Tunel Oscuro",
+    fondo: "mapa-fondo.svg", // <- imagen estandar; editala o apunta a otra por mapa
     pasos: [
       [ { tipo: "pokemon", especie: "gastly" }, { tipo: "pokemon", especie: "zubat" } ],
       [ { tipo: "pokemon", especie: "abra" }, { tipo: "pokemon", especie: "gastly" }, { tipo: "pokemon", especie: "golbat" } ],
@@ -83,6 +87,7 @@ const MAPAS = [
   {
     id: 5,
     nombre: "Volcan Ardiente",
+    fondo: "mapa-fondo.svg", // <- imagen estandar; editala o apunta a otra por mapa
     pasos: [
       [ { tipo: "pokemon", especie: "growlithe" }, { tipo: "pokemon", especie: "vulpix" } ],
       [ { tipo: "pokemon", especie: "ponyta" }, { tipo: "pokemon", especie: "charmander" }, { tipo: "pokemon", especie: "growlithe" } ],
@@ -96,6 +101,7 @@ const MAPAS = [
   {
     id: 6,
     nombre: "Pradera Electrica",
+    fondo: "mapa-fondo.svg", // <- imagen estandar; editala o apunta a otra por mapa
     pasos: [
       [ { tipo: "pokemon", especie: "magnemite" }, { tipo: "pokemon", especie: "pikachu" } ],
       [ { tipo: "pokemon", especie: "pikachu" }, { tipo: "pokemon", especie: "magnemite" }, { tipo: "pokemon", especie: "pidgey" } ],
@@ -109,6 +115,7 @@ const MAPAS = [
   {
     id: 7,
     nombre: "Pantano Veneno",
+    fondo: "mapa-fondo.svg", // <- imagen estandar; editala o apunta a otra por mapa
     pasos: [
       [ { tipo: "pokemon", especie: "ekans" }, { tipo: "pokemon", especie: "nidoran-m" } ],
       [ { tipo: "pokemon", especie: "oddish" }, { tipo: "pokemon", especie: "nidoran-f" }, { tipo: "pokemon", especie: "ekans" } ],
@@ -122,6 +129,7 @@ const MAPAS = [
   {
     id: 8,
     nombre: "Liga Final",
+    fondo: "mapa-fondo.svg", // <- imagen estandar; editala o apunta a otra por mapa
     pasos: [
       [ { tipo: "pokemon", especie: "machoke" }, { tipo: "pokemon", especie: "golbat" } ],
       [ { tipo: "pokemon", especie: "alakazam" }, { tipo: "pokemon", especie: "vileplume" }, { tipo: "pokemon", especie: "arcanine" } ],
