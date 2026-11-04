@@ -178,3 +178,18 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
 }
 .modal-moves button:hover { filter: brightness(1.15); }
 .modal-moves small { opacity: .8; }
+
+/* colores de rotulo para tipos reales (PokeAPI) */
+.t-veneno { color: #b366d9; }
+.t-volador { color: #a7c6ff; }
+.t-tierra { color: #e2c879; }
+.t-roca { color: #c9b680; }
+.t-bicho { color: #b3c647; }
+.t-hielo { color: #8fe0e0; }
+.t-lucha { color: #e8705a; }
+.t-psiquico { color: #ff7fa8; }
+.t-fantasma { color: #9a86d4; }
+.t-dragon { color: #8a7cff; }
+.t-siniestro { color: #9a8f82; }
+.t-acero { color: #b8c3cf; }
+.t-hada { color: #ff9ed6; }

@@ -16,6 +16,7 @@ const FORMAS = {
   "id": 4,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
   "type": "fuego",
+  "typeReal": "fuego",
   "hp": 31,
   "learnset": [
    {
@@ -49,6 +50,7 @@ const FORMAS = {
   "id": 5,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
   "type": "fuego",
+  "typeReal": "fuego",
   "hp": 43,
   "learnset": [
    {
@@ -82,6 +84,7 @@ const FORMAS = {
   "id": 6,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
   "type": "fuego",
+  "typeReal": "fuego · volador",
   "hp": 55,
   "learnset": [
    {
@@ -115,6 +118,7 @@ const FORMAS = {
   "id": 7,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
   "type": "agua",
+  "typeReal": "agua",
   "hp": 34,
   "learnset": [
    {
@@ -160,6 +164,7 @@ const FORMAS = {
   "id": 8,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
   "type": "agua",
+  "typeReal": "agua",
   "hp": 43,
   "learnset": [
    {
@@ -205,6 +210,7 @@ const FORMAS = {
   "id": 9,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
   "type": "agua",
+  "typeReal": "agua",
   "hp": 55,
   "learnset": [
    {
@@ -250,6 +256,7 @@ const FORMAS = {
   "id": 1,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
   "type": "planta",
+  "typeReal": "planta · veneno",
   "hp": 35,
   "learnset": [
    {
@@ -277,6 +284,7 @@ const FORMAS = {
   "id": 2,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
   "type": "planta",
+  "typeReal": "planta · veneno",
   "hp": 44,
   "learnset": [
    {
@@ -304,6 +312,7 @@ const FORMAS = {
   "id": 3,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
   "type": "planta",
+  "typeReal": "planta · veneno",
   "hp": 56,
   "learnset": [
    {
@@ -337,6 +346,7 @@ const FORMAS = {
   "id": 25,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
   "type": "electrico",
+  "typeReal": "electrico",
   "hp": 29,
   "learnset": [
    {
@@ -358,6 +368,7 @@ const FORMAS = {
   "id": 26,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26.png",
   "type": "electrico",
+  "typeReal": "electrico",
   "hp": 44,
   "learnset": [
    {
@@ -397,6 +408,7 @@ const FORMAS = {
   "id": 10,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png",
   "type": "planta",
+  "typeReal": "bicho",
   "hp": 35,
   "learnset": [
    {
@@ -418,6 +430,7 @@ const FORMAS = {
   "id": 11,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/11.png",
   "type": "planta",
+  "typeReal": "bicho",
   "hp": 38,
   "learnset": [
    {
@@ -433,6 +446,7 @@ const FORMAS = {
   "id": 12,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png",
   "type": "planta",
+  "typeReal": "bicho · volador",
   "hp": 44,
   "learnset": [
    {
@@ -466,6 +480,7 @@ const FORMAS = {
   "id": 13,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/13.png",
   "type": "planta",
+  "typeReal": "bicho · veneno",
   "hp": 32,
   "learnset": [
    {
@@ -487,6 +502,7 @@ const FORMAS = {
   "id": 14,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/14.png",
   "type": "planta",
+  "typeReal": "bicho · veneno",
   "hp": 35,
   "learnset": [
    {
@@ -502,6 +518,7 @@ const FORMAS = {
   "id": 15,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png",
   "type": "planta",
+  "typeReal": "bicho · veneno",
   "hp": 47,
   "learnset": [
    {
@@ -547,6 +564,7 @@ const FORMAS = {
   "id": 16,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/16.png",
   "type": "normal",
+  "typeReal": "normal · volador",
   "hp": 32,
   "learnset": [
    {
@@ -580,6 +598,7 @@ const FORMAS = {
   "id": 17,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png",
   "type": "normal",
+  "typeReal": "normal · volador",
   "hp": 46,
   "learnset": [
    {
@@ -613,6 +632,7 @@ const FORMAS = {
   "id": 18,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png",
   "type": "normal",
+  "typeReal": "normal · volador",
   "hp": 58,
   "learnset": [
    {
@@ -658,6 +678,7 @@ const FORMAS = {
   "id": 19,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/19.png",
   "type": "normal",
+  "typeReal": "normal",
   "hp": 26,
   "learnset": [
    {
@@ -697,6 +718,7 @@ const FORMAS = {
   "id": 20,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png",
   "type": "normal",
+  "typeReal": "normal",
   "hp": 41,
   "learnset": [
    {
@@ -724,6 +746,7 @@ const FORMAS = {
   "id": 21,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/21.png",
   "type": "normal",
+  "typeReal": "normal · volador",
   "hp": 32,
   "learnset": [
    {
@@ -763,6 +786,7 @@ const FORMAS = {
   "id": 22,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/22.png",
   "type": "normal",
+  "typeReal": "normal · volador",
   "hp": 47,
   "learnset": [
    {
@@ -802,6 +826,7 @@ const FORMAS = {
   "id": 23,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png",
   "type": "planta",
+  "typeReal": "veneno",
   "hp": 29,
   "learnset": [
    {
@@ -835,6 +860,7 @@ const FORMAS = {
   "id": 24,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/24.png",
   "type": "planta",
+  "typeReal": "veneno",
   "hp": 44,
   "learnset": [
    {
@@ -880,6 +906,7 @@ const FORMAS = {
   "id": 27,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/27.png",
   "type": "normal",
+  "typeReal": "tierra",
   "hp": 38,
   "learnset": [
    {
@@ -925,6 +952,7 @@ const FORMAS = {
   "id": 28,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/28.png",
   "type": "normal",
+  "typeReal": "tierra",
   "hp": 53,
   "learnset": [
    {
@@ -958,6 +986,7 @@ const FORMAS = {
   "id": 37,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37.png",
   "type": "fuego",
+  "typeReal": "fuego",
   "hp": 31,
   "learnset": [
    {
@@ -985,6 +1014,7 @@ const FORMAS = {
   "id": 38,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/38.png",
   "type": "fuego",
+  "typeReal": "fuego",
   "hp": 52,
   "learnset": [
    {
@@ -1018,6 +1048,7 @@ const FORMAS = {
   "id": 41,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/41.png",
   "type": "planta",
+  "typeReal": "veneno · volador",
   "hp": 32,
   "learnset": [
    {
@@ -1063,6 +1094,7 @@ const FORMAS = {
   "id": 42,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/42.png",
   "type": "planta",
+  "typeReal": "veneno · volador",
   "hp": 53,
   "learnset": [
    {
@@ -1102,6 +1134,7 @@ const FORMAS = {
   "id": 169,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/169.png",
   "type": "planta",
+  "typeReal": "veneno · volador",
   "hp": 59,
   "learnset": [
    {
@@ -1135,6 +1168,7 @@ const FORMAS = {
   "id": 43,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/43.png",
   "type": "planta",
+  "typeReal": "planta · veneno",
   "hp": 35,
   "learnset": [
    {
@@ -1162,6 +1196,7 @@ const FORMAS = {
   "id": 44,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/44.png",
   "type": "planta",
+  "typeReal": "planta · veneno",
   "hp": 44,
   "learnset": [
    {
@@ -1189,6 +1224,7 @@ const FORMAS = {
   "id": 45,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/45.png",
   "type": "planta",
+  "typeReal": "planta · veneno",
   "hp": 53,
   "learnset": [
    {
@@ -1222,6 +1258,7 @@ const FORMAS = {
   "id": 46,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/46.png",
   "type": "planta",
+  "typeReal": "bicho · planta",
   "hp": 29,
   "learnset": [
    {
@@ -1255,6 +1292,7 @@ const FORMAS = {
   "id": 47,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/47.png",
   "type": "planta",
+  "typeReal": "bicho · planta",
   "hp": 44,
   "learnset": [
    {
@@ -1282,6 +1320,7 @@ const FORMAS = {
   "id": 50,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/50.png",
   "type": "normal",
+  "typeReal": "tierra",
   "hp": 14,
   "learnset": [
    {
@@ -1315,6 +1354,7 @@ const FORMAS = {
   "id": 51,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51.png",
   "type": "normal",
+  "typeReal": "tierra",
   "hp": 29,
   "learnset": [
    {
@@ -1342,6 +1382,7 @@ const FORMAS = {
   "id": 52,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/52.png",
   "type": "normal",
+  "typeReal": "normal",
   "hp": 32,
   "learnset": [
    {
@@ -1387,6 +1428,7 @@ const FORMAS = {
   "id": 53,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/53.png",
   "type": "normal",
+  "typeReal": "normal",
   "hp": 47,
   "learnset": [
    {
@@ -1420,6 +1462,7 @@ const FORMAS = {
   "id": 54,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/54.png",
   "type": "agua",
+  "typeReal": "agua",
   "hp": 38,
   "learnset": [
    {
@@ -1459,6 +1502,7 @@ const FORMAS = {
   "id": 55,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/55.png",
   "type": "agua",
+  "typeReal": "agua",
   "hp": 56,
   "learnset": [
    {
@@ -1492,6 +1536,7 @@ const FORMAS = {
   "id": 56,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/56.png",
   "type": "normal",
+  "typeReal": "lucha",
   "hp": 32,
   "learnset": [
    {
@@ -1531,6 +1576,7 @@ const FORMAS = {
   "id": 57,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/57.png",
   "type": "normal",
+  "typeReal": "lucha",
   "hp": 47,
   "learnset": [
    {
@@ -1564,6 +1610,7 @@ const FORMAS = {
   "id": 979,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/979.png",
   "type": "normal",
+  "typeReal": "lucha · fantasma",
   "hp": 74,
   "learnset": [
    {
@@ -1585,6 +1632,7 @@ const FORMAS = {
   "id": 58,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png",
   "type": "fuego",
+  "typeReal": "fuego",
   "hp": 41,
   "learnset": [
    {
@@ -1612,6 +1660,7 @@ const FORMAS = {
   "id": 59,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/59.png",
   "type": "fuego",
+  "typeReal": "fuego",
   "hp": 62,
   "learnset": [
    {
@@ -1651,6 +1700,7 @@ const FORMAS = {
   "id": 60,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/60.png",
   "type": "agua",
+  "typeReal": "agua",
   "hp": 32,
   "learnset": [
    {
@@ -1696,6 +1746,7 @@ const FORMAS = {
   "id": 61,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/61.png",
   "type": "agua",
+  "typeReal": "agua",
   "hp": 47,
   "learnset": [
    {
@@ -1741,6 +1792,7 @@ const FORMAS = {
   "id": 62,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/62.png",
   "type": "agua",
+  "typeReal": "agua · lucha",
   "hp": 62,
   "learnset": [
    {
@@ -1786,6 +1838,7 @@ const FORMAS = {
   "id": 63,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/63.png",
   "type": "electrico",
+  "typeReal": "psiquico",
   "hp": 23,
   "learnset": [
    {
@@ -1801,6 +1854,7 @@ const FORMAS = {
   "id": 64,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/64.png",
   "type": "electrico",
+  "typeReal": "psiquico",
   "hp": 32,
   "learnset": [
    {
@@ -1822,6 +1876,7 @@ const FORMAS = {
   "id": 65,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/65.png",
   "type": "electrico",
+  "typeReal": "psiquico",
   "hp": 41,
   "learnset": [
    {
@@ -1843,6 +1898,7 @@ const FORMAS = {
   "id": 66,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/66.png",
   "type": "normal",
+  "typeReal": "lucha",
   "hp": 50,
   "learnset": [
    {
@@ -1876,6 +1932,7 @@ const FORMAS = {
   "id": 67,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/67.png",
   "type": "normal",
+  "typeReal": "lucha",
   "hp": 56,
   "learnset": [
    {
@@ -1909,6 +1966,7 @@ const FORMAS = {
   "id": 68,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png",
   "type": "normal",
+  "typeReal": "lucha",
   "hp": 62,
   "learnset": [
    {
@@ -1936,6 +1994,7 @@ const FORMAS = {
   "id": 69,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/69.png",
   "type": "planta",
+  "typeReal": "planta · veneno",
   "hp": 38,
   "learnset": [
    {
@@ -1969,6 +2028,7 @@ const FORMAS = {
   "id": 70,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/70.png",
   "type": "planta",
+  "typeReal": "planta · veneno",
   "hp": 47,
   "learnset": [
    {
@@ -2002,6 +2062,7 @@ const FORMAS = {
   "id": 71,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/71.png",
   "type": "planta",
+  "typeReal": "planta · veneno",
   "hp": 56,
   "learnset": [
    {
@@ -2041,6 +2102,7 @@ const FORMAS = {
   "id": 72,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/72.png",
   "type": "agua",
+  "typeReal": "agua · veneno",
   "hp": 32,
   "learnset": [
    {
@@ -2086,6 +2148,7 @@ const FORMAS = {
   "id": 73,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/73.png",
   "type": "agua",
+  "typeReal": "agua · veneno",
   "hp": 56,
   "learnset": [
    {
@@ -2125,6 +2188,7 @@ const FORMAS = {
   "id": 74,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74.png",
   "type": "normal",
+  "typeReal": "roca · tierra",
   "hp": 32,
   "learnset": [
    {
@@ -2146,6 +2210,7 @@ const FORMAS = {
   "id": 75,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/75.png",
   "type": "normal",
+  "typeReal": "roca · tierra",
   "hp": 41,
   "learnset": [
    {
@@ -2173,6 +2238,7 @@ const FORMAS = {
   "id": 76,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/76.png",
   "type": "normal",
+  "typeReal": "roca · tierra",
   "hp": 56,
   "learnset": [
    {
@@ -2206,6 +2272,7 @@ const FORMAS = {
   "id": 77,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/77.png",
   "type": "fuego",
+  "typeReal": "fuego",
   "hp": 38,
   "learnset": [
    {
@@ -2251,6 +2318,7 @@ const FORMAS = {
   "id": 78,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/78.png",
   "type": "fuego",
+  "typeReal": "fuego",
   "hp": 47,
   "learnset": [
    {
@@ -2284,6 +2352,7 @@ const FORMAS = {
   "id": 79,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/79.png",
   "type": "agua",
+  "typeReal": "agua · psiquico",
   "hp": 62,
   "learnset": [
    {
@@ -2317,6 +2386,7 @@ const FORMAS = {
   "id": 80,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/80.png",
   "type": "agua",
+  "typeReal": "agua · psiquico",
   "hp": 65,
   "learnset": [
    {
@@ -2356,6 +2426,7 @@ const FORMAS = {
   "id": 81,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/81.png",
   "type": "electrico",
+  "typeReal": "electrico · acero",
   "hp": 23,
   "learnset": [
    {
@@ -2383,6 +2454,7 @@ const FORMAS = {
   "id": 82,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/82.png",
   "type": "electrico",
+  "typeReal": "electrico · acero",
   "hp": 38,
   "learnset": [
    {
@@ -2416,6 +2488,7 @@ const FORMAS = {
   "id": 462,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/462.png",
   "type": "electrico",
+  "typeReal": "electrico · acero",
   "hp": 50,
   "learnset": [
    {
@@ -2449,6 +2522,7 @@ const FORMAS = {
   "id": 92,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png",
   "type": "electrico",
+  "typeReal": "fantasma · veneno",
   "hp": 26,
   "learnset": [
    {
@@ -2476,6 +2550,7 @@ const FORMAS = {
   "id": 93,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/93.png",
   "type": "electrico",
+  "typeReal": "fantasma · veneno",
   "hp": 35,
   "learnset": [
    {
@@ -2503,6 +2578,7 @@ const FORMAS = {
   "id": 94,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png",
   "type": "electrico",
+  "typeReal": "fantasma · veneno",
   "hp": 44,
   "learnset": [
    {
@@ -2524,6 +2600,7 @@ const FORMAS = {
   "id": 95,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png",
   "type": "normal",
+  "typeReal": "roca · tierra",
   "hp": 29,
   "learnset": [
    {
@@ -2557,6 +2634,7 @@ const FORMAS = {
   "id": 208,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/208.png",
   "type": "normal",
+  "typeReal": "acero · tierra",
   "hp": 53,
   "learnset": [
    {
@@ -2596,6 +2674,7 @@ const FORMAS = {
   "id": 104,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/104.png",
   "type": "normal",
+  "typeReal": "tierra",
   "hp": 38,
   "learnset": [
    {
@@ -2635,6 +2714,7 @@ const FORMAS = {
   "id": 105,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/105.png",
   "type": "normal",
+  "typeReal": "tierra",
   "hp": 44,
   "learnset": [
    {
@@ -2656,6 +2736,7 @@ const FORMAS = {
   "id": 29,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/29.png",
   "type": "planta",
+  "typeReal": "veneno",
   "hp": 41,
   "learnset": [
    {
@@ -2701,6 +2782,7 @@ const FORMAS = {
   "id": 30,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/30.png",
   "type": "planta",
+  "typeReal": "veneno",
   "hp": 50,
   "learnset": [
    {
@@ -2746,6 +2828,7 @@ const FORMAS = {
   "id": 31,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/31.png",
   "type": "planta",
+  "typeReal": "veneno · tierra",
   "hp": 62,
   "learnset": [
    {
@@ -2791,6 +2874,7 @@ const FORMAS = {
   "id": 32,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/32.png",
   "type": "planta",
+  "typeReal": "veneno",
   "hp": 36,
   "learnset": [
    {
@@ -2836,6 +2920,7 @@ const FORMAS = {
   "id": 33,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/33.png",
   "type": "planta",
+  "typeReal": "veneno",
   "hp": 45,
   "learnset": [
    {
@@ -2881,6 +2966,7 @@ const FORMAS = {
   "id": 34,
   "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/34.png",
   "type": "planta",
+  "typeReal": "veneno · tierra",
   "hp": 57,
   "learnset": [
    {
@@ -3186,7 +3272,7 @@ function nuevoLuchador(key, nivel) {
     if (m.lvl <= nivel && moves.length < 4) { moves.push({ n: m.n, t: m.t, d: m.d }); m._dado = true; }
   });
   if (!moves.length) moves.push({ n: "Golpe", t: f.type, d: 8 }); // red de seguridad
-  return { key, name: f.name, sprite: f.sprite, type: f.type, hp: maxHp, maxHp, level: nivel, moves, learn };
+  return { key, name: f.name, sprite: f.sprite, type: f.type, typeReal: f.typeReal, hp: maxHp, maxHp, level: nivel, moves, learn };
 }
 
 function empezar(key) {
@@ -3205,7 +3291,7 @@ function rivalAleatorio() {
   const extra = Math.floor((round - 1) * CURA_POR_NIVEL);
   const golpe = f.learnset[0] || { n:"Golpe", t:f.type, d:10 };
   return {
-    name: f.name, sprite: f.sprite, type: f.type,
+    name: f.name, sprite: f.sprite, type: f.type, typeReal: f.typeReal,
     hp: f.hp + extra, maxHp: f.hp + extra,
     moves: [{ n: golpe.n, t: f.type, d: Math.floor(8 + (round - 1) * 1.5) }],
   };
@@ -3223,11 +3309,11 @@ function nuevaRonda() {
 function pintar() {
   $("meEmoji").innerHTML = `<img class="sprite" src="${me.sprite}" alt="${me.name}" />`;
   $("meName").textContent = me.name;
-  $("meType").textContent = me.type; $("meType").className = "type t-" + me.type;
+  $("meType").textContent = me.typeReal || me.type; $("meType").className = "type t-" + ((me.typeReal||me.type).split(" � ")[0]);
   $("meLvl").textContent = "Nivel " + me.level;
   $("foeEmoji").innerHTML = `<img class="sprite" src="${foe.sprite}" alt="${foe.name}" />`;
   $("foeName").textContent = foe.name;
-  $("foeType").textContent = foe.type; $("foeType").className = "type t-" + foe.type;
+  $("foeType").textContent = foe.typeReal || foe.type; $("foeType").className = "type t-" + ((foe.typeReal||foe.type).split(" � ")[0]);
   barra("me", me); barra("foe", foe);
 }
 
@@ -3277,7 +3363,7 @@ function subirNivel() {
   if (evo && me.level >= evo.aNivel) {
     const antes = me.name;
     const f = FORMAS[evo.siguiente];
-    me.key = evo.siguiente; me.name = f.name; me.sprite = f.sprite; me.type = f.type;
+    me.key = evo.siguiente; me.name = f.name; me.sprite = f.sprite; me.type = f.type; me.typeReal = f.typeReal;
     me.maxHp += 14;
     // al evolucionar, adopta el learnset de la nueva forma (desde su nivel actual)
     me.learn = f.learnset.map((m) => ({ ...m }));
