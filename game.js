@@ -3229,7 +3229,7 @@ function flash(lado, tipo) {
 }
 function mov_html(nombre, tipo) { return `<span class="t-${tipo}">${nombre}</span>`; }
 
-let me = null, foe = null, round = 1, streak = 0;
+let me = null, foe = null, round = 1, streak = 0, turnos = 1;
 let aprendidos = 0;        // cuantos del learnset ya se evaluaron
 let pendienteResolver = null; // callback cuando el modal de olvidar se cierra
 
@@ -3273,7 +3273,7 @@ function nuevoLuchador(key, nivel) {
 function empezar(key) {
   me = nuevoLuchador(key, 5);
   aprendidos = 0;
-  round = 1; streak = 0;
+  round = 1; streak = 0; turnos = 1;
   startPanel.classList.add("hidden");
   overPanel.classList.add("hidden");
   arena.classList.remove("hidden");
@@ -3295,8 +3295,7 @@ function rivalAleatorio() {
 function nuevaRonda() {
   foe = rivalAleatorio();
   me.hp = me.maxHp;
-  $("round").textContent = round;
-  $("streak").textContent = streak;
+  $("turno").textContent = turnos;
   log(`\u00a1Un ${foe.name} salvaje aparece!`);
   pintar(); pintarMoves(true);
 }
@@ -3417,6 +3416,7 @@ function abrirModalOlvidar(nuevo, cuandoTermine) {
 function cerrarModal() { $("modal").classList.add("hidden"); }
 
 function turno(mov) {
+  turnos++; $("turno").textContent = turnos;
   pintarMoves(false);
   const a = dano(mov, foe);
   foe.hp -= a.valor;
