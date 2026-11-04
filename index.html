@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PokeLike - 1a Gen</title>
-  <link rel="stylesheet" href="game.css?v=18" />
+  <link rel="stylesheet" href="game.css?v=20" />
 </head>
 <body>
   <main class="game">
@@ -16,6 +16,13 @@
       <h2>Elige tu Pokemon</h2>
       <div id="starters" class="starters"></div>
       <p class="best">Mejor racha: <span id="best">0</span></p>
+    </section>
+
+    <section id="mapa" class="panel hidden">
+      <h2 id="mapaNombre"></h2>
+      <div id="mapaProgreso" class="mapa-progreso"></div>
+      <p id="mapaTexto" class="mapa-texto"></p>
+      <div id="mapaOpciones" class="mapa-opciones"></div>
     </section>
 
     <section id="arena" class="panel hidden">
@@ -60,6 +67,7 @@
     </div>
   </div>
 
-  <script src="game.js?v=18"></script>
+  <script src="mapas.js?v=20"></script>
+  <script src="game.js?v=20"></script>
 </body>
 </html>

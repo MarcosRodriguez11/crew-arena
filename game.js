@@ -3233,12 +3233,20 @@ let me = null, foe = null, round = 1, streak = 0, turnos = 1;
 let aprendidos = 0;        // cuantos del learnset ya se evaluaron
 let pendienteResolver = null; // callback cuando el modal de olvidar se cierra
 
+// --- Estado de aventura ---
+let mapaIdx = 0;     // indice del mapa actual (0..7)
+let pasoIdx = 0;     // indice del paso actual dentro del mapa (0..5); 6 = lider
+let enLider = false; // el combate actual es contra el lider
+
 const $ = (id) => document.getElementById(id);
 const startPanel = $("start");
+const mapaPanel = $("mapa");
 const arena = $("arena");
 const overPanel = $("over");
 
 function init() {
+  if (mapaPanel) mapaPanel.classList.add("hidden");
+  if (arena) arena.classList.add("hidden");
   $("best").textContent = localStorage.getItem(KEY) || 0;
   const box = $("starters");
   box.innerHTML = "";
@@ -3274,10 +3282,144 @@ function empezar(key) {
   me = nuevoLuchador(key, 5);
   aprendidos = 0;
   round = 1; streak = 0; turnos = 1;
+  mapaIdx = 0;
   startPanel.classList.add("hidden");
   overPanel.classList.add("hidden");
+  arena.classList.add("hidden");
+  iniciarMapa();
+}
+
+// =========================================================================
+//  MOTOR DE AVENTURA  -  recorre MAPAS[] en orden: 6 pasos + lider por mapa
+// =========================================================================
+
+// Si una especie no existe en FORMAS, cae en uno de los iniciales validos
+// (asi mapas.js puede listar especies que todavia no estan en la dex).
+function keyValida(key) {
+  if (FORMAS[key]) return key;
+  return INICIALES[Math.floor(Math.random() * INICIALES.length)];
+}
+
+// Nivel base de un combate segun el mapa y el paso (sube con el avance).
+function nivelDeCombate() {
+  return 5 + mapaIdx * 6 + pasoIdx * 2;
+}
+
+// Abre el mapa actual en el paso 1.
+function iniciarMapa() {
+  pasoIdx = 0;
+  enLider = false;
+  me.hp = me.maxHp;
+  arena.classList.add("hidden");
+  overPanel.classList.add("hidden");
+  mapaPanel.classList.remove("hidden");
+  mostrarPaso();
+}
+
+// Dibuja el paso actual: progreso + las 2-3 opciones de spot a elegir.
+function mostrarPaso() {
+  const mapa = MAPAS[mapaIdx];
+  $("mapaNombre").textContent = `Mapa ${mapa.id}: ${mapa.nombre}`;
+
+  // barra de progreso: 6 pasos + lider
+  const prog = $("mapaProgreso");
+  prog.innerHTML = "";
+  for (let i = 0; i < 6; i++) {
+    const s = document.createElement("span");
+    s.className = "ptick" + (i < pasoIdx ? " done" : i === pasoIdx ? " now" : "");
+    s.textContent = i + 1;
+    prog.appendChild(s);
+  }
+  const lic = document.createElement("span");
+  lic.className = "ptick lider" + (pasoIdx >= 6 ? " now" : "");
+  lic.textContent = "\u2605";
+  prog.appendChild(lic);
+
+  const opc = $("mapaOpciones");
+  opc.innerHTML = "";
+
+  if (pasoIdx >= 6) {
+    // Paso 7: el lider (no se elige)
+    $("mapaTexto").textContent = `Te enfrentas al ${mapa.lider.nombre}.`;
+    const b = document.createElement("button");
+    b.className = "big spot-lider";
+    b.textContent = `Luchar contra ${mapa.lider.nombre}`;
+    b.addEventListener("click", () => empezarLider());
+    opc.appendChild(b);
+    return;
+  }
+
+  $("mapaTexto").textContent = `Paso ${pasoIdx + 1} de 6. Elige un camino:`;
+  const spots = mapa.pasos[pasoIdx] || [];
+  spots.forEach((spot) => opc.appendChild(botonSpot(spot)));
+}
+
+// Un boton para elegir un spot (ahora todos son combate pokemon).
+function botonSpot(spot) {
+  const b = document.createElement("button");
+  b.className = "spot spot-" + (spot.tipo || "pokemon");
+  if (spot.tipo === "pokemon" || !spot.tipo) {
+    const key = keyValida(spot.especie);
+    const f = FORMAS[key];
+    b.innerHTML =
+      `<img class="spot-sprite" src="${f.sprite}" alt="${f.name}" loading="lazy" />` +
+      `<span class="spot-label">${f.name}</span>`;
+    b.addEventListener("click", () => empezarSpot(spot));
+  } else {
+    // entrenador / objeto / cura: estructura preparada para el futuro.
+    b.textContent = etiquetaSpot(spot);
+    b.addEventListener("click", () => empezarSpot(spot));
+  }
+  return b;
+}
+
+function etiquetaSpot(spot) {
+  if (spot.tipo === "entrenador") return (spot.nombre || "Entrenador");
+  if (spot.tipo === "objeto") return "Objeto: " + (spot.item || "?");
+  if (spot.tipo === "cura") return "Zona de cura";
+  return "Combate";
+}
+
+// Construye un rival pokemon desde un spot y arranca el combate.
+function empezarSpot(spot) {
+  const key = keyValida(spot.especie || (spot.equipo && spot.equipo[0]) || "pidgey");
+  enLider = false;
+  foe = rivalDesde(key, nivelDeCombate());
+  prepararCombate(`\u00a1Un ${foe.name} salvaje aparece!`);
+}
+
+// Construye el rival lider (usa el 1er pokemon de su equipo) y arranca el combate.
+function empezarLider() {
+  const mapa = MAPAS[mapaIdx];
+  const key = keyValida((mapa.lider.equipo && mapa.lider.equipo[0]) || "charizard");
+  enLider = true;
+  foe = rivalDesde(key, nivelDeCombate() + 3);
+  foe.name = mapa.lider.nombre + " (" + foe.name + ")";
+  prepararCombate(`\u00a1${mapa.lider.nombre} te reta!`);
+}
+
+// Rival concreto a partir de una key de FORMAS y un nivel.
+function rivalDesde(key, nivel) {
+  const f = FORMAS[key];
+  const maxHp = f.hp + (nivel - 1) * CURA_POR_NIVEL;
+  const golpe = (f.learnset && f.learnset[0]) || { n: "Golpe", t: f.type, d: 10 };
+  return {
+    key, name: f.name, sprite: f.sprite, type: f.type, typeReal: f.typeReal,
+    level: nivel,
+    hp: maxHp, maxHp,
+    moves: [{ n: golpe.n, t: golpe.t || f.type, d: Math.max(8, Math.floor(8 + (nivel - 5) * 1.2)) }],
+  };
+}
+
+// Cambia a la arena y pinta el combate.
+function prepararCombate(mensaje) {
+  mapaPanel.classList.add("hidden");
   arena.classList.remove("hidden");
-  nuevaRonda();
+  me.hp = me.maxHp;
+  turnos = 1;
+  $("turno").textContent = turnos;
+  log(mensaje);
+  pintar(); pintarMoves(true);
 }
 
 function rivalAleatorio() {
@@ -3432,9 +3574,9 @@ function turno(mov) {
     const subida = subirNivel();
     log(`\u00a1${foe.name} cae! ${subida}`);
     pintar();
-    // aprende los movimientos nuevos (puede abrir modal), luego sigue
+    // aprende los movimientos nuevos (puede abrir modal), luego avanza en la aventura
     const nuevos = movsNuevos();
-    aprenderMovs(nuevos, () => setTimeout(nuevaRonda, 900));
+    aprenderMovs(nuevos, () => setTimeout(trasVictoria, 900));
     return;
   }
 
@@ -3456,21 +3598,66 @@ function efecto(mult) {
   return "";
 }
 
+// Decide que pasa tras ganar un combate dentro de la aventura.
+function trasVictoria() {
+  if (enLider) {
+    enLider = false;
+    mapaSuperado();
+    return;
+  }
+  // era un spot normal: avanza al siguiente paso (o al lider si ya hizo los 6)
+  pasoIdx++;
+  arena.classList.add("hidden");
+  mapaPanel.classList.remove("hidden");
+  me.hp = me.maxHp; // te recuperas entre pasos
+  mostrarPaso();
+}
+
+// Mapa completado: desbloquea el siguiente o termina el juego.
+function mapaSuperado() {
+  arena.classList.add("hidden");
+  overPanel.classList.remove("hidden");
+  if (mapaIdx < MAPAS.length - 1) {
+    mapaIdx++;
+    $("overTitle").textContent = "\u00a1Mapa superado!";
+    $("overText").textContent = `Venciste al lider. Siguiente destino: Mapa ${MAPAS[mapaIdx].id} - ${MAPAS[mapaIdx].nombre}.`;
+    $("again").textContent = "Ir al siguiente mapa";
+    overPanel.dataset.accion = "siguiente";
+  } else {
+    juegoCompletado();
+  }
+}
+
+// Fin de los 8 mapas.
+function juegoCompletado() {
+  $("overTitle").textContent = "\u00a1Campeon!";
+  $("overText").textContent = `Has superado los 8 mapas con ${me.name} (nivel ${me.level}). \u00a1Felicidades!`;
+  $("again").textContent = "Jugar otra vez";
+  overPanel.dataset.accion = "reiniciar";
+}
+
 function fin() {
   arena.classList.add("hidden");
   overPanel.classList.remove("hidden");
   const best = Number(localStorage.getItem(KEY) || 0);
   if (streak > best) { localStorage.setItem(KEY, streak); $("overTitle").textContent = "\u00a1Nuevo record!"; }
   else { $("overTitle").textContent = "Has caido"; }
-  $("overText").textContent = `${me.name} llego al nivel ${me.level} con ${streak} victoria(s). Mejor racha: ${localStorage.getItem(KEY)}.`;
+  $("overText").textContent = `${me.name} cayo en el Mapa ${MAPAS[mapaIdx].id} (${MAPAS[mapaIdx].nombre}), nivel ${me.level}.`;
+  $("again").textContent = "Jugar otra vez";
+  overPanel.dataset.accion = "reiniciar";
 }
 
 function log(t) { $("log").innerHTML = t; }
 
 $("again").addEventListener("click", () => {
   overPanel.classList.add("hidden");
-  startPanel.classList.remove("hidden");
-  init();
+  if (overPanel.dataset.accion === "siguiente") {
+    // conservas tu Pokemon; solo pasas al mapa ya desbloqueado
+    iniciarMapa();
+  } else {
+    startPanel.classList.remove("hidden");
+    init();
+  }
 });
 
 init();

@@ -210,3 +210,41 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
 .m-hada      { border-color: #ff9ed6 !important; background: #3a1c30 !important; color: #ffdcf1 !important; }
 
 .tsep { color: #8a93a3; }
+
+/* ---------- Panel de aventura (mapa) ---------- */
+#mapa { text-align: center; }
+.mapa-progreso {
+  display: flex; justify-content: center; gap: 8px;
+  margin: 14px 0; flex-wrap: wrap;
+}
+.mapa-progreso .ptick {
+  width: 30px; height: 30px; line-height: 30px;
+  border-radius: 6px; font-size: 11px;
+  background: #1b2130; color: #7b8699;
+  border: 2px solid #2a3242;
+}
+.mapa-progreso .ptick.done { background: #1e3a24; color: #7fe39a; border-color: #2f6b3d; }
+.mapa-progreso .ptick.now  { background: #2a2140; color: #ffe066; border-color: #ffe066; }
+.mapa-progreso .ptick.lider { color: #ffb84d; }
+.mapa-progreso .ptick.lider.now { background: #3a2a14; border-color: #ffb84d; }
+.mapa-texto { color: #aeb6c4; margin: 6px 0 14px; }
+.mapa-opciones {
+  display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;
+}
+.mapa-opciones .spot {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  min-width: 110px; padding: 12px 10px; cursor: pointer;
+  background: #171d29; color: #e8edf4;
+  border: 3px solid #2a3242; border-radius: 10px;
+  font-family: inherit; font-size: 11px;
+  transition: transform .08s, border-color .12s;
+}
+.mapa-opciones .spot:hover { transform: translateY(-3px); border-color: #ffe066; }
+.mapa-opciones .spot-sprite {
+  width: 72px; height: 72px; image-rendering: pixelated;
+}
+.mapa-opciones .spot-label { font-size: 10px; }
+.mapa-opciones .spot-lider {
+  background: #3a2a14; border-color: #ffb84d; color: #ffe066;
+  padding: 14px 20px; font-size: 12px;
+}
