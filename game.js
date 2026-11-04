@@ -1,6 +1,6 @@
-// Mini PokeRogue - 1a generacion. HTML/CSS/JS puros, sin librerias.
+// Mini PokeRogue - 1a generacion, con niveles. HTML/CSS/JS puros.
 
-// Tabla de tipos: multiplicador de dano de atacante -> defensor.
+// Ventaja de tipos: multiplicador de dano atacante -> defensor.
 const VENTAJA = {
   fuego:    { planta: 2, agua: 0.5, fuego: 1, normal: 1, electrico: 1 },
   agua:     { fuego: 2, planta: 0.5, agua: 1, normal: 1, electrico: 0.5 },
@@ -9,45 +9,49 @@ const VENTAJA = {
   normal:   { fuego: 1, agua: 1, planta: 1, normal: 1, electrico: 1 },
 };
 
-// Pokemon de 1a gen disponibles.
+// Pokemon jugables. moves = ataque inicial. pool = ataques que puede aprender al subir.
 const DEX = {
-  charmander: { name: "Charmander", emoji: "\u{1F98E}", type: "fuego", hp: 45,
-    moves: [{ n: "Ascuas", t: "fuego", d: 12 }, { n: "Arañazo", t: "normal", d: 9 }] },
-  squirtle:   { name: "Squirtle", emoji: "\u{1F422}", type: "agua", hp: 48,
-    moves: [{ n: "Pistola Agua", t: "agua", d: 12 }, { n: "Placaje", t: "normal", d: 9 }] },
-  bulbasaur:  { name: "Bulbasaur", emoji: "\u{1F43E}", type: "planta", hp: 50,
-    moves: [{ n: "Latigo Cepa", t: "planta", d: 12 }, { n: "Placaje", t: "normal", d: 9 }] },
-  pikachu:    { name: "Pikachu", emoji: "\u26A1", type: "electrico", hp: 42,
-    moves: [{ n: "Impactrueno", t: "electrico", d: 13 }, { n: "Ataque Rapido", t: "normal", d: 9 }] },
-  pidgey:     { name: "Pidgey", emoji: "\u{1F426}", type: "normal", hp: 44,
-    moves: [{ n: "Tornado", t: "normal", d: 11 }, { n: "Picotazo", t: "normal", d: 9 }] },
-  geodude:    { name: "Geodude", emoji: "\u{1FAA8}", type: "normal", hp: 52,
-    moves: [{ n: "Lanzarrocas", t: "normal", d: 12 }, { n: "Placaje", t: "normal", d: 8 }] },
-  rattata:    { name: "Rattata", emoji: "\u{1F400}", type: "normal", hp: 40,
-    moves: [{ n: "Mordisco", t: "normal", d: 11 }, { n: "Ataque Rapido", t: "normal", d: 9 }] },
+  charmander: { name: "Charmander", emoji: "\u{1F98E}", type: "fuego", hp: 20,
+    moves: [{ n: "Arañazo", t: "normal", d: 6 }],
+    pool: [{ n: "Ascuas", t: "fuego", d: 12 }, { n: "Giro Fuego", t: "fuego", d: 15 }, { n: "Lanzallamas", t: "fuego", d: 20 }] },
+  squirtle:   { name: "Squirtle", emoji: "\u{1F422}", type: "agua", hp: 22,
+    moves: [{ n: "Placaje", t: "normal", d: 6 }],
+    pool: [{ n: "Pistola Agua", t: "agua", d: 12 }, { n: "Burbuja", t: "agua", d: 15 }, { n: "Hidrobomba", t: "agua", d: 20 }] },
+  bulbasaur:  { name: "Bulbasaur", emoji: "\u{1F43E}", type: "planta", hp: 23,
+    moves: [{ n: "Placaje", t: "normal", d: 6 }],
+    pool: [{ n: "Latigo Cepa", t: "planta", d: 12 }, { n: "Hoja Afilada", t: "planta", d: 15 }, { n: "Rayo Solar", t: "planta", d: 20 }] },
+  pikachu:    { name: "Pikachu", emoji: "\u26A1", type: "electrico", hp: 19,
+    moves: [{ n: "Ataque Rapido", t: "normal", d: 6 }],
+    pool: [{ n: "Impactrueno", t: "electrico", d: 13 }, { n: "Chispa", t: "electrico", d: 16 }, { n: "Rayo", t: "electrico", d: 21 }] },
 };
 
-const STARTERS = ["charmander", "squirtle", "bulbasaur", "pikachu"];
-const KEY = "pokerogue_best";
+// Rivales (pueden salir tambien iniciales).
+const RIVALES = {
+  pidgey:  { name: "Pidgey", emoji: "\u{1F426}", type: "normal", hp: 20, moves: [{ n: "Tornado", t: "normal", d: 8 }] },
+  geodude: { name: "Geodude", emoji: "\u{1FAA8}", type: "normal", hp: 26, moves: [{ n: "Lanzarrocas", t: "normal", d: 9 }] },
+  rattata: { name: "Rattata", emoji: "\u{1F400}", type: "normal", hp: 18, moves: [{ n: "Mordisco", t: "normal", d: 8 }] },
+};
 
-// --- Estado ---
-let me = null;      // {name, emoji, type, hp, maxHp, moves}
+const KEY = "pokerogue_best";
+const PS_POR_NIVEL = 8;      // PS max que ganas por nivel
+const CURA_POR_NIVEL = 4;    // dano extra del rival por ronda
+
+let me = null;
 let foe = null;
 let round = 1;
 let streak = 0;
+let nuevosAprendidos = 0;    // cuantos de la pool ya aprendio tu pokemon
 
-// --- Refs ---
 const $ = (id) => document.getElementById(id);
 const startPanel = $("start");
 const arena = $("arena");
 const overPanel = $("over");
 
-// --- Inicio ---
 function init() {
   $("best").textContent = localStorage.getItem(KEY) || 0;
   const box = $("starters");
   box.innerHTML = "";
-  STARTERS.forEach((id) => {
+  Object.keys(DEX).forEach((id) => {
     const p = DEX[id];
     const el = document.createElement("div");
     el.className = "card";
@@ -60,14 +64,15 @@ function init() {
   });
 }
 
-function nuevo(id) {
-  const p = DEX[id];
-  return { name: p.name, emoji: p.emoji, type: p.type, hp: p.hp, maxHp: p.hp,
-    moves: p.moves.map((m) => ({ ...m })) };
-}
-
 function empezar(id) {
-  me = nuevo(id);
+  const p = DEX[id];
+  me = {
+    name: p.name, emoji: p.emoji, type: p.type,
+    hp: p.hp, maxHp: p.hp, level: 1,
+    moves: p.moves.map((m) => ({ ...m })),
+    pool: p.pool.map((m) => ({ ...m })),
+  };
+  nuevosAprendidos = 0;
   round = 1;
   streak = 0;
   startPanel.classList.add("hidden");
@@ -76,18 +81,22 @@ function empezar(id) {
   nuevaRonda();
 }
 
-function pokeAleatorio() {
-  const ids = Object.keys(DEX);
-  return nuevo(ids[Math.floor(Math.random() * ids.length)]);
+function rivalAleatorio() {
+  const todos = { ...RIVALES, ...DEX };
+  const ids = Object.keys(todos);
+  const p = todos[ids[Math.floor(Math.random() * ids.length)]];
+  // El rival escala con la ronda.
+  const extra = Math.floor((round - 1) * CURA_POR_NIVEL);
+  return {
+    name: p.name, emoji: p.emoji, type: p.type,
+    hp: p.hp + extra, maxHp: p.hp + extra,
+    moves: p.moves.map((m) => ({ ...m, d: m.d + Math.floor((round - 1) * 1.5) })),
+  };
 }
 
 function nuevaRonda() {
-  foe = pokeAleatorio();
-  // El rival se hace mas fuerte con las rondas.
-  const extra = Math.floor((round - 1) * 6);
-  foe.hp += extra;
-  foe.maxHp += extra;
-  me.hp = me.maxHp; // curacion entre rondas
+  foe = rivalAleatorio();
+  me.hp = me.maxHp; // te curas entre rondas
   $("round").textContent = round;
   $("streak").textContent = streak;
   log(`\u00a1Un ${foe.name} salvaje aparece!`);
@@ -100,6 +109,7 @@ function pintar() {
   $("meName").textContent = me.name;
   $("meType").textContent = me.type;
   $("meType").className = "type t-" + me.type;
+  $("meLvl").textContent = "Nivel " + me.level;
   $("foeEmoji").textContent = foe.emoji;
   $("foeName").textContent = foe.name;
   $("foeType").textContent = foe.type;
@@ -128,17 +138,30 @@ function pintarMoves(activo) {
   });
 }
 
-function dano(atacante, mov, defensor) {
+function dano(mov, defensor) {
   const mult = (VENTAJA[mov.t] && VENTAJA[mov.t][defensor.type]) || 1;
-  const varia = 0.85 + Math.random() * 0.3; // 0.85 - 1.15
+  const varia = 0.85 + Math.random() * 0.3;
   return { valor: Math.round(mov.d * mult * varia), mult };
+}
+
+function subirNivel() {
+  me.level++;
+  me.maxHp += PS_POR_NIVEL;
+  let txt = `\u00a1${me.name} sube al nivel ${me.level}! +${PS_POR_NIVEL} PS max.`;
+  // Aprende un ataque nuevo (si queda en la pool y tiene menos de 4).
+  if (me.moves.length < 4 && nuevosAprendidos < me.pool.length) {
+    const nuevo = me.pool[nuevosAprendidos];
+    me.moves.push({ ...nuevo });
+    nuevosAprendidos++;
+    txt += ` Aprende ${nuevo.n}.`;
+  }
+  return txt;
 }
 
 function turno(mov) {
   pintarMoves(false);
 
-  // Tu ataque
-  const a = dano(me, mov, foe);
+  const a = dano(mov, foe);
   foe.hp -= a.valor;
   let txt = `${me.name} usa ${mov.n}. ${efecto(a.mult)} ${a.valor} de dano.`;
   pintar();
@@ -146,23 +169,22 @@ function turno(mov) {
   if (foe.hp <= 0) {
     streak++;
     round++;
-    txt += ` \u00a1${foe.name} cae!`;
+    const subida = subirNivel();
+    txt += ` \u00a1${foe.name} cae! ${subida}`;
     log(txt);
-    setTimeout(nuevaRonda, 900);
+    pintar();
+    setTimeout(nuevaRonda, 1300);
     return;
   }
 
-  // Ataque rival
   const fm = foe.moves[Math.floor(Math.random() * foe.moves.length)];
-  const b = dano(foe, fm, me);
+  const b = dano(fm, me);
   me.hp -= b.valor;
   txt += ` ${foe.name} responde con ${fm.n}: ${b.valor} de dano.`;
   log(txt);
   pintar();
 
-  if (me.hp <= 0) {
-    return fin();
-  }
+  if (me.hp <= 0) return fin();
   pintarMoves(true);
 }
 
@@ -182,7 +204,8 @@ function fin() {
   } else {
     $("overTitle").textContent = "Has caido";
   }
-  $("overText").textContent = `Aguantaste ${streak} victoria(s). Mejor racha: ${localStorage.getItem(KEY)}.`;
+  $("overText").textContent =
+    `${me.name} llego al nivel ${me.level} con ${streak} victoria(s). Mejor racha: ${localStorage.getItem(KEY)}.`;
 }
 
 function log(t) { $("log").textContent = t; }
