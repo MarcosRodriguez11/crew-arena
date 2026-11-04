@@ -3287,6 +3287,7 @@ function rivalAleatorio() {
   const golpe = f.learnset[0] || { n:"Golpe", t:f.type, d:10 };
   return {
     name: f.name, sprite: f.sprite, type: f.type, typeReal: f.typeReal,
+    level: 4 + round,
     hp: f.hp + extra, maxHp: f.hp + extra,
     moves: [{ n: golpe.n, t: f.type, d: Math.floor(8 + (round - 1) * 1.5) }],
   };
@@ -3308,6 +3309,7 @@ function pintar() {
   $("foeEmoji").innerHTML = `<img class="sprite" src="${foe.sprite}" alt="${foe.name}" />`;
   $("foeName").textContent = foe.name;
   $("foeType").innerHTML = tipoHTML(foe.typeReal || foe.type); $("foeType").className = "type";
+  $("foeLvl").textContent = "Nivel " + foe.level;
   barra("me", me); barra("foe", foe);
 }
 
