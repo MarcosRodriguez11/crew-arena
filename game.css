@@ -71,6 +71,7 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
 }
 .card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .card .emoji { font-size: 2.2rem; }
+.card .sprite { width: 72px; height: 72px; image-rendering: pixelated; }
 .card .name { margin-top: 10px; font-size: .62rem; }
 .card .type { font-size: .52rem; margin-top: 6px; }
 
@@ -87,6 +88,7 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
 }
 .fighter { flex: 1; }
 .fighter .emoji { font-size: 2.6rem; display: inline-block; }
+.fighter .sprite { width: 88px; height: 88px; image-rendering: pixelated; }
 .fighter .name { font-size: .58rem; margin-top: 8px; }
 .fighter .type { font-size: .5rem; margin-top: 6px; }
 .fighter .lvl { font-size: .5rem; color: #ffd94d; margin: 6px 0; }
