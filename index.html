@@ -3,22 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lista de tareas</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Mini PokeRogue - 1a Gen</title>
+  <link rel="stylesheet" href="game.css" />
 </head>
 <body>
-  <main class="app">
-    <h1>Mis tareas</h1>
-    <form id="form" class="form">
-      <input id="input" type="text" placeholder="Escribe una tarea..." autocomplete="off" />
-      <button type="submit">Agregar</button>
-    </form>
-    <ul id="list" class="list"></ul>
-    <p id="empty" class="empty">No hay tareas todavía.</p>
-    <p style="text-align:center;margin-top:20px;">
-      <a href="game.html" style="color:#4f8cff;">🎮 Jugar Mini PokeRogue</a>
-    </p>
+  <main class="game">
+    <h1>Mini PokeRogue</h1>
+    <p class="sub">Primera generacion</p>
+    <p style="margin-bottom:16px;"><a href="todo.html" style="color:#4f8cff;">📋 Ir a mi lista de tareas</a></p>
+
+    <section id="start" class="panel">
+      <h2>Elige tu Pokemon</h2>
+      <div id="starters" class="starters"></div>
+      <p class="best">Mejor racha: <span id="best">0</span></p>
+    </section>
+
+    <section id="arena" class="panel hidden">
+      <p class="round">Ronda <span id="round">1</span> &middot; Racha <span id="streak">0</span></p>
+
+      <div class="fighters">
+        <div class="fighter me">
+          <div class="emoji" id="meEmoji"></div>
+          <div class="name" id="meName"></div>
+          <div class="type" id="meType"></div>
+          <div class="bar"><div class="fill" id="meHp"></div></div>
+          <div class="hp" id="meHpText"></div>
+        </div>
+        <div class="vs">VS</div>
+        <div class="fighter foe">
+          <div class="emoji" id="foeEmoji"></div>
+          <div class="name" id="foeName"></div>
+          <div class="type" id="foeType"></div>
+          <div class="bar"><div class="fill" id="foeHp"></div></div>
+          <div class="hp" id="foeHpText"></div>
+        </div>
+      </div>
+
+      <div id="moves" class="moves"></div>
+      <p id="log" class="log"></p>
+    </section>
+
+    <section id="over" class="panel hidden">
+      <h2 id="overTitle"></h2>
+      <p id="overText"></p>
+      <button id="again" class="big">Jugar otra vez</button>
+    </section>
   </main>
-  <script src="app.js"></script>
+  <script src="game.js"></script>
 </body>
 </html>
