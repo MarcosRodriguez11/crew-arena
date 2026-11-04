@@ -87,9 +87,12 @@ function init() {
 
 function empezar(id) {
   const p = DEX[id];
+  const NIVEL_INICIAL = 5;
+  const bonusNiveles = (NIVEL_INICIAL - 1) * PS_POR_NIVEL; // PS extra por empezar en nivel 5
+  const maxHp = p.hp + bonusNiveles;
   me = {
     name: p.name, emoji: p.emoji, type: p.type,
-    hp: p.hp, maxHp: p.hp, level: 1,
+    hp: maxHp, maxHp: maxHp, level: NIVEL_INICIAL,
     moves: p.moves.map((m) => ({ ...m })),
     pool: p.pool.map((m) => ({ ...m })),
   };
