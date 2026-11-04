@@ -3304,11 +3304,11 @@ function nuevaRonda() {
 function pintar() {
   $("meEmoji").innerHTML = `<img class="sprite" src="${me.sprite}" alt="${me.name}" />`;
   $("meName").textContent = me.name;
-  $("meType").textContent = me.typeReal || me.type; $("meType").className = "type t-" + ((me.typeReal||me.type).split(" � ")[0]);
+  $("meType").innerHTML = tipoHTML(me.typeReal || me.type); $("meType").className = "type";
   $("meLvl").textContent = "Nivel " + me.level;
   $("foeEmoji").innerHTML = `<img class="sprite" src="${foe.sprite}" alt="${foe.name}" />`;
   $("foeName").textContent = foe.name;
-  $("foeType").textContent = foe.typeReal || foe.type; $("foeType").className = "type t-" + ((foe.typeReal||foe.type).split(" � ")[0]);
+  $("foeType").innerHTML = tipoHTML(foe.typeReal || foe.type); $("foeType").className = "type";
   barra("me", me); barra("foe", foe);
 }
 
