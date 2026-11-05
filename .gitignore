@@ -1,0 +1,5 @@
+# Cache de descargas de PokeAPI (se regenera con tools/gen_dex.py)
+tools/.cache/
+# Copias de seguridad
+tools/*.bak
+*.bak
