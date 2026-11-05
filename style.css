@@ -1,0 +1,90 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: #0f1115;
+  color: #e6e6e6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #2a2f3a;
+  border-radius: 8px;
+  background: #1a1d24;
+  color: #e6e6e6;
+  font-size: 1rem;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #4f8cff;
+}
+
+.form button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #4f8cff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.form button:hover { background: #3b74e0; }
+
+.list { list-style: none; }
+
+.list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #1a1d24;
+  border: 1px solid #2a2f3a;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.list li.done span {
+  text-decoration: line-through;
+  color: #7a7f8a;
+}
+
+.list li span { flex: 1; cursor: pointer; }
+
+.list li button {
+  border: none;
+  background: transparent;
+  color: #ff6b6b;
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.empty {
+  text-align: center;
+  color: #7a7f8a;
+  margin-top: 12px;
+}

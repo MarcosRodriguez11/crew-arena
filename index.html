@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PokeLike - 1a Gen</title>
+  <link rel="stylesheet" href="game.css?v=23" />
+</head>
+<body>
+  <main class="game">
+    <h1>PokeLike</h1>
+    <p class="sub">Primera generacion</p>
+    <p style="margin-bottom:16px;"><a href="todo.html" style="color:#4f8cff;">📋 Ir a mi lista de tareas</a></p>
+
+    <section id="start" class="panel">
+      <h2>Elige tu Pokemon</h2>
+      <div id="starters" class="starters"></div>
+      <p class="best">Mejor racha: <span id="best">0</span></p>
+    </section>
+
+    <div id="mapaFila" class="mapa-fila hidden">
+      <aside id="equipoMapa" class="equipo-mapa"></aside>
+      <section id="mapa" class="panel">
+        <h2 id="mapaNombre"></h2>
+        <p id="mapaTexto" class="mapa-texto"></p>
+        <div id="mapaOpciones" class="mapa-opciones"></div>
+      </section>
+    </div>
+
+    <div id="arenaFila" class="arena-fila hidden">
+      <div class="team-col team-fuera" id="meTeam"></div>
+
+      <section id="arena" class="panel">
+        <p class="round">Turno <span id="turno">1</span></p>
+
+        <div class="fighters">
+          <div class="fighter me">
+            <div class="emoji" id="meEmoji"></div>
+            <div class="name" id="meName"></div>
+            <div class="type" id="meType"></div>
+            <div class="lvl" id="meLvl"></div>
+            <div class="bar"><div class="fill" id="meHp"></div></div>
+            <div class="hp" id="meHpText"></div>
+          </div>
+          <div class="vs">VS</div>
+          <div class="fighter foe">
+            <div class="emoji" id="foeEmoji"></div>
+            <div class="name" id="foeName"></div>
+            <div class="type" id="foeType"></div>
+            <div class="lvl" id="foeLvl"></div>
+            <div class="bar"><div class="fill" id="foeHp"></div></div>
+            <div class="hp" id="foeHpText"></div>
+          </div>
+        </div>
+
+        <div id="moves" class="moves"></div>
+        <div id="acciones" class="acciones"></div>
+        <p id="log" class="log"></p>
+      </section>
+
+      <div class="team-col team-fuera" id="foeTeam"></div>
+    </div>
+
+    <section id="over" class="panel hidden">
+      <h2 id="overTitle"></h2>
+      <p id="overText"></p>
+      <button id="again" class="big">Jugar otra vez</button>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box panel">
+      <h2 id="modalTitle">Aprender movimiento</h2>
+      <p id="modalNew" class="modal-new"></p>
+      <div id="modalMoves" class="modal-moves"></div>
+    </div>
+  </div>
+
+  <script src="mapas.js?v=23"></script>
+  <script src="game.js?v=23"></script>
+</body>
+</html>
