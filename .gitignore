@@ -3,3 +3,6 @@ tools/.cache/
 # Copias de seguridad
 tools/*.bak
 *.bak
+# Material de trabajo del tileset (tileset crudo, zips, hojas de contacto).
+# El juego solo usa img/badges/ e img/mapa/, que SI se suben.
+img/tiles/
