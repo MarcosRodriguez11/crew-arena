@@ -8860,6 +8860,25 @@ let pasoIdx = 0;     // indice del paso actual dentro del mapa (0..5); 6 = lider
 let enLider = false; // el combate actual es contra el lider
 let pasosActivos = null; // copia de los pasos del mapa con los entrenadores ya colocados (por partida de mapa)
 let elegidos = [];       // por cada paso completado, el indice del nodo que eligio el jugador (para colocar su icono)
+let medallasGanadas = []; // nombres de medalla ya conseguidas (al vencer a cada lider con medalla)
+
+// Mapa: nombre de medalla (de mapas.js) -> sprite de la medalla y su nombre bonito.
+// Solo las 8 de mapa; el "Campeon de la Liga" no es medalla de hueco.
+const MEDALLAS = {
+  "Medalla Hoja":        { img: "img/badges/4.png", nombre: "Medalla Arcoiris" },
+  "Medalla Roca":        { img: "img/badges/1.png", nombre: "Medalla Roca" },
+  "Medalla Cascada":     { img: "img/badges/2.png", nombre: "Medalla Cascada" },
+  "Medalla Alma":        { img: "img/badges/6.png", nombre: "Medalla Pantano" },
+  "Medalla Volcán":      { img: "img/badges/7.png", nombre: "Medalla Volcan" },
+  "Medalla Trueno":      { img: "img/badges/3.png", nombre: "Medalla Trueno" },
+  "Medalla Alma Oscura": { img: "img/badges/5.png", nombre: "Medalla Alma" },
+  "Medalla Tierra":      { img: "img/badges/8.png", nombre: "Medalla Tierra" },
+};
+// Orden de los 8 huecos (de arriba a abajo), igual que el orden de los mapas 1..8.
+const ORDEN_MEDALLAS = [
+  "Medalla Hoja", "Medalla Roca", "Medalla Cascada", "Medalla Alma",
+  "Medalla Volcán", "Medalla Trueno", "Medalla Alma Oscura", "Medalla Tierra",
+];
 
 const $ = (id) => document.getElementById(id);
 const startPanel = $("start");
@@ -8910,6 +8929,7 @@ function empezar(key) {
   aprendidos = 0;
   round = 1; streak = 0; turnos = 1;
   mapaIdx = 0;
+  medallasGanadas = []; // nueva partida: sin medallas
   startPanel.classList.add("hidden");
   overPanel.classList.add("hidden");
   arena.classList.add("hidden");
@@ -9009,6 +9029,7 @@ function mostrarPaso() {
   $("mapa").style.backgroundImage = `url("${fondo}")`;
 
   pintarEquipoMapa(); // panel de equipo a la izquierda (vida y nivel)
+  pintarMedallasMapa(); // panel de 8 medallas a la derecha
 
   if (pasoIdx >= 6) {
     $("mapaTexto").textContent = `\u00a1Has llegado al final! Te espera el ${mapa.lider.nombre}.`;
@@ -9052,7 +9073,7 @@ function mostrarPaso() {
   if (pasoIdx === 0) {
     const jug = document.createElement("div");
     jug.className = "ruta-jugador";
-    jug.innerHTML = `<span class="jug-icono">\u{1F9CD}</span>`;
+    jug.innerHTML = `<img class="jug-sprite" src="img/mapa/jugador.png" alt="Tu" />`;
     jug.dataset.activo = "1";
     ruta.appendChild(jug);
   }
@@ -9081,21 +9102,28 @@ function nodoRuta(spot, indice, pasoDeLaFila) {
   const tipo = spot.tipo || "pokemon";
   b.className = "nodo nodo-" + tipo + (esActual ? " activo" : esPasado ? " hecho" : " bloqueado");
 
-  let icono = "\u{1F33F}"; // hierba por defecto
-  if (tipo === "entrenador") icono = "\u{1F9D1}";
-  else if (tipo === "objeto") icono = "\u{1F381}";
-  else if (tipo === "cura") icono = "\u2764\uFE0F";
+  // Sprites de los nodos (tileset CC0 "Puny World" + personajes del mismo autor):
+  //  - hierba     -> tile de arbusto/hierba del tileset
+  //  - entrenador -> personaje Soldier-Blue
+  //  - jugador    -> personaje Character-Base
+  //  - objeto     -> tile de cofre del tileset
+  //  - centro     -> sprite propio (SVG)
+  let sprite = "img/mapa/hierba.png"; // hierba por defecto
+  if (tipo === "entrenador") sprite = "img/mapa/entrenador.png";
+  else if (tipo === "objeto") sprite = "img/mapa/objeto.png";
+  else if (tipo === "cura") sprite = "img/mapa/centro.svg";
   const label = (tipo === "pokemon") ? `Hierba ${indice + 1}` : etiquetaSpot(spot);
 
-  b.innerHTML = `<span class="nodo-icono">${icono}</span><span class="nodo-label">${label}</span>`;
+  b.innerHTML = `<img class="nodo-sprite" src="${sprite}" alt="${label}" /><span class="nodo-label">${label}</span>`;
 
   // El icono del jugador aparece UNA sola vez: sobre el nodo que eligio en el
   // paso inmediatamente anterior (el ultimo hecho). Los anteriores no lo muestran.
   if (pasoDeLaFila === pasoIdx - 1 && elegidos[pasoDeLaFila] === indice) {
     b.classList.add("con-jugador");
-    const marca = document.createElement("span");
+    const marca = document.createElement("img");
     marca.className = "jugador-aqui";
-    marca.textContent = "\u{1F9CD}"; // icono del jugador
+    marca.src = "img/mapa/jugador.png"; // sprite del jugador
+    marca.alt = "Tu";
     b.appendChild(marca);
   }
   if (esActual) b.dataset.activo = "1"; // para centrar la vista aqui
@@ -9324,6 +9352,25 @@ function pintarEquipoMapa() {
   });
 }
 
+// Panel de 8 huecos a la DERECHA del mapa: se llenan con la medalla al vencer cada lider.
+function pintarMedallasMapa() {
+  const cont = $("medallasMapa");
+  if (!cont) return;
+  cont.innerHTML = '<div class="eq-titulo">Medallas</div><div class="med-huecos"></div>';
+  const huecos = cont.querySelector(".med-huecos");
+  ORDEN_MEDALLAS.forEach((clave) => {
+    const info = MEDALLAS[clave];
+    const ganada = medallasGanadas.includes(clave);
+    const h = document.createElement("div");
+    h.className = "med-hueco" + (ganada ? " ganada" : "");
+    h.title = ganada ? info.nombre : "Medalla por conseguir";
+    h.innerHTML = ganada
+      ? `<img class="med-img" src="${info.img}" alt="${info.nombre}" />`
+      : "";
+    huecos.appendChild(h);
+  });
+}
+
 function pintarFichas(cont, lista, idxActivo) {
   if (!cont) return;
   cont.innerHTML = "";
@@ -9481,12 +9528,42 @@ function aprenderMovs(lista, cuandoTermine) {
     return;
   }
   if (me.moves.length < 4) {
+    // Hay hueco libre: no hay riesgo de borrar nada, se aprende directo.
     me.moves.push({ ...nuevo });
     log(`${me.name} aprende ${mov_html(nuevo.n, nuevo.t)}.`);
     aprenderMovs(lista, cuandoTermine);
   } else {
-    abrirModalOlvidar(nuevo, () => aprenderMovs(lista, cuandoTermine));
+    // Tiene los 4 movimientos: primero avisamos, luego abrimos el panel de cambio.
+    confirmar(
+      `${me.name} quiere aprender un movimiento`,
+      `${me.name} quiere aprender <span class="mov-nuevo m-${nuevo.t}">${nuevo.n} \u00b7 fuerza ${nuevo.d}</span>,<br>pero ya tiene 4 movimientos.`,
+      "Cambiar", "No Cambiar",
+      () => abrirModalOlvidar(nuevo, () => aprenderMovs(lista, cuandoTermine)),
+      () => {
+        log(`${me.name} no aprende ${nuevo.n}.`);
+        aprenderMovs(lista, cuandoTermine);
+      }
+    );
   }
+}
+
+// --- Panel de confirmacion generico (Si / No) ---
+function confirmar(titulo, textoHtml, labelSi, labelNo, onSi, onNo) {
+  const c = $("confirm");
+  $("confirmTitle").textContent = titulo;
+  $("confirmText").innerHTML = textoHtml;
+  const yes = $("confirmYes");
+  const no = $("confirmNo");
+  yes.textContent = labelSi;
+  no.textContent = labelNo;
+  // Reemplazamos los nodos para limpiar listeners previos (evita dobles clics).
+  const yes2 = yes.cloneNode(true);
+  const no2 = no.cloneNode(true);
+  yes.parentNode.replaceChild(yes2, yes);
+  no.parentNode.replaceChild(no2, no);
+  yes2.addEventListener("click", () => { c.classList.add("hidden"); if (onSi) onSi(); });
+  no2.addEventListener("click", () => { c.classList.add("hidden"); if (onNo) onNo(); });
+  c.classList.remove("hidden");
 }
 
 // --- Modal para olvidar un movimiento (o descartar el nuevo) ---
@@ -9508,10 +9585,26 @@ function abrirModalOlvidar(nuevo, cuandoTermine) {
       `<span class="mov-cambio">cambiar por ${nuevo.n} (${nuevo.d}) \u2192</span>`;
     b.addEventListener("click", () => {
       const viejo = me.moves[i];
-      me.moves[i] = { ...nuevo };
-      cerrarModal();
-      log(`${me.name} olvida ${viejo.n} y aprende ${mov_html(nuevo.n, nuevo.t)}.`);
-      cuandoTermine();
+      // Segundo panel: confirmar el cambio antes de borrar nada.
+      confirmar(
+        "\u00bfConfirmar el cambio?",
+        `Vas a olvidar <span class="mov-nuevo m-${viejo.t}">${viejo.n} \u00b7 ${viejo.d}</span> ` +
+          `y aprender <span class="mov-nuevo m-${nuevo.t}">${nuevo.n} \u00b7 ${nuevo.d}</span>.<br>` +
+          `Esto no se puede deshacer.`,
+        "Cambiar", "No Cambiar",
+        () => {
+          me.moves[i] = { ...nuevo };
+          cerrarModal();
+          log(`${me.name} olvida ${viejo.n} y aprende ${mov_html(nuevo.n, nuevo.t)}.`);
+          cuandoTermine();
+        },
+        () => {
+          // Vuelve a mostrar el panel de eleccion sin cerrarlo del todo.
+          modal.classList.remove("hidden");
+        }
+      );
+      // mientras se confirma, ocultamos el panel de eleccion para no solapar
+      modal.classList.add("hidden");
     });
     lista.appendChild(b);
   });
@@ -9618,6 +9711,11 @@ function trasVictoria() {
 
 // Mapa completado: desbloquea el siguiente o termina el juego.
 function mapaSuperado() {
+  // Al vencer al lider: si su mapa da medalla, se gana (una sola vez).
+  const med = MAPAS[mapaIdx] && MAPAS[mapaIdx].lider && MAPAS[mapaIdx].lider.medalla;
+  if (med && MEDALLAS[med] && !medallasGanadas.includes(med)) {
+    medallasGanadas.push(med);
+  }
   arena.classList.add("hidden");
   overPanel.classList.remove("hidden");
   if (mapaIdx < MAPAS.length - 1) {

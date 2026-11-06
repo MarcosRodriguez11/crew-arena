@@ -270,6 +270,11 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
   transition: transform .08s, box-shadow .12s, filter .12s;
 }
 .nodo-icono { font-size: 38px; line-height: 1; filter: drop-shadow(0 2px 2px rgba(0,0,0,.4)); }
+.nodo-sprite {
+  width: 46px; height: 46px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,.5));
+}
 .nodo-label { font-size: 11px; text-shadow: 0 1px 2px #000; }
 
 /* estados del nodo */
@@ -316,14 +321,20 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
   display: flex; align-items: center; justify-content: center;
 }
 .jug-icono { font-size: 30px; line-height: 1; filter: drop-shadow(0 2px 3px rgba(0,0,0,.5)); }
+.jug-sprite {
+  width: 42px; height: 42px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,.5));
+}
 .jug-salida { font-size: 24px; }
 
 /* icono del jugador posado sobre el nodo que eligio */
 .nodo.con-jugador { position: relative; }
 .jugador-aqui {
   position: absolute;
-  top: -14px; left: 50%; transform: translateX(-50%);
-  font-size: 26px;
+  top: -22px; left: 50%; transform: translateX(-50%);
+  width: 38px; height: 38px;
+  image-rendering: pixelated;
   filter: drop-shadow(0 2px 3px rgba(0,0,0,.6));
   pointer-events: none;
   animation: jugadorFloat 1.4s ease-in-out infinite;
@@ -404,28 +415,31 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
 }
 
 
-/* ---------- Mapa CENTRADO; panel de equipo a su IZQUIERDA ---------- */
+/* ---------- Fila real: equipo (izq) | mapa (centro) | medallas (der) ---------- */
+/* Rompe el limite de 580px de .game para que quepan los 3 paneles. */
 .mapa-fila {
-  position: relative;
   display: flex;
-  justify-content: center;   /* el mapa queda centrado en la pagina */
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  width: 98vw;
+  max-width: 1100px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
 }
 .mapa-fila.hidden { display: none; }
-.mapa-fila #mapa { flex: 0 1 720px; min-width: 0; width: 100%; }
+/* El mapa CEDE espacio primero; los paneles laterales guardan su ancho. */
+.mapa-fila #mapa { flex: 1 1 auto; min-width: 0; width: auto; max-width: 560px; }
 
 .equipo-mapa {
-  position: absolute;
-  right: 100%;               /* pegado al borde izquierdo del mapa */
-  top: 0;
-  margin-right: 14px;
-  width: 172px;
+  flex: 0 0 150px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 10px;
+  padding: 8px;
   background: rgba(13, 16, 24, 0.7);
   border: 3px solid var(--line);
   border-radius: 10px;
@@ -435,6 +449,44 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
   color: var(--accent);
   text-align: center;
   margin-bottom: 2px;
+}
+
+/* Panel de medallas: a la DERECHA del mapa, espejo del panel de equipo. */
+.medallas-mapa {
+  flex: 0 0 118px;
+  width: 118px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  background: rgba(13, 16, 24, 0.7);
+  border: 3px solid var(--line);
+  border-radius: 10px;
+}
+.med-huecos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.med-hueco {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #2b3242;
+  border-radius: 10px;
+  background: rgba(20, 26, 40, 0.5);
+}
+.med-hueco.ganada {
+  border-style: solid;
+  border-color: #ffe066;
+  background: rgba(255, 224, 102, 0.12);
+}
+.med-img {
+  width: 44px;
+  height: 44px;
+  image-rendering: pixelated;
 }
 .eq-item {
   display: flex;
@@ -465,17 +517,23 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
 .eq-fill { height: 100%; transition: width .25s; }
 .eq-hp { font-size: .4rem; color: var(--muted); margin-top: 2px; }
 
-@media (max-width: 900px) {
+@media (max-width: 560px) {
+  .mapa-fila { flex-direction: column; align-items: center; }
   .equipo-mapa {
-    position: static;
-    right: auto; margin-right: 0;
+    flex: none;
     width: 100%; max-width: 340px;
-    margin: 0 auto 12px;
     flex-direction: row; flex-wrap: wrap; justify-content: center;
   }
-  .mapa-fila { flex-direction: column; align-items: center; }
   .equipo-mapa .eq-titulo { width: 100%; }
   .eq-item { width: 150px; }
+  .medallas-mapa {
+    flex: none;
+    width: 100%; max-width: 340px;
+  }
+  .medallas-mapa .med-huecos {
+    flex-direction: row; flex-wrap: wrap; justify-content: center;
+  }
+  .med-hueco { width: 56px; }
 }
 
 
@@ -515,3 +573,32 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
   cursor: pointer; border-radius: 8px;
 }
 .mov-skip:hover { color: var(--ink); border-color: var(--muted); }
+
+/* ---------- Panel de confirmacion (Si / No) ---------- */
+.confirm-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+.confirm-yes, .confirm-no {
+  font-family: inherit;
+  font-size: .7rem;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 3px solid var(--line);
+  cursor: pointer;
+  min-width: 110px;
+}
+.confirm-yes {
+  background: #2e7d32;
+  color: #eafff0;
+  border-color: #4ade80;
+}
+.confirm-yes:hover { background: #388e3c; }
+.confirm-no {
+  background: #3a2730;
+  color: #ffe0e6;
+  border-color: #ef6b7d;
+}
+.confirm-no:hover { background: #4a2e38; }

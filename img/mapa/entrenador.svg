@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" shape-rendering="crispEdges">
+  <!-- gorra -->
+  <rect x="14" y="8" width="20" height="6" fill="#d32f2f"/>
+  <rect x="12" y="12" width="24" height="3" fill="#b71c1c"/>
+  <rect x="20" y="5" width="8" height="4" fill="#ef5350"/>
+  <!-- cara -->
+  <rect x="16" y="15" width="16" height="12" fill="#ffcc80"/>
+  <!-- ojos -->
+  <rect x="19" y="19" width="3" height="3" fill="#3e2723"/>
+  <rect x="26" y="19" width="3" height="3" fill="#3e2723"/>
+  <!-- cuerpo / chaqueta -->
+  <rect x="13" y="27" width="22" height="13" fill="#1e88e5"/>
+  <rect x="13" y="27" width="22" height="3" fill="#42a5f5"/>
+  <!-- brazos -->
+  <rect x="9" y="28" width="4" height="10" fill="#1565c0"/>
+  <rect x="35" y="28" width="4" height="10" fill="#1565c0"/>
+  <rect x="2" y="40" width="44" height="2" fill="#0d47a1"/>
+</svg>
