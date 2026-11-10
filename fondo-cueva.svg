@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mapa 2: Monte Moon, cueva profunda con Gastly al fondo -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 220" width="120" height="220"
+     shape-rendering="crispEdges" preserveAspectRatio="xMidYMid slice">
+  <rect x="0" y="0" width="120" height="220" fill="#3a3550"/>
+  <!-- suelo de roca con manchas -->
+  <g fill="#47415f"><rect x="20" y="24" width="16" height="10"/><rect x="74" y="60" width="16" height="10"/><rect x="28" y="120" width="16" height="10"/><rect x="80" y="166" width="16" height="10"/></g>
+  <g fill="#2e2a42"><rect x="60" y="40" width="14" height="8"/><rect x="24" y="92" width="14" height="8"/><rect x="86" y="132" width="14" height="8"/><rect x="44" y="196" width="14" height="8"/></g>
+  <!-- paredes de cueva en los lados -->
+  <g fill="#262238"><rect x="0" y="0" width="20" height="220"/><rect x="100" y="0" width="20" height="220"/></g>
+  <g fill="#514a6e"><rect x="2" y="12" width="16" height="10"/><rect x="2" y="70" width="16" height="10"/><rect x="2" y="150" width="16" height="10"/><rect x="102" y="40" width="16" height="10"/><rect x="102" y="110" width="16" height="10"/><rect x="102" y="186" width="16" height="10"/></g>
+  <!-- estalactitas desde arriba -->
+  <g fill="#514a6e"><rect x="30" y="0" width="4" height="12"/><rect x="58" y="0" width="4" height="16"/><rect x="86" y="0" width="4" height="10"/></g>
+  <!-- camino -->
+  <g fill="#6b6280">
+    <rect x="50" y="200" width="20" height="20"/><rect x="50" y="170" width="20" height="34"/>
+    <rect x="30" y="150" width="40" height="22"/><rect x="30" y="120" width="20" height="34"/>
+    <rect x="30" y="104" width="52" height="20"/><rect x="62" y="74" width="20" height="34"/>
+    <rect x="40" y="56" width="42" height="20"/><rect x="40" y="26" width="20" height="34"/>
+    <rect x="40" y="10" width="34" height="20"/>
+  </g>
+  <!-- Gastly al fondo (morado con niebla) -->
+  <g>
+    <rect x="78" y="86" width="20" height="18" fill="#6a4fb0" opacity="0.8"/>
+    <rect x="80" y="84" width="16" height="4" fill="#5a3f9e" opacity="0.7"/>
+    <rect x="82" y="92" width="4" height="4" fill="#fff"/><rect x="90" y="92" width="4" height="4" fill="#fff"/>
+    <rect x="83" y="93" width="2" height="2" fill="#000"/><rect x="91" y="93" width="2" height="2" fill="#000"/>
+    <rect x="84" y="99" width="8" height="2" fill="#2a1f4a"/>
+  </g>
+  <!-- cristales que brillan -->
+  <rect x="24" y="150" width="4" height="6" fill="#8fd3ff"/><rect x="25" y="151" width="2" height="2" fill="#d6f2ff"/>
+  <rect x="92" y="150" width="4" height="6" fill="#ff9ed6"/>
+  <!-- rocas -->
+  <rect x="28" y="60" width="8" height="6" fill="#524c6a"/><rect x="30" y="59" width="4" height="2" fill="#6b6484"/>
+</svg>
