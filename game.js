@@ -8510,6 +8510,24 @@ const FORMAS = {
  }
 };
 const EVO = {
+ "kadabra": { "aNivel": 36, "siguiente": "alakazam" },
+ "machoke": { "aNivel": 35, "siguiente": "machamp" },
+ "graveler": { "aNivel": 35, "siguiente": "golem" },
+ "haunter": { "aNivel": 36, "siguiente": "gengar" },
+ "vulpix": { "aNivel": 25, "siguiente": "ninetales" },
+ "growlithe": { "aNivel": 30, "siguiente": "arcanine" },
+ "poliwhirl": { "aNivel": 38, "siguiente": "poliwrath" },
+ "shellder": { "aNivel": 30, "siguiente": "cloyster" },
+ "staryu": { "aNivel": 25, "siguiente": "starmie" },
+ "pikachu": { "aNivel": 30, "siguiente": "raichu" },
+ "gloom": { "aNivel": 32, "siguiente": "vileplume" },
+ "weepinbell": { "aNivel": 38, "siguiente": "victreebel" },
+ "exeggcute": { "aNivel": 30, "siguiente": "exeggutor" },
+ "nidorina": { "aNivel": 40, "siguiente": "nidoqueen" },
+ "nidorino": { "aNivel": 40, "siguiente": "nidoking" },
+ "clefairy": { "aNivel": 30, "siguiente": "clefable" },
+ "jigglypuff": { "aNivel": 32, "siguiente": "wigglytuff" },
+ "eevee": { "aNivel": 22, "elige": ["vaporeon", "jolteon", "flareon"] },
  "bulbasaur": {
   "aNivel": 16,
   "siguiente": "ivysaur"
@@ -8839,7 +8857,7 @@ const OBJETOS = {
     desc: "cura toda la vida" },
 };
 
-const COLOR_TIPO = {"normal":"#cfd3da","fuego":"#ff8a5c","agua":"#7cc3ff","planta":"#7fe39a","electrico":"#ffe066","hielo":"#8fe0e0","lucha":"#e8705a","veneno":"#b366d9","tierra":"#e2c879","volador":"#a7c6ff","psiquico":"#ff7fa8","bicho":"#b3c647","roca":"#c9b680","fantasma":"#9a86d4","dragon":"#8a7cff","siniestro":"#9a8f82","acero":"#b8c3cf","hada":"#ff9ed6"};
+const COLOR_TIPO = {"normal":"#cfd3da","fuego":"#ff8a5c","agua":"#7cc3ff","planta":"#7fe39a","electrico":"#ffe066","hielo":"#8fe0e0","lucha":"#e8705a","veneno":"#b366d9","tierra":"#e2c879","volador":"#a7c6ff","psiquico":"#ff7fa8","bicho":"#b3c647","roca":"#c9b680","fantasma":"#9a86d4","dragon":"#8a7cff","siniestro":"#9a8f82","acero":"#9ba3ac","hada":"#ff9ed6"};
 
 function tipoHTML(real){return String(real||"normal").split("\u00b7").map(function(t){t=t.trim();return '<span class="t-'+t+'">'+t+'</span>';}).join('<span class="tsep"> \u00b7 </span>');}
 function flash(lado, tipo) {
@@ -8894,7 +8912,7 @@ function init() {
   $("best").textContent = localStorage.getItem(KEY) || 0;
   const box = $("starters");
   box.innerHTML = "";
-  ["charmander","squirtle","bulbasaur","pikachu"].forEach((k) => box.appendChild(tarjeta(k)));
+  ["charmander","squirtle","bulbasaur","pikachu","eevee","dratini"].forEach((k) => box.appendChild(tarjeta(k)));
 }
 
 function tarjeta(key) {
@@ -8929,6 +8947,8 @@ function empezar(key) {
   aprendidos = 0;
   round = 1; streak = 0; turnos = 1;
   mapaIdx = 0;
+  evoPendientes = [];
+  movsPendientes = [];
   medallasGanadas = []; // nueva partida: sin medallas
   startPanel.classList.add("hidden");
   overPanel.classList.add("hidden");
@@ -8948,12 +8968,14 @@ function keyValida(key) {
 }
 
 // --- Estado de equipos (6 maximo: el activo + hasta 5 al lado) ---
-const MAX_EQUIPO = 6;
+const MAX_EQUIPO = 6;  // equipo normal; se permite capturar un 7o temporalmente para decidir
 let equipo = [];     // equipo del jugador; me = equipo[activoIdx]
 let equipoFoe = [];  // equipo del rival; foe = el activo del rival
 let activoIdx = 0;   // indice del Pokemon activo del jugador
 let foeIdx = 0;      // indice del activo del rival
 let esSalvaje = false; // el combate actual es contra un pokemon salvaje (se puede capturar)
+let evoPendientes = []; // pokemon que esperan que el jugador elija su evolucion (Eevee)
+let movsPendientes = []; // movimientos nuevos del BANQUILLO esperando modal
 
 // Nivel base de un combate segun el mapa y el paso (sube suave con el avance).
 function nivelDeCombate() {
@@ -9020,13 +9042,38 @@ function barajar(a) {
 }
 
 // Dibuja el mapa como una RUTA vertical (estilo Pokemon): el jugador abajo,
+// Fondo EXTERIOR del body: dos colores (centro + borde) por mapa, en tono
+// con su ambiente pero SIN el detalle del SVG interior. Idx = indice del mapa.
+const FONDO_EXT = [
+  ["#1c3322", "#0f1a12"], // 1 Bosque Verde (verde oscuro)
+  ["#241f33", "#12101c"], // 2 Monte Moon (cueva morada)
+  ["#152c3f", "#0b1620"], // 3 Ruta 110 (agua azul)
+  ["#1b2838", "#0e141d"], // 4 Silph S.A. (acero/mar)
+  ["#2a2340", "#140f20"], // 5 Pueblo Lavanda (noche lavanda)
+  ["#3a1f2a", "#1c0f15"], // 6 Ciudad Fucsia (rosa calido)
+  ["#3a241a", "#1c120d"], // 7 Islas Canela (volcan naranja)
+  ["#27302a", "#131713"], // 8 Ciudad Verde (gris verdoso roca)
+  ["#2b2620", "#151310"], // 9 Meseta Anil (piedra/castillo)
+];
+function aplicarFondoExterior(idx) {
+  const par = FONDO_EXT[idx] || ["#1b2030", "#11131a"];
+  document.body.style.backgroundImage =
+    "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)," +
+    "linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)," +
+    `radial-gradient(circle at 50% 0%, ${par[0]} 0%, ${par[1]} 70%)`;
+}
+
 // el lider arriba, y cada paso es una fila de 2-3 nodos conectados por el camino.
 function mostrarPaso() {
   const mapa = MAPAS[mapaIdx];
   $("mapaNombre").textContent = `Mapa ${mapa.id}: ${mapa.nombre}`;
 
   const fondo = mapa.fondo || "mapa-fondo.svg";
-  $("mapa").style.backgroundImage = `url("${fondo}")`;
+  $("mapa").style.backgroundImage = `url("${fondo}?v=42")`;
+
+  // Fondo EXTERIOR (detras de todo, en el body): color tematico por mapa,
+  // version simple (solo color + la rejilla tenue, sin el detalle del SVG).
+  aplicarFondoExterior(mapaIdx);
 
   pintarEquipoMapa(); // panel de equipo a la izquierda (vida y nivel)
   pintarMedallasMapa(); // panel de 8 medallas a la derecha
@@ -9240,6 +9287,11 @@ function aplicarObjeto(obj, idx) {
   } else if (obj.id === "caramelo_raro") {
     for (let n = 0; n < 3; n++) subirNivel(p);
     $("mapaTexto").textContent = `\uD83C\uDF6C ${p.name} sube 3 niveles (ahora Nv ${p.level}).`;
+    // Aprende los movimientos nuevos (modal de cambio si tiene 4) y resuelve
+    // evoluciones por eleccion, antes de avanzar de paso.
+    const nuevos = movsNuevos(p);
+    aprenderMovs(nuevos, () => resolverEvoluciones(() => avanzarPasoMapa()), p);
+    return;
   } else if (obj.id === "cura_total") {
     p.hp = p.maxHp;
     $("mapaTexto").textContent = `\uD83E\uDDEA ${p.name} recupera toda su vida.`;
@@ -9276,6 +9328,10 @@ function rivalDesde(key, nivel) {
 
 // Cambia a la arena y pinta el combate. (No cura: el equipo conserva su vida.)
 function prepararCombate(mensaje) {
+  // El que sale a combatir es siempre el PRIMERO del equipo (el primero vivo).
+  const primero = equipo.findIndex((p) => p.hp > 0);
+  activoIdx = primero >= 0 ? primero : 0;
+  me = equipo[activoIdx];
   mapaPanel.classList.add("hidden");
   arena.classList.remove("hidden");
   turnos = 1;
@@ -9330,26 +9386,47 @@ function pintarEquipos() {
 function pintarEquipoMapa() {
   const cont = $("equipoMapa");
   if (!cont) return;
-  cont.innerHTML = '<div class="eq-titulo">Tu equipo</div>';
+  cont.innerHTML = '<div class="eq-titulo">Tu equipo</div><div class="eq-ayuda">Ordena con \u2191 \u2193</div>';
   (equipo || []).forEach((p, i) => {
     const pct = Math.max(0, Math.round((p.hp / p.maxHp) * 100));
     const color = pct > 50 ? "#4ade80" : pct > 20 ? "#facc15" : "#ef4444";
     const vivo = p.hp > 0;
     const fila = document.createElement("div");
-    fila.className = "eq-item" + (i === activoIdx ? " activo" : "") + (vivo ? "" : " ko");
+    fila.className = "eq-item" + (i === 0 ? " activo" : "") + (vivo ? "" : " ko");
     fila.innerHTML =
       `<img class="eq-sprite" src="${p.sprite}" alt="${p.name}" />` +
       `<div class="eq-datos">` +
-        `<div class="eq-nombre">${p.name}</div>` +
+        `<div class="eq-nombre">${p.name}${i === 0 ? ' <span class="eq-primero">1\u00ba</span>' : ""}</div>` +
         `<div class="eq-nivel">Nv ${p.level}</div>` +
         `<div class="eq-bar"><div class="eq-fill" style="width:${pct}%;background:${color}"></div></div>` +
         `<div class="eq-hp">${Math.max(0, Math.round(p.hp))}/${p.maxHp} PS</div>` +
         (p.item
           ? `<div class="eq-objeto"><span class="eq-item-chip" title="${OBJETOS[p.item].nombre}: ${OBJETOS[p.item].desc}">${OBJETOS[p.item].icono}</span></div>`
           : "") +
+      `</div>` +
+      `<div class="eq-orden">` +
+        `<button class="eq-sube" title="Subir" ${i === 0 ? "disabled" : ""}>\u2191</button>` +
+        `<button class="eq-baja" title="Bajar" ${i === equipo.length - 1 ? "disabled" : ""}>\u2193</button>` +
       `</div>`;
+    const sube = fila.querySelector(".eq-sube");
+    const baja = fila.querySelector(".eq-baja");
+    if (sube) sube.addEventListener("click", () => moverEquipo(i, -1));
+    if (baja) baja.addEventListener("click", () => moverEquipo(i, 1));
     cont.appendChild(fila);
   });
+}
+
+// Mueve un Pokemon del equipo una posicion (dir -1 sube, +1 baja) y repinta.
+function moverEquipo(i, dir) {
+  const j = i + dir;
+  if (j < 0 || j >= equipo.length) return;
+  const tmp = equipo[i]; equipo[i] = equipo[j]; equipo[j] = tmp;
+  // El activo sigue el movimiento para no perder la referencia en combate.
+  if (activoIdx === i) activoIdx = j;
+  else if (activoIdx === j) activoIdx = i;
+  me = equipo[activoIdx];
+  pintarEquipoMapa();
+  if (typeof pintarEquipos === "function") pintarEquipos();
 }
 
 // Panel de 8 huecos a la DERECHA del mapa: se llenan con la medalla al vencer cada lider.
@@ -9439,7 +9516,6 @@ function pintarAcciones(activo) {
 function probCaptura() {
   const frac = Math.max(0, foe.hp) / foe.maxHp;        // 1 lleno, 0 KO
   let p = Math.round((1 - frac) * 70) + 20;            // 20%..90%
-  if (equipo.length >= MAX_EQUIPO) p = 0;              // equipo lleno
   return Math.max(0, Math.min(95, p));
 }
 
@@ -9477,39 +9553,101 @@ function subirNivel(p = me) {
   // Evolucion por nivel.
   const evo = EVO[p.key];
   if (evo && p.level >= evo.aNivel) {
-    const antes = p.name;
-    const f = FORMAS[evo.siguiente];
-    p.key = evo.siguiente; p.name = f.name; p.sprite = f.sprite; p.type = f.type; p.typeReal = f.typeReal;
-    p.maxHp += 14;
-    // al evolucionar, adopta el learnset de la nueva forma.
-    p.learn = f.learnset.map((m) => ({ ...m }));
-    // Marca como YA vistos todos los movimientos de nivel ya alcanzado: tras
-    // evolucionar solo se aprenderan los que toquen de aqui en adelante, no
-    // todo el repertorio pasado de golpe (eso causaba el modal repetido).
-    p.learn.forEach((m) => { if (m.lvl <= p.level) m._dado = true; });
-    txt += ` \u00a1${antes} evoluciona a ${f.name}!`;
+    if (evo.elige) {
+      // Evolucion con varias salidas (Eevee): no evoluciona sola; queda
+      // pendiente para que el jugador elija en un modal tras subir niveles.
+      // Evita duplicados si sube varios niveles de golpe.
+      if (!evoPendientes.includes(p)) evoPendientes.push(p);
+    } else {
+      const antes = p.name;
+      aplicarEvo(p, evo.siguiente);
+      txt += ` \u00a1${antes} evoluciona a ${FORMAS[evo.siguiente].name}!`;
+    }
   }
   return txt;
 }
 
+// Aplica la transformacion a una forma concreta (comun a evo directa y a eleccion).
+function aplicarEvo(p, destKey) {
+  const f = FORMAS[destKey];
+  p.key = destKey; p.name = f.name; p.sprite = f.sprite; p.type = f.type; p.typeReal = f.typeReal;
+  p.maxHp += 14;
+  // al evolucionar, adopta el learnset de la nueva forma.
+  p.learn = f.learnset.map((m) => ({ ...m }));
+  // Marca como YA vistos los movimientos de nivel ya alcanzado, para no
+  // ofrecer todo el repertorio pasado de golpe.
+  p.learn.forEach((m) => { if (m.lvl <= p.level) m._dado = true; });
+}
+
+// Procesa los pokemon que esperan elegir evolucion (Eevee). El banquillo
+// evoluciona por eleccion: cada uno (activo o banquillo) abre su propio modal.
+function resolverEvoluciones(cuandoTermine) {
+  // Descarta entradas invalidas (ya evolucionadas o sin opciones de eleccion).
+  evoPendientes = evoPendientes.filter((p) => {
+    const evo = EVO[p.key];
+    return evo && evo.elige;
+  });
+  if (!evoPendientes.length) { cuandoTermine(); return; }
+  // Procesa de uno en uno: abre el modal, y al elegir pasa al siguiente.
+  const p = evoPendientes.shift();
+  const evo = EVO[p.key];
+  abrirElegirEvo(p, evo.elige, () => {
+    // Si el que evoluciono es el activo, puede aprender movimientos nuevos.
+    if (p === me) {
+      const nuevos = movsNuevos(me);
+      aprenderMovs(nuevos, () => resolverEvoluciones(cuandoTermine));
+    } else {
+      resolverEvoluciones(cuandoTermine);
+    }
+  });
+}
+
+// Modal de eleccion de evolucion (Eevee -> Vaporeon / Jolteon / Flareon).
+function abrirElegirEvo(p, opciones, cuandoTermine) {
+  const modal = $("modal");
+  const lista = $("modalMoves");
+  $("modalTitle").textContent = "\u00a1Evolucion!";
+  $("modalNew").textContent = `${p.name} evoluciona en... Elige su forma:`;
+  lista.innerHTML = "";
+  opciones.forEach((key) => {
+    const f = FORMAS[key];
+    const b = document.createElement("button");
+    b.className = "m-normal evo-opcion";
+    b.innerHTML = `<img class="mini" src="${f.sprite}" alt=""> <b>${f.name}</b> <small>(${(f.typeReal || f.type)})</small>`;
+    b.addEventListener("click", () => {
+      const antes = p.name;
+      aplicarEvo(p, key);
+      cerrarModal();
+      log(`\u00a1${antes} evoluciona a ${p.name}!`);
+      pintar();
+      cuandoTermine();
+    });
+    lista.appendChild(b);
+  });
+  modal.classList.remove("hidden");
+}
+
 // Sube 'niveles' niveles a TODO el equipo tras ganar un combate.
-// Devuelve el texto resumido para el log. Los movimientos nuevos del ACTIVO
-// se aprenden aparte (modal); los del banquillo se aprenden en silencio.
+// Los movimientos nuevos (activo Y banquillo) se aprenden con modal de cambio.
+// Rellena movsPendientes[] con {poke, lista} para resolverlos tras la subida.
 function subirEquipo(niveles) {
   const partes = [];
+  movsPendientes = [];
   equipo.forEach((p) => {
+    const nuevosDeEste = [];
     for (let n = 0; n < niveles; n++) {
       const t = subirNivel(p);
       if (p === me) partes.push(t); // el activo se narra al detalle
-      // aprender movimientos del banquillo en silencio (el activo los ve en modal)
       if (p !== me) {
+        // junta los movimientos nuevos del banquillo (se deciden por modal luego)
         movsNuevos(p).forEach((mv) => {
           if (p.moves.some((m) => m.n === mv.n)) return; // ya lo conoce
-          if (p.moves.length < 4) p.moves.push({ ...mv });
-          else { p.moves[3] = { ...mv }; } // reemplaza el ultimo si esta lleno
+          if (nuevosDeEste.some((m) => m.n === mv.n)) return; // ya en cola
+          nuevosDeEste.push(mv);
         });
       }
     }
+    if (p !== me && nuevosDeEste.length) movsPendientes.push({ poke: p, lista: nuevosDeEste });
   });
   const resto = equipo.length - 1;
   let txt = partes.join(" ");
@@ -9519,38 +9657,54 @@ function subirEquipo(niveles) {
 
 // Intenta aprender una lista de movimientos nuevos, uno a uno.
 // Si hay 4, abre el modal para olvidar; encadena con callback.
-function aprenderMovs(lista, cuandoTermine) {
+// 'poke' es el pokemon que aprende (por defecto el activo me).
+function aprenderMovs(lista, cuandoTermine, poke = me) {
   if (!lista.length) { cuandoTermine(); return; }
   const nuevo = lista.shift();
   // si ya conoce ese movimiento, lo salta (evita duplicados tras evolucionar)
-  if (me.moves.some((m) => m.n === nuevo.n)) {
-    aprenderMovs(lista, cuandoTermine);
+  if (poke.moves.some((m) => m.n === nuevo.n)) {
+    aprenderMovs(lista, cuandoTermine, poke);
     return;
   }
-  if (me.moves.length < 4) {
+  if (poke.moves.length < 4) {
     // Hay hueco libre: no hay riesgo de borrar nada, se aprende directo.
-    me.moves.push({ ...nuevo });
-    log(`${me.name} aprende ${mov_html(nuevo.n, nuevo.t)}.`);
-    aprenderMovs(lista, cuandoTermine);
+    poke.moves.push({ ...nuevo });
+    log(`${poke.name} aprende ${mov_html(nuevo.n, nuevo.t)}.`);
+    aprenderMovs(lista, cuandoTermine, poke);
   } else {
     // Tiene los 4 movimientos: primero avisamos, luego abrimos el panel de cambio.
     confirmar(
-      `${me.name} quiere aprender un movimiento`,
-      `${me.name} quiere aprender <span class="mov-nuevo m-${nuevo.t}">${nuevo.n} \u00b7 fuerza ${nuevo.d}</span>,<br>pero ya tiene 4 movimientos.`,
+      `${nombreTipo(poke)} quiere aprender un movimiento`,
+      `${nombreTipo(poke)} quiere aprender <span class="mov-nuevo m-${nuevo.t}">${nuevo.n} \u00b7 fuerza ${nuevo.d}</span>,<br>pero ya tiene 4 movimientos.`,
       "Cambiar", "No Cambiar",
-      () => abrirModalOlvidar(nuevo, () => aprenderMovs(lista, cuandoTermine)),
+      () => abrirModalOlvidar(nuevo, () => aprenderMovs(lista, cuandoTermine, poke), poke),
       () => {
-        log(`${me.name} no aprende ${nuevo.n}.`);
-        aprenderMovs(lista, cuandoTermine);
+        log(`${poke.name} no aprende ${nuevo.n}.`);
+        aprenderMovs(lista, cuandoTermine, poke);
       }
     );
   }
 }
 
+// Nombre del pokemon coloreado con su tipo principal (para los titulos de aprender).
+function nombreTipo(p) {
+  const tipo = (p.type || "normal").split(" ")[0];
+  const color = COLOR_TIPO[tipo] || "#cfd3da";
+  return `<span style="color:${color};font-weight:700">${p.name}</span>`;
+}
+
+// Recorre los movimientos pendientes del BANQUILLO y abre el modal de cada uno
+// en secuencia. Cada pokemon del banquillo decide igual que el activo.
+function resolverMovsBanquillo(cuandoTermine) {
+  if (!movsPendientes.length) { cuandoTermine(); return; }
+  const { poke, lista } = movsPendientes.shift();
+  aprenderMovs(lista, () => resolverMovsBanquillo(cuandoTermine), poke);
+}
+
 // --- Panel de confirmacion generico (Si / No) ---
 function confirmar(titulo, textoHtml, labelSi, labelNo, onSi, onNo) {
   const c = $("confirm");
-  $("confirmTitle").textContent = titulo;
+  $("confirmTitle").innerHTML = titulo;
   $("confirmText").innerHTML = textoHtml;
   const yes = $("confirmYes");
   const no = $("confirmNo");
@@ -9567,16 +9721,16 @@ function confirmar(titulo, textoHtml, labelSi, labelNo, onSi, onNo) {
 }
 
 // --- Modal para olvidar un movimiento (o descartar el nuevo) ---
-function abrirModalOlvidar(nuevo, cuandoTermine) {
+function abrirModalOlvidar(nuevo, cuandoTermine, poke = me) {
   const modal = $("modal");
   const lista = $("modalMoves");
-  $("modalTitle").textContent = `${me.name} aprende un movimiento`;
+  $("modalTitle").innerHTML = `${nombreTipo(poke)} aprende un movimiento`;
   $("modalNew").innerHTML =
     `Nuevo: <span class="mov-nuevo m-${nuevo.t}">${nuevo.n} \u00b7 ${nuevo.d}</span><br>` +
     `Toca el que quieres cambiar por el, o salta.`;
   lista.innerHTML = "";
   // una tarjeta por movimiento actual (se olvida ese, entra el nuevo)
-  me.moves.forEach((m, i) => {
+  poke.moves.forEach((m, i) => {
     const b = document.createElement("button");
     b.className = "mov-card m-" + m.t;
     b.innerHTML =
@@ -9584,27 +9738,12 @@ function abrirModalOlvidar(nuevo, cuandoTermine) {
       `<span class="mov-fuerza">fuerza ${m.d}</span>` +
       `<span class="mov-cambio">cambiar por ${nuevo.n} (${nuevo.d}) \u2192</span>`;
     b.addEventListener("click", () => {
-      const viejo = me.moves[i];
-      // Segundo panel: confirmar el cambio antes de borrar nada.
-      confirmar(
-        "\u00bfConfirmar el cambio?",
-        `Vas a olvidar <span class="mov-nuevo m-${viejo.t}">${viejo.n} \u00b7 ${viejo.d}</span> ` +
-          `y aprender <span class="mov-nuevo m-${nuevo.t}">${nuevo.n} \u00b7 ${nuevo.d}</span>.<br>` +
-          `Esto no se puede deshacer.`,
-        "Cambiar", "No Cambiar",
-        () => {
-          me.moves[i] = { ...nuevo };
-          cerrarModal();
-          log(`${me.name} olvida ${viejo.n} y aprende ${mov_html(nuevo.n, nuevo.t)}.`);
-          cuandoTermine();
-        },
-        () => {
-          // Vuelve a mostrar el panel de eleccion sin cerrarlo del todo.
-          modal.classList.remove("hidden");
-        }
-      );
-      // mientras se confirma, ocultamos el panel de eleccion para no solapar
-      modal.classList.add("hidden");
+      const viejo = poke.moves[i];
+      // Cambio directo: sin segundo panel de confirmacion.
+      poke.moves[i] = { ...nuevo };
+      cerrarModal();
+      log(`${poke.name} olvida ${viejo.n} y aprende ${mov_html(nuevo.n, nuevo.t)}.`);
+      cuandoTermine();
     });
     lista.appendChild(b);
   });
@@ -9614,7 +9753,7 @@ function abrirModalOlvidar(nuevo, cuandoTermine) {
   skip.textContent = "No aprender " + nuevo.n;
   skip.addEventListener("click", () => {
     cerrarModal();
-    log(`${me.name} no aprende ${nuevo.n}.`);
+    log(`${poke.name} no aprende ${nuevo.n}.`);
     cuandoTermine();
   });
   lista.appendChild(skip);
@@ -9651,7 +9790,11 @@ function turno(mov) {
     log(`\u00a1${foe.name} cae! ${subida}`);
     pintar();
     const nuevos = movsNuevos(); // movimientos nuevos del activo (modal)
-    aprenderMovs(nuevos, () => setTimeout(trasVictoria, 900));
+    aprenderMovs(nuevos, () =>
+      resolverMovsBanquillo(() =>
+        resolverEvoluciones(() => setTimeout(trasVictoria, 900))
+      )
+    );
     return;
   }
 
@@ -9735,11 +9878,6 @@ function intentarCaptura() {
   turnos++; $("turno").textContent = turnos;
   pintarMoves(false);
   const prob = probCaptura();
-  if (equipo.length >= MAX_EQUIPO) {
-    log("Tu equipo esta lleno (6). No puedes capturar mas.");
-    pintarMoves(true);
-    return;
-  }
   const exito = Math.random() * 100 < prob;
   if (exito) {
     const capturado = {
@@ -9749,6 +9887,13 @@ function intentarCaptura() {
       learn: (FORMAS[foe.key] && FORMAS[foe.key].learnset.map((m) => ({ ...m }))) || [],
       item: null,
     };
+    // Equipo lleno: se captura el 7o y el jugador decide a quien liberar.
+    if (equipo.length >= MAX_EQUIPO) {
+      log(`\u00a1Has capturado a ${capturado.name}! Pero tu equipo esta lleno (6).`);
+      pintar();
+      abrirLiberar(capturado);
+      return;
+    }
     equipo.push(capturado);
     log(`\u00a1Has capturado a ${foe.name}! Se une a tu equipo (${equipo.length}/6).`);
     pintar();
@@ -9815,13 +9960,77 @@ function abrirCambio(obligado) {
     });
     lista.appendChild(b);
   });
+  // Flecha azul atras: solo cuando el cambio es opcional (no obligado por KO).
+  if (!obligado) {
+    const volver = document.createElement("button");
+    volver.className = "cambio-volver";
+    volver.innerHTML = "\u2190 No cambiar";
+    volver.addEventListener("click", () => { cerrarModal(); pintarMoves(true); });
+    lista.appendChild(volver);
+  }
+  modal.classList.remove("hidden");
+}
+
+// Equipo lleno (6) y capturas un 7o: elige a quien liberar, o suelta al nuevo.
+function abrirLiberar(nuevo) {
+  const modal = $("modal");
+  const lista = $("modalMoves");
+  $("modalTitle").textContent = "Equipo lleno (6/6)";
+  $("modalNew").textContent = `Capturaste a ${nuevo.name} (Nv ${nuevo.level}). Elige a quien dejar ir para que entre, o libera a ${nuevo.name}.`;
+  lista.innerHTML = "";
+  // Tarjeta del recien capturado, arriba, destacada.
+  const cab = document.createElement("div");
+  cab.className = "lib-nuevo";
+  cab.innerHTML = `<img class="mini" src="${nuevo.sprite}" alt=""> Nuevo: <b>${nuevo.name}</b> <small>(Nv ${nuevo.level})</small>`;
+  lista.appendChild(cab);
+  // Un boton por cada miembro actual: al pulsarlo, ese se libera y entra el nuevo.
+  equipo.forEach((p, i) => {
+    const b = document.createElement("button");
+    b.className = "m-normal";
+    b.innerHTML = `<img class="mini" src="${p.sprite}" alt=""> Soltar ${p.name} <small>(Nv ${p.level})</small>`;
+    b.addEventListener("click", () => {
+      const fuera = equipo[i];
+      equipo[i] = nuevo;
+      if (activoIdx === i) me = equipo[activoIdx];
+      cerrarModal();
+      log(`Liberaste a ${fuera.name}. ${nuevo.name} ocupa su lugar (6/6).`);
+      pintar();
+      setTimeout(trasVictoria, 900);
+    });
+    lista.appendChild(b);
+  });
+  // Liberar al recien capturado (no cambia el equipo).
+  const soltar = document.createElement("button");
+  soltar.className = "cambio-volver";
+  soltar.innerHTML = `\u2190 Liberar a ${nuevo.name} y seguir`;
+  soltar.addEventListener("click", () => {
+    cerrarModal();
+    log(`Liberaste a ${nuevo.name}. Tu equipo sigue igual (6/6).`);
+    pintar();
+    setTimeout(trasVictoria, 900);
+  });
+  lista.appendChild(soltar);
   modal.classList.remove("hidden");
 }
 
 // Fin de los 8 mapas.
 function juegoCompletado() {
   $("overTitle").textContent = "\u00a1Campeon!";
-  $("overText").textContent = `Has superado los 8 mapas con ${me.name} (nivel ${me.level}). \u00a1Felicidades!`;
+  // Resumen final: tarjeta por cada Pokemon del equipo.
+  const fichas = (equipo || []).map((p) => {
+    const tipo = tipoHTML(p.typeReal || p.type);
+    return `<div class="fin-card">` +
+      `<img class="fin-sprite" src="${p.sprite}" alt="${p.name}" />` +
+      `<div class="fin-nombre">${p.name}</div>` +
+      `<div class="fin-nivel">Nv ${p.level}</div>` +
+      `<div class="fin-tipo">${tipo}</div>` +
+      (p.item ? `<div class="fin-objeto">${OBJETOS[p.item].icono} ${OBJETOS[p.item].nombre}</div>` : "") +
+    `</div>`;
+  }).join("");
+  const medallas = (medallasGanadas || []).length;
+  $("overText").innerHTML =
+    `<div class="fin-sub">Has superado los 8 mapas y conseguido ${medallas} medallas. \u00a1Felicidades!</div>` +
+    `<div class="fin-equipo">${fichas}</div>`;
   $("again").textContent = "Jugar otra vez";
   overPanel.dataset.accion = "reiniciar";
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mapa 1: Bosque Verde frondoso -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 220" width="120" height="220"
+     shape-rendering="crispEdges" preserveAspectRatio="xMidYMid slice">
+  <rect x="0" y="0" width="120" height="220" fill="#4e9b43"/>
+  <!-- suelo de bosque con manchas -->
+  <g fill="#5bb04e"><rect x="20" y="20" width="14" height="8"/><rect x="70" y="50" width="14" height="8"/><rect x="30" y="120" width="14" height="8"/><rect x="80" y="170" width="14" height="8"/></g>
+  <g fill="#3f8238"><rect x="60" y="30" width="12" height="7"/><rect x="24" y="90" width="12" height="7"/><rect x="86" y="130" width="12" height="7"/><rect x="40" y="196" width="12" height="7"/></g>
+  <!-- arboles grandes (copas apiladas) en los lados -->
+  <g fill="#2e6e34">
+    <rect x="0" y="0" width="22" height="220"/><rect x="98" y="0" width="22" height="220"/>
+  </g>
+  <g fill="#3f8f40">
+    <rect x="2" y="6" width="18" height="14"/><rect x="2" y="48" width="18" height="14"/><rect x="2" y="92" width="18" height="14"/><rect x="2" y="140" width="18" height="14"/><rect x="2" y="188" width="18" height="14"/>
+    <rect x="100" y="24" width="18" height="14"/><rect x="100" y="70" width="18" height="14"/><rect x="100" y="118" width="18" height="14"/><rect x="100" y="166" width="18" height="14"/>
+  </g>
+  <g fill="#59b257"><rect x="5" y="9" width="6" height="4"/><rect x="5" y="95" width="6" height="4"/><rect x="103" y="27" width="6" height="4"/><rect x="103" y="121" width="6" height="4"/></g>
+  <!-- camino de tierra -->
+  <g fill="#c9a06a">
+    <rect x="50" y="200" width="20" height="20"/><rect x="50" y="170" width="20" height="34"/>
+    <rect x="30" y="150" width="40" height="22"/><rect x="30" y="120" width="20" height="34"/>
+    <rect x="30" y="104" width="52" height="20"/><rect x="62" y="74" width="20" height="34"/>
+    <rect x="40" y="56" width="42" height="20"/><rect x="40" y="26" width="20" height="34"/>
+    <rect x="40" y="10" width="34" height="20"/>
+  </g>
+  <!-- hierba alta -->
+  <g fill="#3f9b3a"><rect x="30" y="34" width="16" height="14"/><rect x="78" y="148" width="16" height="14"/><rect x="26" y="126" width="16" height="14"/></g>
+  <g fill="#2f7d2f"><rect x="33" y="34" width="2" height="6"/><rect x="38" y="36" width="2" height="6"/><rect x="81" y="148" width="2" height="6"/><rect x="86" y="150" width="2" height="6"/></g>
+  <!-- flores y setas -->
+  <rect x="88" y="100" width="3" height="3" fill="#e84f4f"/><rect x="89" y="101" width="1" height="1" fill="#ffd34f"/>
+  <rect x="26" y="160" width="3" height="3" fill="#ffd34f"/>
+  <rect x="84" y="56" width="4" height="3" fill="#d85a5a"/><rect x="85" y="55" width="2" height="1" fill="#fff"/>
+</svg>

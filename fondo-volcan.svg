@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mapa 7: Islas Canela, volcan al fondo y un Lapras en el agua -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 220" width="120" height="220"
+     shape-rendering="crispEdges" preserveAspectRatio="xMidYMid slice">
+  <!-- mar -->
+  <rect x="0" y="0" width="120" height="220" fill="#3f93cc"/>
+  <g fill="#5aa8df"><rect x="8" y="30" width="16" height="5"/><rect x="60" y="20" width="18" height="5"/><rect x="96" y="90" width="14" height="5"/><rect x="10" y="150" width="16" height="5"/><rect x="80" y="196" width="16" height="5"/></g>
+  <!-- volcan al fondo (arriba) -->
+  <g fill="#6b5244"><rect x="30" y="0" width="60" height="40"/></g>
+  <g fill="#5a4438"><rect x="30" y="0" width="60" height="40"/></g>
+  <polygon points="30,40 60,2 90,40" fill="#6b5244"/>
+  <polygon points="48,16 60,2 72,16" fill="#3a2c24"/>
+  <!-- lava en el crater -->
+  <rect x="54" y="4" width="12" height="6" fill="#ff7a2a"/><rect x="56" y="2" width="8" height="3" fill="#ffd34f"/>
+  <!-- chorros de lava bajando -->
+  <rect x="52" y="10" width="2" height="14" fill="#ff7a2a"/><rect x="66" y="12" width="2" height="12" fill="#ff5a2a"/>
+  <!-- humo -->
+  <g fill="#cfcfcf" opacity="0.5"><rect x="56" y="0" width="8" height="4"/><rect x="50" y="0" width="4" height="3"/></g>
+  <!-- isla de arena (camino) -->
+  <g fill="#e8d2a0">
+    <rect x="50" y="200" width="20" height="20"/><rect x="50" y="170" width="20" height="34"/>
+    <rect x="30" y="150" width="40" height="22"/><rect x="30" y="120" width="20" height="34"/>
+    <rect x="30" y="104" width="52" height="20"/><rect x="62" y="74" width="20" height="34"/>
+    <rect x="40" y="56" width="42" height="20"/><rect x="40" y="44" width="40" height="16"/>
+  </g>
+  <g fill="#d4b878"><rect x="50" y="184" width="20" height="2"/><rect x="30" y="134" width="40" height="2"/></g>
+  <!-- rocas volcanicas negras -->
+  <rect x="24" y="80" width="8" height="6" fill="#3a3330"/><rect x="88" y="120" width="8" height="6" fill="#3a3330"/>
+  <!-- Lapras en el agua (abajo izquierda) -->
+  <g>
+    <rect x="14" y="186" width="20" height="12" fill="#6fb0d8"/>
+    <rect x="16" y="178" width="8" height="10" fill="#6fb0d8"/>
+    <rect x="17" y="180" width="2" height="2" fill="#000"/>
+    <rect x="18" y="188" width="14" height="6" fill="#cfd8e0"/>
+    <rect x="22" y="182" width="10" height="6" fill="#8ac2e4"/>
+    <rect x="24" y="182" width="3" height="2" fill="#5a8aa8"/><rect x="28" y="184" width="3" height="2" fill="#5a8aa8"/>
+  </g>
+</svg>

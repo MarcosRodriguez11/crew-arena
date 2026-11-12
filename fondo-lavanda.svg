@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mapa 5: Pueblo Lavanda, tumbas, fantasmas y una torre -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 220" width="120" height="220"
+     shape-rendering="crispEdges" preserveAspectRatio="xMidYMid slice">
+  <!-- cielo nocturno lavanda -->
+  <rect x="0" y="0" width="120" height="220" fill="#5a4a72"/>
+  <g fill="#6a5885"><rect x="16" y="24" width="16" height="10"/><rect x="72" y="60" width="16" height="10"/><rect x="28" y="130" width="16" height="10"/><rect x="82" y="176" width="16" height="10"/></g>
+  <g fill="#49395f"><rect x="60" y="40" width="14" height="8"/><rect x="24" y="96" width="14" height="8"/><rect x="88" y="130" width="14" height="8"/></g>
+  <!-- luna -->
+  <rect x="88" y="12" width="14" height="14" fill="#e8e0c0"/><rect x="90" y="14" width="10" height="10" fill="#f4eed4"/>
+  <!-- torre alta al fondo (arriba derecha) -->
+  <g fill="#3f3356"><rect x="80" y="30" width="22" height="40"/></g>
+  <g fill="#52456e"><rect x="80" y="30" width="22" height="4"/><rect x="84" y="40" width="4" height="4"/><rect x="94" y="40" width="4" height="4"/><rect x="84" y="52" width="4" height="4"/><rect x="94" y="52" width="4" height="4"/></g>
+  <rect x="88" y="60" width="6" height="10" fill="#2a2140"/>
+  <!-- camino de piedra -->
+  <g fill="#8a7fa0">
+    <rect x="50" y="200" width="20" height="20"/><rect x="50" y="170" width="20" height="34"/>
+    <rect x="30" y="150" width="40" height="22"/><rect x="30" y="120" width="20" height="34"/>
+    <rect x="30" y="104" width="52" height="20"/><rect x="62" y="74" width="20" height="34"/>
+    <rect x="40" y="56" width="42" height="20"/><rect x="40" y="26" width="20" height="34"/>
+    <rect x="40" y="10" width="34" height="20"/>
+  </g>
+  <!-- tumbas (lapidas) a los lados -->
+  <g fill="#9aa0a8">
+    <rect x="22" y="60" width="10" height="14"/><rect x="24" y="56" width="6" height="6"/>
+    <rect x="22" y="150" width="10" height="14"/><rect x="24" y="146" width="6" height="6"/>
+    <rect x="90" y="96" width="10" height="14"/><rect x="92" y="92" width="6" height="6"/>
+    <rect x="86" y="190" width="10" height="14"/><rect x="88" y="186" width="6" height="6"/>
+  </g>
+  <g fill="#6b7078"><rect x="25" y="64" width="4" height="2"/><rect x="25" y="154" width="4" height="2"/><rect x="93" y="100" width="4" height="2"/></g>
+  <!-- fantasmas flotando (blancos translucidos) -->
+  <g opacity="0.75">
+    <rect x="34" y="40" width="10" height="10" fill="#e8e8f4"/><rect x="36" y="50" width="2" height="3" fill="#e8e8f4"/><rect x="40" y="50" width="2" height="3" fill="#e8e8f4"/>
+    <rect x="36" y="43" width="2" height="2" fill="#000"/><rect x="40" y="43" width="2" height="2" fill="#000"/>
+  </g>
+  <g opacity="0.7">
+    <rect x="74" y="140" width="10" height="10" fill="#d8c8ec"/><rect x="76" y="150" width="2" height="3" fill="#d8c8ec"/><rect x="80" y="150" width="2" height="3" fill="#d8c8ec"/>
+    <rect x="76" y="143" width="2" height="2" fill="#000"/><rect x="80" y="143" width="2" height="2" fill="#000"/>
+  </g>
+</svg>

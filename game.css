@@ -29,6 +29,17 @@ body {
     radial-gradient(circle at 50% 0%, #1b2030 0%, #11131a 70%);
   background-size: 16px 16px, 16px 16px, 100% 100%;
   image-rendering: pixelated;
+  /* La cuadricula baja despacio en bucle (solo las dos capas de lineas). */
+  animation: fondoCae 4s linear infinite;
+}
+
+/* Desplaza la rejilla 16px hacia abajo (un cuadro) y repite: parece caer. */
+@keyframes fondoCae {
+  from { background-position: 0 0,    0 0,    0 0; }
+  to   { background-position: 0 16px, 0 16px, 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none; }
 }
 
 .game { width: 100%; max-width: 580px; text-align: center; }
@@ -602,3 +613,69 @@ h2 { font-size: .8rem; margin-bottom: 16px; }
   border-color: #ef6b7d;
 }
 .confirm-no:hover { background: #4a2e38; }
+
+/* --- Flecha azul "No cambiar" en el modal de cambio --- */
+.cambio-volver {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  background: #2f6fed;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+.cambio-volver:hover { background: #2a61cf; }
+
+/* --- Botones de reordenar el equipo en el panel del mapa --- */
+.eq-ayuda { font-size: 10px; opacity: .6; margin: 2px 0 6px; }
+.eq-orden { display: flex; flex-direction: column; gap: 2px; margin-left: 4px; }
+.eq-orden button {
+  width: 22px; height: 18px;
+  border: none; border-radius: 5px;
+  background: #3a3f4b; color: #e6e9ef;
+  font-size: 12px; line-height: 1; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.eq-orden button:hover:not(:disabled) { background: #4c99ff; color: #fff; }
+.eq-orden button:disabled { opacity: .25; cursor: default; }
+.eq-primero {
+  font-size: 9px; font-weight: 700;
+  background: #4c99ff; color: #fff;
+  padding: 1px 5px; border-radius: 6px; margin-left: 4px;
+}
+
+/* --- Panel de liberar (equipo lleno, capturas el 7o) --- */
+.lib-nuevo {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px; margin-bottom: 10px;
+  border-radius: 10px;
+  background: rgba(76,153,255,.15);
+  border: 1px solid rgba(76,153,255,.5);
+  font-size: 14px;
+}
+
+/* --- Resumen final del equipo (campeon) --- */
+.fin-sub { font-size: 15px; margin-bottom: 14px; }
+.fin-equipo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.fin-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  padding: 10px 6px;
+  text-align: center;
+}
+.fin-sprite { width: 64px; height: 64px; image-rendering: pixelated; }
+.fin-nombre { font-weight: 700; font-size: 14px; margin-top: 4px; }
+.fin-nivel { font-size: 12px; opacity: .8; }
+.fin-tipo { margin-top: 4px; }
+.fin-objeto { font-size: 11px; opacity: .85; margin-top: 4px; }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mapa 3: Ruta 110, puente amarillo sobre el agua -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 220" width="120" height="220"
+     shape-rendering="crispEdges" preserveAspectRatio="xMidYMid slice">
+  <!-- agua de fondo -->
+  <rect x="0" y="0" width="120" height="220" fill="#4aa3dd"/>
+  <g fill="#5fb6ec"><rect x="10" y="20" width="18" height="6"/><rect x="60" y="40" width="20" height="6"/><rect x="90" y="80" width="18" height="6"/><rect x="14" y="110" width="20" height="6"/><rect x="80" y="150" width="18" height="6"/><rect x="20" y="190" width="20" height="6"/></g>
+  <g fill="#7fc9f0"><rect x="30" y="60" width="12" height="4"/><rect x="88" y="120" width="12" height="4"/><rect x="18" y="160" width="12" height="4"/><rect x="70" y="200" width="12" height="4"/></g>
+  <g fill="#bfe6fa"><rect x="34" y="60" width="4" height="2"/><rect x="92" y="120" width="4" height="2"/></g>
+  <!-- puente amarillo de madera, siguiendo el camino -->
+  <g fill="#e8c558">
+    <rect x="50" y="200" width="20" height="20"/><rect x="50" y="170" width="20" height="34"/>
+    <rect x="30" y="150" width="40" height="22"/><rect x="30" y="120" width="20" height="34"/>
+    <rect x="30" y="104" width="52" height="20"/><rect x="62" y="74" width="20" height="34"/>
+    <rect x="40" y="56" width="42" height="20"/><rect x="40" y="26" width="20" height="34"/>
+    <rect x="40" y="10" width="34" height="20"/>
+  </g>
+  <!-- tablones (lineas mas oscuras) del puente -->
+  <g fill="#c9a23e">
+    <rect x="50" y="182" width="20" height="2"/><rect x="50" y="194" width="20" height="2"/>
+    <rect x="30" y="134" width="20" height="2"/><rect x="62" y="90" width="20" height="2"/>
+    <rect x="40" y="40" width="20" height="2"/>
+  </g>
+  <!-- barandillas del puente (postes) -->
+  <g fill="#8a6a28">
+    <rect x="48" y="170" width="2" height="34"/><rect x="70" y="170" width="2" height="34"/>
+    <rect x="28" y="150" width="2" height="22"/><rect x="38" y="24" width="2" height="36"/>
+  </g>
+  <!-- nenufares -->
+  <rect x="16" y="46" width="8" height="6" fill="#3f9b4a"/><rect x="18" y="47" width="3" height="3" fill="#ff9ed6"/>
+  <rect x="96" y="100" width="8" height="6" fill="#3f9b4a"/><rect x="98" y="101" width="3" height="3" fill="#fff"/>
+</svg>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mapa 9: Meseta Anil, zona muy rocosa con un castillo (Liga Pokemon) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 220" width="120" height="220"
+     shape-rendering="crispEdges" preserveAspectRatio="xMidYMid slice">
+  <!-- terreno rocoso -->
+  <rect x="0" y="0" width="120" height="220" fill="#9a8f82"/>
+  <g fill="#aca294"><rect x="20" y="60" width="18" height="10"/><rect x="74" y="90" width="18" height="10"/><rect x="28" y="150" width="18" height="10"/><rect x="80" y="196" width="18" height="10"/></g>
+  <g fill="#827766"><rect x="60" y="70" width="14" height="8"/><rect x="24" y="120" width="14" height="8"/><rect x="88" y="160" width="14" height="8"/></g>
+  <!-- castillo al fondo (arriba) -->
+  <g fill="#6b6276"><rect x="26" y="0" width="68" height="38"/></g>
+  <!-- torres -->
+  <g fill="#7a7086"><rect x="26" y="0" width="12" height="44"/><rect x="82" y="0" width="12" height="44"/><rect x="54" y="0" width="12" height="30"/></g>
+  <!-- almenas -->
+  <g fill="#6b6276"><rect x="26" y="0" width="4" height="6"/><rect x="34" y="0" width="4" height="6"/><rect x="82" y="0" width="4" height="6"/><rect x="90" y="0" width="4" height="6"/><rect x="54" y="0" width="4" height="6"/><rect x="62" y="0" width="4" height="6"/></g>
+  <!-- puerta y ventanas del castillo -->
+  <rect x="56" y="24" width="8" height="12" fill="#2f2a3a"/>
+  <g fill="#2f2a3a"><rect x="30" y="14" width="4" height="6"/><rect x="86" y="14" width="4" height="6"/></g>
+  <!-- banderas -->
+  <rect x="31" y="0" width="1" height="6" fill="#8a4254"/><rect x="88" y="0" width="1" height="6" fill="#8a4254"/>
+  <!-- camino de piedra hacia el castillo -->
+  <g fill="#c2b49c">
+    <rect x="50" y="200" width="20" height="20"/><rect x="50" y="170" width="20" height="34"/>
+    <rect x="30" y="150" width="40" height="22"/><rect x="30" y="120" width="20" height="34"/>
+    <rect x="30" y="104" width="52" height="20"/><rect x="62" y="74" width="20" height="34"/>
+    <rect x="40" y="56" width="42" height="20"/><rect x="40" y="44" width="40" height="16"/>
+  </g>
+  <g fill="#a89a82"><rect x="50" y="184" width="20" height="2"/><rect x="30" y="134" width="40" height="2"/></g>
+  <!-- rocas grandes -->
+  <g>
+    <rect x="22" y="90" width="14" height="10" fill="#7a7266"/><rect x="24" y="88" width="8" height="3" fill="#948a7c"/><rect x="22" y="98" width="14" height="2" fill="#5e564c"/>
+    <rect x="86" y="130" width="13" height="10" fill="#7a7266"/><rect x="88" y="128" width="7" height="3" fill="#948a7c"/>
+    <rect x="76" y="186" width="12" height="9" fill="#7a7266"/><rect x="78" y="184" width="6" height="3" fill="#948a7c"/>
+  </g>
+</svg>
